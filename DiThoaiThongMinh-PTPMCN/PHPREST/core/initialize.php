@@ -1,10 +1,10 @@
 <?php
 
 	defined('DS') ? null : define('DS', DIRECTORY_SEPARATOR);//định nghĩa dấu '/'
-	defined('SITE_ROOT') ? null : define('SITE_ROOT',DS.'wamp64'.DS.'www'.DS.'PHPREST');
-	//wamp64/www/PHPREST/includes
+	defined('SITE_ROOT') ? null : define('SITE_ROOT',DS.'wamp64'.DS.'www'.DS.'DiThoaiThongMinh-PTPMCN'.DS.'PHPREST');
+	//wamp64/www/DiThoaiThongMinh-PTPMCN/PHPREST/includes
 	defined('INC_PATH') ? null : define('INC_PATH', SITE_ROOT.DS.'includes');
-	//wamp64/www/PHPREST/core
+	//wamp64/www/DiThoaiThongMinh-PTPMCN/PHPREST/core
 	defined('CORE_PATH') ? null : define('CORE_PATH', SITE_ROOT.DS.'core');
 	
 	require_once(INC_PATH.DS."config.php");
