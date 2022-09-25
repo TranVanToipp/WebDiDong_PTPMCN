@@ -19,7 +19,7 @@
 		
 		//hàm tạo với kết nối db
 		public function __construct($db){
-			$this->conn=$db;
+			$this->comn=$db;
 		}
 		//select sản phẩm.
 		public function read(){
@@ -39,7 +39,7 @@
 					product_type c ON p.product_type = c.id 
 					ORDER BY p.created_at DESC';
 			//prepare statement
-			$stmt = $this->conn->prepare($query);
+			$stmt = $this->comn->prepare($query);
 			//execute query
 			$stmt->execute();
 			
@@ -63,7 +63,7 @@
 					product_type c ON p.product_type = c.id 
 					WHERE p.id = ?';
 			//prepare statement
-			$stmt = $this->conn->prepare($query);
+			$stmt = $this->comn->prepare($query);
 			//ràng buộc
 			$stmt->bindParam(1,$this->id);
 			//execute query

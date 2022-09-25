@@ -9,5 +9,5 @@
 	
 	require_once(INC_PATH.DS."config.php");
 	require_once(CORE_PATH.DS."product.php");
-
+	require_once(CORE_PATH.DS."user.php");
 ?>
