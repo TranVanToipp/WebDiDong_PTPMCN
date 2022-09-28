@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Di Động Thông Minh</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="./assets/css/slideshow.css">
+    
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/css/grid.css">
@@ -66,14 +66,13 @@
                                 <span>0392518760</span>
                             </div>
                         </a>
-                        <!-- Tìm cữa hàng bị bỏ đi -->
-                        <!-- <a href="" class="header__navbar-menu-link header__navbar-item-address">
+                        <a href="" class="header__navbar-menu-link header__navbar-item-address">
                             <img src="./assets/img/map.svg" alt="" class="header__navbar-menu-img">
                             <div class="header__navbar-menu-right header__navbar-address-find">
                                 <span>Tìm cữa hàng</span>
                                 <span>Gần bạn</span>
                             </div>
-                        </a> -->
+                        </a>
                         <div href="" class="header__navbar-menu-link header__navbar-item-cart header__navbar-item-hover header__navbar-item-click">
                             <img src="./assets/img/cart.svg" alt="" class="header__navbar-menu-img">
                             <div class="header__navbar-menu-right header__navbar-cart-basket ">
@@ -94,15 +93,8 @@
                         </div>
                         <div class="header__navbar-cart-menu">
                             <img src="./assets/img/responsive/menu_mb.svg" alt="menu responsive mobile tablet" class="header__navbar-cart-menu-img">
-                        </div>
-                        <div class="header__navbar-item-lore-shared">
-                            
-                                <a href="../../../../../DiThoaiThongMinh-PTPMCN/authen/login/index.php" class="header__navbar-item-login-link header__navbar-item-lore">Đăng nhập</a>
-                            
-                            
-                                <a href="../../../../../DiThoaiThongMinh-PTPMCN/authen/change/index.html" class="header__navbar-item-register-link header__navbar-item-lore">Đăng kí</a>
-                           
-                        </div>
+                         </div>
+                       
                     </div>  
                 </div>
             </div>
@@ -245,69 +237,6 @@
                 <div class="header__advertise">
                     <img src="./assets/img/quangcao-2/banner-dai_1652116489.webp" alt="">
                 </div>
-                <!-- Slide show products-sale -->
-                <div class="product_box-slide ">
-                    <div class="product_box-slide-heading">
-                        <div class="product_box-slide-img">
-                            <img src="./assets/img/slide_product/l_bgr.svg" alt="" class="product_box-slide-img-left">
-                        </div>
-                        <h2 class="title_sale-product">
-                            săn sale giá sốc mỗi ngày 
-                        </h2>
-                        <div class="product_box-slide-img">
-                            <img src="./assets/img/slide_product/r_bgr.svg" alt="" class="product_box-slide-img-right">
-                        </div>
-                    </div>
-                    <div class="box-sale-products-content">
-                        <div class="box-sale-products-item">
-                        <div class="col l-2 m-4 c-6">
-                            <div class="home-product-item">
-                                <div class="home-product-item-img" style="background-image:url(./assets/img/iphone22.jpg);"></div>
-                                <h4 class="home-product-item-name">Điện thoại thông minh sắp ra mắt</h4>
-                                <div class="home-product-item-price">
-                                    <span class="home-product-item__price-current">12.000.000Đ</span>
-                                    <span class="home-product-item__price-old">12.000.000Đ</span>
-                                </div>
-                                <div class="home-product-item__sale-off">
-                                    <span class="home-product-item__sale-off-percent">20%</span>
-                                </div>
-                                <div class="sale-time">
-                                    <div class="sale_time-down">
-                                        <span class="icon-sale">
-                                            <img src="./assets/img/sale-time/clock_active.svg" alt="">
-                                        </span>
-                                        <div class="sale_time-down-content">
-                                            <span class="sale_time-down-itemday">
-                                                <b>0d</b>
-                                            </span>
-                                            <span class="sale_time-down-itemhours">
-                                                <b>2h</b>
-                                            </span>
-                                            <span class="sale_time-down-itemminute">
-                                                <b>23m</b>
-                                            </span>
-                                            <span class="sale_time-down-itemsecond">
-                                                <b>29s</b>
-                                            </span>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="box-sale-next">
-                        <div class="box-sale-next-left">
-
-                        </div>
-                        <div class="box-sale-next-right">
-                            
-                        </div>
-                    </div>
-                        </div>
-                    </div>
-                    
-                </div>
                 <div class="header__nav-tab">
                     <img src="./assets/img/quangcao-containner/dienthoai_1637814357.svg" alt="" class="header__nav-tab-img">
                     <div class="header__nav-tab-vac">
@@ -329,7 +258,103 @@
         </div>
 
          
-     <!-- Phần footer Web -->
+        <footer class="footer">
+            <div class="grid wide">
+                <ul class="footer-list">
+                    <li class="col l-3 m-4 c-6">
+                        <h3 class="footer-item-text-heading">
+                            Thông tin liên hệ
+                        </h3>
+                        <p class="footer-item-text-para">
+                            Giới thiệu về công ty
+                            </br>
+                            Hệ thống cữa hàng
+                            </br>
+                            chính sách bảo mật
+                        </br>
+                        Mail: vantoicntt06@gmail.com
+                        </p>
+
+                        <h4 class="footer-item-text-footor">Hỗ trợ thanh toán</h4>
+                        <div class="footer-item-text-thanhtoan">
+                            <div class="footer-item-text-quocte">
+                                <img src="./assets/img/footer/thanhtoan/visa.svg" alt="">
+                                <img src="./assets/img/footer/thanhtoan/tragop.svg" alt="">
+                                <img src="./assets/img/footer/thanhtoan/money.svg" alt="">
+                                <img src="./assets/img/footer/thanhtoan/master_card.svg" alt="">
+                            </div>
+                            <div class="footer-item-text-trongnuoc">
+                                <img src="./assets/img/footer/thanhtoan/jbc.svg" alt="">
+                                <img src="./assets/img/footer/thanhtoan/inter.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="footer-item-text-tuanthu">
+                            <img class="footer-item-text-tuanthu-img-congthuong" src="./assets/img/footer/thanhtoan/bct.svg" alt="">
+                            <img class="footer-item-text-tuanthu-img" src="./assets/img/footer/thanhtoan/_dmca_premi_badge_4.png" alt="">
+                        </div>
+                    </li>
+                    <li class="col l-3 m-4 c-6">
+                        <h3 class="footer-item-text-heading">
+                            Thông tin khác
+                        </h3>
+                        <p class="footer-item-text-para">
+                            Chính chính sách đổi trả 
+                            </br>
+                            Quy chế hoạt động
+                            </br>
+                            Chính sách Bảo hành
+                        </br>
+                        Tuyển dụng
+                            </br>
+                            Khách hàng doanh nghiệp
+                        </br>
+                        Tin tức
+                            </br>
+                            Trade-in thu cũ lên đời
+                        </p>
+                    </li>
+                    <li class="col l-3 m-4 c-6">
+                        <h3 class="footer-item-text-heading">
+                            Thông tin hỗ trợ
+                        </h3>
+                        <p class="footer-item-text-para">
+                            Mua hàng và thanh toán Online
+                            </br>
+                            Mua hàng trả góp Online
+                            </br>
+                            Trung tâm bảo hành chính hãng
+                        </br>
+                        Quy chế và việc sao lưu dữ liệu
+                            </br>
+                            Hướng dẫn thanh toán chuyển khoản
+                        </br>
+                        Dịch vụ bảo hành điện thoại
+                        </p>
+                    </li>
+                    <li class="col l-3 m-4 c-6">
+                        <h3 class="footer-item-text-heading">
+                            Gọi tư vấn & khiếu nại
+                        </h3>
+                        <p class="footer-item-text-para">
+                            Gọi mua hàng: 085 5100 001 (8h00 - 22h00) 
+                            </br>
+                            Hỗ trợ kỹ thuật: 1800 6502 (8h00 - 21h00)
+                            </br>
+                            Hợp tác kinh doanh: 1900 6122 (8h00 - 22h00)
+                        </p>
+                        <div class="footer-item-text-ketnoi">
+                            <h4>Kết nối với chúng tôi</h4>
+                            <img src="./assets/img/footer/ketnoi/ketnoi.svg" alt="" class="footer-item-text-ketnoi-img">
+                            <img src="./assets/img/footer/ketnoi/ytb.svg" alt="" class="footer-item-text-ketnoi-img">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer__para-end">
+                <p>@ Bản quyền thuộc về công ty Cổ Phần clone web Di Động Thông Minh</p>
+            </div>
+        </footer>
         
     </div>
         <!-- MODAL MENU -->
@@ -409,10 +434,10 @@
         </div>
     </div>
 
-    <!-- <script src="./Javascript/slide.js"></script>
+    <script src="./Javascript/slide.js"></script>
 
     <script src="./Javascript/index.js"></script>
 
-    <script src="./Javascript/blockform.js"></script> -->
+    <script src="./Javascript/blockform.js"></script>
 </body>
 </html>

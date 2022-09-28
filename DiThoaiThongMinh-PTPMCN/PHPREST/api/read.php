@@ -29,7 +29,7 @@ if($num >0){
 			'discount' =>$discount,
 			'thumnail' =>$thumnail,
 			'description' =>html_entity_decode($description),//chuyển đổi các kí hiệu HTML entities thành các kí tự tương ứng
-			'description2' =>$description2,
+			'description2' =>html_entity_decode($description2),
 			'created_at' =>$created_at
 		);
 		array_push($product_arr['data'],$product_item);

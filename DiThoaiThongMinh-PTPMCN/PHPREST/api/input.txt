@@ -1,0 +1,8 @@
+{ 
+"fullname": "nguyen",
+"email": "luongnguyen43.2001@gmail.com",
+"phone_number": "",
+"address": "",
+"userName": "nguyencntt",
+"password": "12345"
+}
