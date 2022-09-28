@@ -1,0 +1,158 @@
+/* responsive mobile and tablet */
+@media (max-width: 1032px) {
+    .header {
+        height: 45px
+    }
+
+    .header__navbar {
+        height: 45px;
+    }
+
+    .header__navbar-logo {
+        height: 45px;
+    }
+
+    .header__navbar-cart-basket {
+        display: none;
+    }
+
+    .header__navbar-rightmenu {
+        margin-top: 4px;
+    }
+
+    .header__navbar-cart-menu {
+        display: block;
+        margin: 3px;
+    }
+
+    .header__navbar-logo {
+        /* height: ;s */
+    }
+
+    .header__navbar-city-click-span {
+        display: none;
+    }
+
+    .grid-column-4 {
+        display: none;
+    }
+
+    
+    .header__advertise {
+        display: none;
+    }
+
+    .grid-column-8 {
+        width: 100%;
+    }
+
+    .header__navbar-item-hotline {
+        display: none;
+    }
+
+    .header__navbar-item-address {
+        display: none;
+    }
+
+    .header__navbar-bot {
+        display: none;
+    }
+
+    .header__navbar-rightmenu{
+        position: relative;
+    }
+
+    .header__navbar-rightmenu::before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        left: 21px;
+        top: 50%;
+        background-color: var(--while-color);
+        transform: translateY(-50%);
+    }
+
+    .header__navbar-rightmenu::after {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        right: 113px;
+        top: 50%;
+        background-color: var(--while-color);
+        transform: translateY(-50%);
+    }
+
+    .header__navbar-rightmenu {
+        margin: 0;
+    }
+
+    .header__navbar-rightmenu {
+        margin: 0;
+    }
+
+    .header__navbar-cart-menu {
+        margin-top: 10px;
+        
+    }
+
+ }
+
+/* Tablet */
+@media (min-width: 740px) and (max-width: 1023px) {
+    
+    .header__navbar-logo-img {
+        max-width: 100%;
+        height: 30px;
+    }
+
+    .header__slide-img-show {
+        width: 100%;
+        height: 300px;
+    }
+
+    .header__navbar-logoresponsive-img {
+        display: none;
+    }
+
+    .header__navbar-city {
+        width: 84px;
+        height: 26px;
+    }
+
+    .header__search {
+        width: 230px;
+        height: 34px;
+        border-radius: 15px;
+    }
+
+    /* .header__navbar-city span {
+        display: none;
+    } */
+}
+
+/* Mobile */
+
+@media (max-width: 739px) {
+    .header__navbar-logo-img {
+        display: none;
+    }
+
+    .header__navbar-logoresponsive-img {
+        display: block;
+    }
+
+    .header__slide-img-show {
+        width: 100%;
+        height: 250px;
+    }
+
+    .header__slide-list {
+        display: none;
+    }
+
+    .header__navbar-address {
+        display: none;
+    }
+}

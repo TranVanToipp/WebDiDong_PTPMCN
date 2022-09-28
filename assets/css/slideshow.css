@@ -1,0 +1,79 @@
+.product_box-slide-heading {
+    display: flex;
+    width: 100%;
+}
+
+.title_sale-product {
+    text-align: center;
+    width: 100%;
+    font-size: 2.4rem;
+    text-transform: uppercase;
+    padding: 19px 0 12px;
+    color: #fff;
+    margin: 0;
+    background: url(../img/slide_product/bgr_pc.jpg) left 0 top 0 no-repeat;
+}
+
+.product_box-slide-img-left {
+    width: 149px;
+    height: 148px;
+}
+
+.box-sale-products-content {
+    background-color: #f9920f;
+    padding: 0 10px 10px 10px;
+}
+
+.box-sale-products-item {
+    z-index: 1;
+    margin-top: -94px;
+    background-color: #fff;
+    position: relative;
+    display: flex;
+}
+
+.box-sale-next {
+
+}
+
+.box-sale-next-left {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 38px;
+    transform: translateY(-50%);
+    height: 68px;
+    background: url(../img/slide_product/nextproductleft.png);
+}
+
+.box-sale-next-right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    width: 38px;
+    height: 68px;
+    background: url(../img/slide_product/nextproductright.png);
+
+}
+
+/* Time sale */
+.sale_time-down {
+    display: flex;
+}
+
+.sale_time-down-itemday {
+
+}
+
+.sale_time-down-itemhours {
+
+}
+
+.sale_time-down-itemminute {
+
+}
+
+.sale_time-down-itemsecond {
+
+}

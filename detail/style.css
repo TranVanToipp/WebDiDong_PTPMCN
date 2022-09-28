@@ -1,0 +1,274 @@
+.detail_content {
+    display: flex;
+}
+.heading_header {
+    font-size: 24px;
+    color: #333;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.container_img {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.container_img-represent img {
+    width: 100%;
+    
+}
+
+.container_img-list {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 5px;
+}
+
+.container_img-item {
+    margin-right: 10px;
+}
+
+.container_img-item-active {
+    border: 1px solid #f9920f;
+}
+
+.container_img-item img {
+    width: 55px;
+    height: 55px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* Product_tyle */
+.heading_price {
+    font: 14px;
+    color: #333;
+}
+
+.product_tyle {
+    width: 137px;
+    height: 51px;
+    display: flex;
+    padding-left: 0px;
+}
+
+.product_tyle-item {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 4px;
+    margin-right: 5px;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.product_tyle-item-active {
+    border: 1px solid #f9920f;
+}
+
+.product_tyle-item-img {
+    width: 35px;
+    height: 35px;
+}
+/* Khuyến mãi */
+.products_content-sale {
+    border: 1px solid#ccc;
+}
+
+.heading-sale {
+    font-family: Semibold;
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    margin: 0;
+    background-color: #f4f4f4;
+    line-height: 1.6rem;
+}
+
+.product_content-sale-list {
+    list-style: none;
+    padding-left: 0;
+    padding: 0 15px;
+}
+
+.product_content-sale-item {
+    margin-bottom: 10px;
+}
+
+.product_content-sale-item img {
+    padding-right: 7px;
+}
+
+.products_btn-buynow {
+    background: -webkit-linear-gradient(left,#FF6700,#F9920F);
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+}
+
+.products_btn-buynow:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
+
+/* Product configurations */
+.product_configuration {
+    
+}
+
+.product_configuration-list {
+    list-style: none;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.product_configuration-item {
+    display: flex;
+    line-height: 1.6;
+}
+
+.product_configuration-item img {
+    padding-right: 15px;
+}
+
+/* Đánh giá sản phẩm */
+
+.products_evaluate-heading {
+    margin: 20px 0;
+    font-size: 18px;
+    line-height: 24px;
+    font-family: Semibold;
+}
+
+.products_evaluate-content {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+}
+
+.product_evaluate-content1 {
+    border-right: 1px solid#ccc;
+    padding: 20px 0;
+}
+
+.product_evaluate-content2 {
+    padding: 40px 0;
+}
+
+.phantram-sao {
+    display: flex;
+}
+
+.phantram-sao-processbar {
+    background-color: #f5f5f5;
+    border-radius: 0;
+    height: 10px;
+    width: 250px;
+    margin: 4px 20px 0;
+    box-shadow: none;
+}
+
+
+.product_content-phantram {
+    margin: 0;
+    font-size: 15px;
+    width: 5%;
+    margin-bottom: 0;
+    color: #20863d;
+}
+
+/* Button viết đánh giá */
+.button-write-evaluate {
+    
+}
+
+.button-write-evaluate-comment {
+    border: 2px solid #f60;
+    background: #fff;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 3px;
+    
+}
+
+.button-write-evaluate-comment-write {
+    padding: 15px;
+    display: block;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #f60;
+}
+
+/* content evaluate (nội dung đánh giá) */
+.write_product-evaluate-content {
+    display: flex;
+    margin: 20px 0;
+}
+
+.product_evaluate-write-noidung {
+    display: flex;
+}
+
+.write_product-evaluate-content h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+.sao-item-write {
+    margin-left: 15px;
+    font-size: 1.3rem;
+}
+
+
+#full_rate {
+    width: 100%;
+    height: 117px;
+    padding: 8px 0 0 15px;
+    border-radius: 0;
+    padding-left: 0;
+}
+
+.form-input-evaluate-name {
+    margin-bottom: 20px;
+    height: 48px;
+    width: 100%;
+}
+
+.form-input-evaluate-email {
+    height: 48px;
+    width: 100%;
+
+}
+
+.form-input-evaluate-number {
+    height: 48px;
+    width: 100%;
+
+}
+
+.products_btn-buynow-send {
+    background: -webkit-linear-gradient(left,#FF6700,#F9920F);
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    height: 54px;
+    text-transform: uppercase;
+    width: 100%;
+    margin-top: 20px;
+    border: none;
+}
+
+.products_btn-buynow-send:hover {
+    cursor: pointer;
+    opacity: 0.9;
+}
