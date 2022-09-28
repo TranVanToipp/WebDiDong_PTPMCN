@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 23, 2022 at 08:48 AM
+-- Generation Time: Sep 28, 2022 at 01:56 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `content_comment` text COLLATE utf8_unicode_ci NOT NULL,
-  `time_comment` datetime NOT NULL,
+  `time_comment` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -11581,7 +11581,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `num` int(11) NOT NULL,
   `total_money` double NOT NULL,
   `note` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -11602,10 +11602,10 @@ CREATE TABLE IF NOT EXISTS `product` (
   `thumnail` text COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `description2` text COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `pk_product_type` (`product_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `product`
@@ -11616,7 +11616,8 @@ INSERT INTO `product` (`id`, `product_type`, `title`, `price`, `discount`, `thum
 (2, 2, 'AS', 134, 0.2, 'qwe', 'qwe', 'dx', '2022-09-15 22:23:13'),
 (3, 2, '4wdsf', 1234, 0.2, 'erq', 'qewr', 'qwe', '2022-09-15 22:32:25'),
 (4, 2, 'FSÀ', 1234, 0.5, '234', '124', '24', '2022-09-22 20:38:15'),
-(5, 2, '2134', 124, 0.2, '1234', '213', '124', '2022-09-22 20:38:15');
+(5, 2, '2134', 124, 0.2, '1234', '213', '124', '2022-09-22 20:38:15'),
+(6, 1, 'Áád', 123, 0.1, 'á', 'ád', 'ád', '2022-09-25 19:15:31');
 
 -- --------------------------------------------------------
 
@@ -11686,14 +11687,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `fullname` text COLLATE utf8_unicode_ci NOT NULL,
   `email` text COLLATE utf8_unicode_ci NOT NULL,
-  `phome_number` text COLLATE utf8_unicode_ci NOT NULL,
+  `phone_number` text COLLATE utf8_unicode_ci NOT NULL,
   `address` text COLLATE utf8_unicode_ci NOT NULL,
+  `userName` text COLLATE utf8_unicode_ci NOT NULL,
   `password` text COLLATE utf8_unicode_ci NOT NULL,
   `role_id` int(11) NOT NULL,
-  `created_at` datetime NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `pk_user_role` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Constraints for dumped tables
