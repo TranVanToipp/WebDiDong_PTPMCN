@@ -1,0 +1,8 @@
+{ 
+"fullname": "qwe",
+"email": "qwqwer",
+"phone_number": "",
+"address": "",
+"userName": "123",
+"password": "wer"
+}

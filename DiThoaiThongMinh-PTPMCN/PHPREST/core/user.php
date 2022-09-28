@@ -21,6 +21,19 @@
 			$this->comn=$db;
 		}
 		
+		public function read_User(){
+			
+			$query = 'SELECT * FROM '.$this->table;
+			
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+			
+		}
+		
 		public function create(){
 			//create query
 			$query = 'INSERT INTO '.$this->table.' SET fullname = :fullname, email = :email, phone_number = :phone_number, address = :address, userName = :userName, password = md5(:password), role_id = 2';
