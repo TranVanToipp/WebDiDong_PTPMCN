@@ -35,7 +35,7 @@ if($num >0){
 		array_push($product_arr['data'],$product_item);
 	}
 	//chuyển đổi sang dạng JSON
-	$json = json_encode($product_arr);
+	$json = json_encode($product_arr,JSON_UNESCAPED_UNICODE);
 	echo $json;
 }else{
 	echo json_encode(array('message' => 'No product found.'));
