@@ -1,6 +1,8 @@
 # WebDiDong_PTPMCN
 Nhóm 7: Trần Văn Tới: 4251050041
-	       Lương Nguyễn: 4251050051
+	Lương Nguyễn: 4251050051
+	Nguyễn Văn Hiệu
+	       
 Đề tài: Web Bán Điện Thoại Di Động
 -	Git: Quản lí code
 -	Ngôn ngữ: html, css, javascript, node js, php
