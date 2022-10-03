@@ -21,7 +21,7 @@ $user->userName = $data->userName;
 $user->password = $data->password;
 //create User
 if($user->create()){
-	header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/read_user.php');
+	header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
 }
 else {echo 'error';}
 ?>

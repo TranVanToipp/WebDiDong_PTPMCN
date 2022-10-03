@@ -1,8 +1,8 @@
 { 
-"fullname": "qwe",
-"email": "qwqwer",
+"fullname": "test1",
+"email": "luongnguyen43.2001@gmail.com",
 "phone_number": "",
 "address": "",
 "userName": "123",
-"password": "wer"
+"password": "234213"
 }

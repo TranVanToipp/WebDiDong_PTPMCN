@@ -35,8 +35,10 @@ if($num >0){
 		array_push($product_arr['data'],$product_item);
 	}
 	//chuyển đổi sang dạng JSON
-	$json = json_encode($product_arr);
-	echo $json;
+	$json = json_encode($product_arr,JSON_UNESCAPED_UNICODE);
+	$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\product\\input.json', 'w');
+	fputs($fp,$json);
+	fclose($fp);
 }else{
 	echo json_encode(array('message' => 'No product found.'));
 }
