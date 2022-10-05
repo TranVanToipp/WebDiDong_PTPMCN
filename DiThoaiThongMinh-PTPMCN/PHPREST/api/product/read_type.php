@@ -10,11 +10,8 @@ include_once('../../core/initialize.php');
 //khởi tạo product
 $product = new product($db);
 
-$product->page = isset($_GET['page']) ? $_GET['page'] : die();
 //product query
-$_SESSION['product_type'] = 2;
-$type = $_SESSION['product_type'];
-$result = $product->page($type);
+$result = $product->read_type();
 
 //lấy số hàng
 $num = $result->rowCount();
@@ -26,14 +23,8 @@ if($num >0){
 		extract($row);
 		$product_item = array(
 			'id' 	=>$id,
-			'product_type_name' =>$product_type_name,
-			'title' =>$title,
-			'price' =>$price,
-			'discount' =>$discount,
-			'thumnail' =>$thumnail,
-			'description' =>html_entity_decode($description),//chuyển đổi các kí hiệu HTML entities thành các kí tự tương ứng
-			'description2' =>html_entity_decode($description2),
-			'created_at' =>$created_at
+			'product_type'=>$product_type,
+			'product_type_name' =>$product_type_name
 		);
 		array_push($product_arr['data'],$product_item);
 	}

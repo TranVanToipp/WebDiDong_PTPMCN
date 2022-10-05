@@ -1,0 +1,10 @@
+{"data":[{"id":4,"product_type_name":"SAMSUNG","title":"FSÀ","price":1234,"discount":0.5,
+"thumnail":"234","description":"124","description2":"24","created_at":"2022-09-22 20:38:15"},
+{"id":5,"product_type_name":"SAMSUNG","title":"2134","price":124,"discount":0.2,
+"thumnail":"1234","description":"213","description2":"124","created_at":"2022-09-22 20:38:15"},
+{"id":3,"product_type_name":"SAMSUNG","title":"4wdsf","price":1234,"discount":0.2,
+"thumnail":"erq","description":"qewr","description2":"qwe","created_at":"2022-09-15 22:32:25"},
+{"id":1,"product_type_name":"iPhone","title":"134sss","price":134,"discount":0.1,
+"thumnail":"134","description":"124","description2":"1234","created_at":"2022-09-15 22:23:13"},
+{"id":2,"product_type_name":"SAMSUNG","title":"AS","price":134,"discount":0.2,"thumnail":"qwe",
+"description":"qwe","description2":"dx","created_at":"2022-09-15 22:23:13"}]}
