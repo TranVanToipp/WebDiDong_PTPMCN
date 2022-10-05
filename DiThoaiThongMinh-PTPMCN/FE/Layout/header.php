@@ -327,14 +327,7 @@
                     <?php
                         include_once './ProductSP/render.php';
                     ?>
-                    <div class="home-product">
-                        <div class="grid-row">
-                        <?php
-                            include_once './ProductSP/render.php';
-                        ?>
-                        <!-- Render product-->
-                        </div>
-                    </div>
+                    
                         <!-- Render product-->
                     
                 </div>
