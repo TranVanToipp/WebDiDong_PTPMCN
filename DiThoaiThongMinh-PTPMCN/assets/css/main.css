@@ -953,3 +953,75 @@
 .nav-mobile-list li {
     border-bottom: 1px solid #ccc;
 }
+/* Css giao diện đăng nhập */
+.header__navbar-item-login-link .header__navbar-item-lore{
+   
+}
+
+.header__navbar-item-register-link .header__navbar-item-lore{
+
+}
+
+.header__navbar-item-lore-shared {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -10px;
+}
+
+.header__navbar-item-lore-shared a:hover {
+    color: #ccc;
+}
+
+.header__navbar-item-lore-shared a {
+    color: var(--while-color);
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin-left: 30px;
+}
+
+.header__navbar-item-fullName-link {
+    position: relative;
+    display: none;
+}
+
+.header__navbar-item-lore-shared-hover:hover .header__navbar-item-box-user {
+    display: block;
+} 
+
+.header__navbar-item-box-user {
+    position: absolute;
+    margin-top: 120px;
+    background-color: var(--while-color);
+    padding: 5px 10px;
+    border-radius: 3px;
+    display: none;
+}
+
+.header__navbar-item-box-user-list {
+    padding-left: 0;
+    list-style: none; 
+}
+
+.header__navbar-item-box-user-item {
+    font-size: 1.4rem;
+    margin: 8px 0;
+}
+
+.header__navbar-item-box-user-item:hover {
+   
+    cursor: pointer;
+}
+
+.header__navbar-item-box-user-item a {
+    color: #333;
+    left: 0;
+    margin-left: 10px;
+}
+
+.header__nav-box-xemthem a {
+    margin-left: 800px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: var(--privary-key);
+}
