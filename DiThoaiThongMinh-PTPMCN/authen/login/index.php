@@ -15,19 +15,17 @@
 
   <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="form" id="form-1">
       <h3 class="heading">Đăng nhập tài khoản</h3>
-    <!-- <p class="desc">Cùng nhau học lập trình miễn phí tại F8 ❤️</p> -->
-
        <div class="spacer"></div>
 
     <div class="form-group">
         <label for="fullname" class="form-label">Tên tài khoản: </label>
-        <input id="username" name="userName" type="text" placeholder="VD: trantoi" class="form-control">
+        <input id="username" name="userName" type="text" required placeholder="VD: trantoi" class="form-control">
         <span class="form-message"></span>
     </div>
 
     <div class="form-group">
         <label for="password" class="form-label">Nhập mật khẩu: </label>
-        <input id="password" name="password" type="password"  class="form-control">
+        <input id="password" name="password" required type="password" minlength="6"  class="form-control">
         <span class="form-message"></span>
     </div>
     <button type="submit" class="form-submit">Đăng nhập</button>
@@ -41,6 +39,16 @@
             $pass= md5($_POST['password']);
             foreach($data->data as $user){
               if($username == $user->userName && $pass == $user->password)
+              echo '
+              <a href="#" class="header__navbar-item-fullName-link header__navbar-item-fullName-link-hover">'.$user->fullname.'</a>
+              <div class="header__navbar-item-box-user">
+                  <ul class="header__navbar-item-box-user-list">
+                      <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
+                      <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đổi mật khẩu</a></li>
+                      <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đăng xuất</a></li>
+                  </ul>
+              </div>
+              ';
                   header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
               }
             echo "tài khoản or mật khẩu không đúng";
