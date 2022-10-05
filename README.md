@@ -9,27 +9,26 @@ Nhóm 7: Trần Văn Tới: 4251050041
 Tuần 1: 
 - Phác thảo đề tài
 - Giao diện trang chủ
-- Cơ sở dữ liệu
-Tuần 2: 
--	Tạo API
-Tuần 3:
+- Cơ sở dữ liệu/API(sản phẩm)
+
+Tuần 2:
 -	Load dữ liệu lên giao diện
 -	Đăng nhập, đăng kí, đổi mật khẩu
-Tuần 4: 
+Tuần 3: 
 -	Tìm kiếm, phân trang
-Tuần 5: 
+Tuần 4: 
 -	Giỏ hàng, Mã giảm giá
-Tuần 6: 
+Tuần 5: 
 -	Bình luận, thanh toán
-Tuần 7: Quản lí Admin
+Tuần 6: Quản lí Admin
 -	Giao diện quản lí admin
 -	Thống kê doanh thu
-Tuần 8: 
+Tuần 7: 
 -	Quản lí người dùng
 -	Quản lí sản phẩm
-Tuần 9: 
+Tuần 8: 
 	Responsive (độ tương thích màn hình)
-Tuần 10, 11, 12: 
+Tuần 9, 10, 11: 
 -	Test chức năng,  Sửa (nếu có)
 -	Tuần 13: Hoàn thành báo cáo nhóm.
 		
