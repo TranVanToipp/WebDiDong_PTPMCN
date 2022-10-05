@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +14,10 @@
     <link rel="stylesheet" href="./assets/css/grid.css">
     <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./font/fontawesome-free-6.1.2-web/css/all.min.css">
+    
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet"> 
 </head>
+
 <body>
     <div class="main">
         <header class="header">
@@ -49,7 +53,7 @@
                         </div>
                         <div class="header__search">
                             <div class="header__search-input-wrap">
-                                <input type="text" name="searchInput" oninput="searchProduct()" class="header__search-input" placeholder="Bạn tìm gì...">
+                                <input type="text" name="searchInput" oninput="searchProduct )" class="header__searh-input" placeholder="Bạn tìm gì...">
 
                             </div>
                             <button class="header__search-btn">
@@ -95,12 +99,21 @@
                         <div class="header__navbar-cart-menu">
                             <img src="./assets/img/responsive/menu_mb.svg" alt="menu responsive mobile tablet" class="header__navbar-cart-menu-img">
                         </div>
-                        <div class="header__navbar-item-lore-shared">
+                        <div class="header__navbar-item-lore-shared ">
                             
-                                <a href="../../../../../DiThoaiThongMinh-PTPMCN/authen/login/index.php" class="header__navbar-item-login-link header__navbar-item-lore">Đăng nhập</a>
+                                <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login/index.php" class="header__navbar-item-login-link header__navbar-item-lore">Đăng nhập</a>
                             
                             
-                                <a href="../../../../../DiThoaiThongMinh-PTPMCN/authen/change/index.html" class="header__navbar-item-register-link header__navbar-item-lore">Đăng kí</a>
+                                <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/change/index.php" class="header__navbar-item-register-link header__navbar-item-lore">Đăng kí</a>
+                                <a href="#" class="header__navbar-item-fullName-link header__navbar-item-lore-shared-hover">Trần văn Tới</a>
+                                <div class="header__navbar-item-box-user">
+                                    <ul class="header__navbar-item-box-user-list">
+                                        <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
+                                        <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đổi mật khẩu</a></li>
+                                        <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đăng xuất</a></li>
+                                    </ul>
+                                </div>
+                                
                            
                         </div>
                     </div>  
@@ -295,11 +308,10 @@
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="box-sale-next">
-                        <div class="box-sale-next-left">
+                            <div class="box-sale-next-left">
 
-                        </div>
+                            </div>
                         <div class="box-sale-next-right">
                             
                         </div>
@@ -308,19 +320,24 @@
                     </div>
                     
                 </div>
-                <div class="header__nav-tab">
-                    <img src="./assets/img/quangcao-containner/dienthoai_1637814357.svg" alt="" class="header__nav-tab-img">
-                    <div class="header__nav-tab-vac">
-                        <span>Điện thoại đáng mua nhất</span>
-                    </div>
-                </div>
                 
-                <div class="home-product">
-                    <div class="grid-row">
+                <!-- render Loại sản phẩm -->
+                
+                <!-- Render sản phẩm -->
+                    <?php
+                        include_once './ProductSP/render.php';
+                    ?>
+                    <div class="home-product">
+                        <div class="grid-row">
+                        <?php
+                            include_once './ProductSP/render.php';
+                        ?>
                         <!-- Render product-->
+                        </div>
                     </div>
+                        <!-- Render product-->
+                    
                 </div>
-            </div>
 
             <div class="home-phantrang">
                 
@@ -408,11 +425,13 @@
             
         </div>
     </div>
-
+    <!-- <script src="./Javascript/product.js"></script> -->
     <!-- <script src="./Javascript/slide.js"></script>
 
     <script src="./Javascript/index.js"></script>
 
     <script src="./Javascript/blockform.js"></script> -->
+    
+    
 </body>
 </html>
