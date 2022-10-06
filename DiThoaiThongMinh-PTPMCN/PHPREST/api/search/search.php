@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //headers
 header('Access-Control-Allow-Origin:*');//cho phép yêu cầu HTTP
 header('Content-Type: application/json; charset=utf8');
@@ -10,10 +10,9 @@ include_once('../../core/initialize.php');
 //khởi tạo product
 $product = new product($db);
 
-$product->page = isset($_GET['page']) ? $_GET['page'] : die();
-$product->product_type = isset($_GET['product_type']) ? $_GET['product_type'] : die();
+$product->title = isset($_GET['title']) ? $_GET['title'] : die();
 //product query
-$result = $product->page();
+$result = $product->search();
 
 //lấy số hàng
 $num = $result->rowCount();
@@ -32,8 +31,7 @@ if($num >0){
 			'thumnail' =>$thumnail,
 			'description' =>html_entity_decode($description),//chuyển đổi các kí hiệu HTML entities thành các kí tự tương ứng
 			'description2' =>html_entity_decode($description2),
-			'created_at' =>$created_at,
-			'max_page' =>$product->max_page
+			'created_at' =>$created_at
 		);
 		array_push($product_arr['data'],$product_item);
 	}

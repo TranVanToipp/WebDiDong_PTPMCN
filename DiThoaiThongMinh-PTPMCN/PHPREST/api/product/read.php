@@ -10,8 +10,10 @@ include_once('../../core/initialize.php');
 //khởi tạo product
 $product = new product($db);
 
+$product->product_type = isset($_GET['product_type']) ? $_GET['product_type'] : die();
 //product query
-$result = $product->read();
+$num = 10;
+$result = $product->read($num);
 
 //lấy số hàng
 $num = $result->rowCount();
@@ -36,9 +38,7 @@ if($num >0){
 	}
 	//chuyển đổi sang dạng JSON
 	$json = json_encode($product_arr,JSON_UNESCAPED_UNICODE);
-	$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\product\\input.json', 'w');
-	fputs($fp,$json);
-	fclose($fp);
+	echo $json;
 }else{
 	echo json_encode(array('message' => 'No product found.'));
 }
