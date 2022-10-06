@@ -389,11 +389,21 @@
 /* nav tab header */
 .header__nav-tab {
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+}
+
+.header__nav-type {
+    display: flex;
 }
 
 .header__nav-tab-img {
     /* position: relative; */
+}
+
+.header__nav-tab-xemthem-link {
+    text-decoration: none;
+    color: var(--privary-key);
+    font-size: 1.4rem;
 }
 
 .header__nav-tab-vac {
@@ -1019,9 +1029,4 @@
     margin-left: 10px;
 }
 
-.header__nav-box-xemthem a {
-    margin-left: 800px;
-    text-decoration: none;
-    font-size: 1.3rem;
-    color: var(--privary-key);
-}
+
