@@ -18,6 +18,7 @@
 		public $created_at;
 		//page
 		public $page;
+		public $max_page;
 		
 		//hàm tạo với kết nối db
 		public function __construct($db){
@@ -101,7 +102,8 @@
 			$this->description2 = $row['description2'];
 			$this->created_at = $row['created_at'];
 		}
-		public function page($type){
+		public function page(){
+			$type = $this->product_type;
 			//lấy số lượng bản ghi
 			$sum_row = $this->comn->query('SELECT COUNT(*) FROM '.$this->table.' WHERE product_type = '.$type.'')->fetchColumn();
 			
@@ -110,6 +112,7 @@
 			$start = ($page-1)*$per_page;
 			//tính max page
 			$max_page = ceil($sum_row/$per_page);
+			$this->max_page = $max_page;
 			if(!isset($page)){
 				$page = 1;
 			}
@@ -143,9 +146,33 @@
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
 			$stmt->bindParam(1,$this->page);
+			$stmt->bindParam(2,$this->product_type);
 			//execute query
 			$stmt->execute();
 			
+			return $stmt;
+		}
+		public function search(){
+			$query = 'SELECT 
+				p.id,
+				c.name as product_type_name,
+				p.title,
+				p.price,
+				p.discount,
+				p.thumnail,
+				p.description,
+				p.description2,
+				p.created_at
+				FROM '.$this->table.' p
+				LEFT JOIN 
+					product_type c ON p.product_type = c.id 
+					WHERE p.title LIKE "%'.$this->title.'%"';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//ràng buộc
+			$stmt->bindParam(1,$this->title);
+			//execute query
+			$stmt->execute();
 			return $stmt;
 		}
 	}

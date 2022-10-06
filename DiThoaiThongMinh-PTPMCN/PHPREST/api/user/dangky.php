@@ -15,15 +15,17 @@
 		</table>
 		<?php
 			if(isset($_POST['fullname'])&&isset($_POST['userName'])&&isset($_POST['password'])&&isset($_POST['email'])){
+				$user_arr = array(
+					'fullname' =>$_POST['fullname'],
+					'email' =>$_POST['email'],
+					'phone_number' =>'',
+					'address' =>'',
+					'userName' =>$_POST['userName'],
+					'password' =>$_POST['password']
+				);
+				$json = json_encode($user_arr);
 				$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
-				fputs($fp,'{ '."\n");
-				fputs($fp,'"fullname": "'.$_POST['fullname'].'",'."\n");
-				fputs($fp,'"email": "'.$_POST['email'].'",'."\n");
-				fputs($fp,'"phone_number": "",'."\n");
-				fputs($fp,'"address": "",'."\n");
-				fputs($fp,'"userName": "'.$_POST['userName'].'",'."\n");
-				fputs($fp,'"password": "'.$_POST['password'].'"'."\n");
-				fputs($fp,'}');
+				fputs($fp,$json);
 				fclose($fp);
 				header('Location:../../../../DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 			}
