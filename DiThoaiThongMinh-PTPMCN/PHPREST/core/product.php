@@ -110,6 +110,7 @@
 			$page = $this->page;
 			$per_page = 1;//so luong san pham tren 1 trang
 			$start = ($page-1)*$per_page;
+			//tính max page
 			$max_page = ceil($sum_row/$per_page);
 			$this->max_page = $max_page;
 			if(!isset($page)){

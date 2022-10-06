@@ -12,10 +12,16 @@ Tuần 1:
 - Cơ sở dữ liệu/API(sản phẩm)
 
 Tuần 2:
+<<<<<<< HEAD
+-	Load dữ liệu lên giao diện
+-	Đăng nhập, đăng kí, đổi mật khẩu
+Tuần 3: 
+=======
 -	Cơ sở dữ liệu tài khoản
 -	Đăng nhập, đăng kí, đổi mật khẩu
 Tuần 3: 
 	Load dữ liệu lên giao diện
+>>>>>>> b0a55f5a54c90830ca40f2fd53973fc429a801f1
 -	Tìm kiếm, phân trang
 Tuần 4: 
 -	Giỏ hàng, Mã giảm giá

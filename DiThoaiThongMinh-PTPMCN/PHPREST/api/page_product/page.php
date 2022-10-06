@@ -13,7 +13,7 @@ $product = new product($db);
 $product->page = isset($_GET['page']) ? $_GET['page'] : die();
 $product->product_type = isset($_GET['product_type']) ? $_GET['product_type'] : die();
 //product query
-$result = $product->page();
+
 
 //lấy số hàng
 $num = $result->rowCount();
