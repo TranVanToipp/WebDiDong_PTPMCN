@@ -10,26 +10,26 @@
 
 <body>
 <div class="main">
-
-<form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="form" id="form-1">
+<!-- <?php echo $_SERVER['PHP_SELF'];?> -->
+<form action="change-pass.php" method="POST" class="form" id="form-1">
     <h3 class="heading">Đổi mật khẩu</h3>
 
     <div class="spacer"></div>
 
     <div class="form-group">
-        <label for="username" class="form-label">Tên tài khoản: </label>
-        <input id="username" name="userName" required type="text" minlength="6" placeholder="VD: trantoi" class="form-control">
+        <label for="username" class="form-label">Nhập mật khẩu cũ: </label>
+        <input id="username" name="old_pass" required type="text" minlength="6" placeholder="" class="form-control">
         <span class="form-message"></span>
     </div>
 
     <div class="form-group">
-        <label for="password" class="form-label">Nhập mật khẩu cũ: </label>
-        <input id="password" name="password" required type="password" minlength="6" class="form-control">
+        <label for="password" class="form-label">Nhập mật khẩu mới: </label>
+        <input id="password" name="new_pass" required type="password" minlength="6" class="form-control">
         <span class="form-message"></span>
     </div>
     <div class="form-group">
-        <label for="password" class="form-label">Nhập mật khẩu mới: </label>
-        <input id="password" name="password" required type="password" minlength="6" class="form-control">
+        <label for="password" class="form-label">Nhập lại mật khẩu mới: </label>
+        <input id="password" name="re_new_pass" required type="password" minlength="6" class="form-control">
         <span class="form-message"></span>
     </div>
     <button class="form-submit">Đổi mật khẩu</button>
