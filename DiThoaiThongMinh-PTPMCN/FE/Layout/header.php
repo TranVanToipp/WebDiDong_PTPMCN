@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -53,12 +55,14 @@
                         </div>
                         <div class="header__search">
                             <div class="header__search-input-wrap">
-                                <input type="text" name="searchInput" oninput="searchProduct )" class="header__searh-input" placeholder="Bạn tìm gì...">
+                                <input type="text" name="searchInput" oninput="getProduct()" class="header__searh-input" placeholder="Bạn tìm gì...">
 
                             </div>
-                            <button class="header__search-btn">
+                            <a href="./search" class="header__search-btn">
+                                nấm
                                 <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                            </button>
+                            </a>
+                            
 
                         </div>
                     </div>
@@ -416,13 +420,11 @@
             
         </div>
     </div>
-    <!-- <script src="./Javascript/product.js"></script> -->
+    <script src="./Javascript/search.js"></script>
     <!-- <script src="./Javascript/slide.js"></script>
 
     <script src="./Javascript/index.js"></script>
 
     <script src="./Javascript/blockform.js"></script> -->
-    
-    
 </body>
 </html>
