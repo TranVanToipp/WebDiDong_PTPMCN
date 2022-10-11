@@ -1,1 +1,0 @@
-{"fullname":"test1234","email":"123456","phone_number":"","address":"","userName":"nguyencntt1234","password":"123456"}
