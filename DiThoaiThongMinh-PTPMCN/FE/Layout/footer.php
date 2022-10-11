@@ -95,3 +95,5 @@
                 <p>@ Bản quyền thuộc về công ty Cổ Phần clone web Di Động Thông Minh</p>
             </div>
         </footer>
+    </body>
+</html>
