@@ -1,0 +1,8 @@
+{ 
+"fullname": "tranvantoi1",
+"email": "vantoicntt06@gmail.com",
+"phone_number": "",
+"address": "",
+"userName": "AAA",
+"password": "123456"
+}
