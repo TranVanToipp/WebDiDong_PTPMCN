@@ -12,8 +12,8 @@ $product = new product($db);
 
 $product->product_type = isset($_GET['product_type']) ? $_GET['product_type'] : die();
 //product query
-$num = 10;
-$result = $product->read($num);
+$sum = 10;
+$result = $product->read($sum);
 
 //lấy số hàng
 $num = $result->rowCount();
