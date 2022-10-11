@@ -1,0 +1,325 @@
+.chitiet-chitiet  {
+    
+}
+
+.form-active-chitiet {
+    
+}
+
+.form-active-chitiet-close {
+
+}
+
+.chitiet-container {
+    display: flex;
+}
+
+.chitiet-container-img-content {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px;
+    position: relative;
+}
+
+.chitiet-container-above {
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.chitiet-container-above-img {
+    width: 90%;
+    margin: auto;
+    
+    
+}
+
+.chitiet-container-below {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: auto;
+}
+
+.chitiet-container-below li {
+    margin-right: 12px;
+}
+
+.chitiet-container-hinhnho {
+    border: 1px solid #ccc;
+}
+
+.chitiet-container-below-img-con {
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+}
+
+.chitiet-container-link {
+    text-decoration: none;
+}
+
+.chitiet-container-tenhinh {
+    color: #444;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    margin: 5px 2px;
+}
+
+/* icon chuyển hình */
+.chitiet-icon-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chitiet-icon-nav-left i{
+    width: 26px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem; 
+}
+
+.chitiet-icon-nav-right i{
+    width: 26px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem; 
+}
+
+.chitiet-icon-nav-left {
+    width: 26px;
+    height: 43px;
+    background-color: #d6d6d6;
+    left: 0;
+     margin-top: -50%;
+    transform: translateY(-50%);
+}
+
+.chitiet-icon-nav-right {
+    width: 26px;
+    height: 43px;
+    background-color: #d6d6d6;
+    float: right;
+    margin-top: -50%;
+    transform: translateY(-50%);
+}
+
+
+
+/* Ô thứ 2 */
+.chitiet-container-embrace {
+    padding: 0 10px;
+}
+
+.chitiet-container-embrace {
+    margin-left: 15px;
+}
+.chitiet-container-price {
+    font-size: 1.8rem;
+    color: var(--privary-key);
+    display: flex;
+}
+
+.chitiet-container-nhandat span {
+    display: block;
+    color: #d00247;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.chitiet-container-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.chitiet-container-type-item {
+    border: 1px solid #ccc;
+    display: flex;
+    margin: 10px 0;
+    border-radius: 2px;
+    width: 137px;
+    height: 52px;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.chitiet-container-type-item:hover {
+    border: 1px solid #ff6700;
+    cursor: pointer;
+}
+
+.chitiet-container-type-item-blow {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.chitiet-container-type-item-img {
+    width: 35px;
+    height: 35px;
+    
+}
+
+.chitiet-container-type-item-tyle {
+    display: block;
+}
+
+.chitiet-container-type-item-price {
+
+}
+
+
+.chitiet-container-type-btn {
+    width: 100%;
+    height: 46px;
+    padding: 10px;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    border: none;
+    border-radius: 2px;
+    color: var(--while-color);
+    background: -webkit-linear-gradient(left,#FF6700,#F9920F);
+}
+
+.chitiet-container-type-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.form-active-chitiet-close {
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: 10px 15px;
+    font-size: 1.3rem;
+    background: var(--privary-key);
+    color: var(--while-color);
+}
+
+.chitiet-container-chitiet-khuyenmai {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.chitiet-container-chitiet-khuyenmai h4 {
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    line-height: 19px;
+    font-family: Semibold;
+    background: #f4f4f4;
+    font-weight: 400;
+}
+
+.chitiet-container-chitiet-khuyenmai-list {
+    list-style: none;
+    margin: 0;
+    padding: 15px 15px 0 15px;
+    padding-left: 26px;
+    padding-bottom: 10px;
+}
+
+.chitiet-container-chitiet-khuyenmai-item {
+    
+    padding-left: 26px;
+    margin-bottom: 10px;
+    background: url(/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/icon/icon_check.svg) 
+    top 0 left 0 no-repeat;
+
+}
+
+.chitiet-container-type-btn-tragop-phantram {
+    width: 50%;
+    margin-right: 5px;
+    height: 46px;
+    border: none;
+    border-radius: 3px;
+    color: var(--while-color);
+    background: -webkit-linear-gradient(left,#20863D,#60BB22);
+}
+
+.chitiet-buton-thanhtoan button {
+    font-size: 1.3rem;
+    
+} 
+
+.chitiet-container-type-btn-tragop-phantram h4 {
+    margin: 0;
+    font-weight: 400;
+}
+
+.chitiet-container-type-btn-tragop-phantram span {
+   
+}
+
+.chitiet-container-type-btn-tragop-the {
+    color: var(--while-color);
+    border: none;
+    width: 50%;
+    height: 46px;
+    border-radius: 3px;
+    background: -webkit-linear-gradient(left,#20863D,#60BB22);
+}
+
+.chitiet-container-type-btn-tragop-the h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.chitiet-container-type-btn-tragop-the span {
+    font-size: 1.2rem;
+}
+
+.chitiet-buton-thanhtoan {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.chitiet-container-copy {
+    display: flex;
+    margin-top: 10px;
+}
+.chitiet-container-copy button {
+    align-items: center;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    padding: 8px;
+    width: 50%;
+    cursor: pointer;
+    border: none;
+    height: 62px;
+    display: block;
+}  
+
+.chitiet-container-copy-link {
+    margin-right: 5px;
+}
+
+.chitiet-container-copy-link span {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.chitiet-container-copy-thongtin span {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.chitiet-container-boder {
+    display: block;
+    
+}
+
+/* Ô thứ 3 */
+.tinhtrang-content {
+    /* background-color: black; */
+}
