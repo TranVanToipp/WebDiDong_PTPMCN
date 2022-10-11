@@ -12,7 +12,7 @@ $data_type = json_decode($json_type);
                 </div>
             </div>
             <div class = "header__nav-tab-xemthem">
-                <a href="./moreProduct" onclick = "TypeSP('.$product_type->product_type.')" class="header__nav-tab-xemthem-link">Xem thêm</a>
+                <a href="./moreProduct/index.php?page=1&product_type='.$product_type->product_type.'" class="header__nav-tab-xemthem-link">Xem thêm</a>
             </div>
         </div>';
         $url_product = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read.php?product_type=".$product_type->product_type;
@@ -25,6 +25,7 @@ $data_type = json_decode($json_type);
                     <div class="home-product-item">
                             <div class="home-product-item-img" style="background-image:url(${item.img});"></div>
                             <h4 class="home-product-item-name">'.$product_item->title.'</h4>
+                            <span class = "home-product-item-id">'.$product_item->id.'</span>
                         <div class="home-product-item-price">
                             <span class="home-product-item__price-current">'.$product_item->price.'</span>
                             <span class="home-product-item__price-old">'.$product_item->discount.'</span>
