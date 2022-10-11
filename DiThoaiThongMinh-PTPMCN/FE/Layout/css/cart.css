@@ -1,0 +1,157 @@
+.cart-box__content {
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.cart-heading__text {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.cart-heading__text-link {
+    font-size: 1.4rem;
+    color: #28a5e1;
+    text-decoration: none;
+}
+
+.cart-heading__text span{
+    font-size: 1.4rem;
+    color: #333;
+    
+}
+
+.cart-container {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cart-container__list {
+    
+}
+
+.cart-container__item {
+    display: flex;
+    margin: 0 10px 10px 0;
+    border-top: 1px solid #e1e1e1;
+    padding: 10px;
+}
+
+.cart-container__item:first-child {
+    border-top: none;
+}
+
+.cart-container__item-check {
+    width: 10%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.cart-container__item-box {
+    width: 20%;
+}
+
+.cart-container__item-box a img{
+    width: 75px;
+    margin: auto;
+    margin: 0 5px;
+}
+
+.cart-container__item-content {
+    width: 50%;
+}
+
+.cart-container__item-price-content {
+    width: 20%;
+    
+}
+
+.cart-container__box-img-link {
+
+}
+
+.cart-container__item-xoa {
+    margin: 15px 25px 0; 
+}
+
+.cart-container__item-xoa span{
+    font-size: 1.2rem;
+    color: #999;
+}
+
+.cart-container__item-title {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 700;
+
+}
+
+.cart-container__item-salecontent {
+    display: flex;
+    padding-top: 8px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-container__item-sale {
+    color: #d52320;
+    font-size: 1.2rem;
+    cursor: unset!important;
+}
+
+.cart-container__textmausp {
+    
+    color: #666;
+    font-size: 12px;
+    padding: 6px 0 0;
+    margin-right: 30px;
+}
+
+.cart-container__item-price {
+    color: #f30c28;
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 2px;
+}
+
+.cart-container__item-oulprice {
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 2px;
+    color: #333;
+}
+
+.cart-container__item-update-SP  {
+    display: flex;
+    margin-top: 20px;
+    justify-content: end;
+}
+
+.tru, .cong {
+    width: 25px;
+    height: 40px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+}
+
+.tru:hover, .cong:hover {
+    background-color: rgb(214, 214, 214);
+}
+
+.value-quantity {
+    outline: none;
+    width: 50px;
+    height: 40px;
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+    border-left: 0px;
+    border-right: 0px;
+    padding-left: 19px;
+    font-size: 17px;
+}
+
+.clear {
+    clear: both;
+}
+
