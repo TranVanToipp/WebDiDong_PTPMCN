@@ -17,7 +17,7 @@ itemParent.onclick = function(e) {
        
 
         var percentSP = sanphamitem.querySelector('.home-product-item__sale-off-percent').innerText;
-        localStorage.setItem('idSP', String(id));  
+		localStorage.setItem('idSP', String(id));  
 
             var objectSanPham  =  [
                 {
@@ -31,7 +31,7 @@ itemParent.onclick = function(e) {
             ]
         
         // localStorage.setItem('SanPham', JSON.stringify(objectSanPham));  
-        window.location = "/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php";
+        window.location = "/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id=";
         
      }
 }

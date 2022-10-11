@@ -80,4 +80,3 @@
             ?>
         </div>
     </div>
-    <script src="./Javascript/chitietsanpham.js"></script>
