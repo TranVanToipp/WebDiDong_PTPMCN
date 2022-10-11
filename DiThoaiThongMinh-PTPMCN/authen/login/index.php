@@ -1,10 +1,13 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/style.css">
     <title>Đăng nhập</title>
 </head>
 <!-- <script src="../../Javascript/user.js">
@@ -31,26 +34,18 @@
     <button type="submit" class="form-submit">Đăng nhập</button>
   </form>
   <?php
-        if(isset($_POST['userName'])&&isset($_POST['password'])){
+        if(isset($_POST['userName']) && isset($_POST['password'])){
             $url = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/read_user.php";
             $json=file_get_contents($url);
             $data = json_decode($json);
             $username = $_POST['userName'];
             $pass= md5($_POST['password']);
             foreach($data->data as $user){
-              if($username == $user->userName && $pass == $user->password)
-              echo '
-              <a href="#" class="header__navbar-item-fullName-link header__navbar-item-fullName-link-hover">'.$user->fullname.'</a>
-              <div class="header__navbar-item-box-user">
-                  <ul class="header__navbar-item-box-user-list">
-                      <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
-                      <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đổi mật khẩu</a></li>
-                      <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đăng xuất</a></li>
-                  </ul>
-              </div>
-              ';
-                  header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
-              }
+              if($username == $user->userName && $pass == $user->password){
+                    $_SESSION['fullname'] = $user->fullname;
+                    header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
+                }
+            }
             echo "tài khoản or mật khẩu không đúng";
         }
 		?>
