@@ -19,6 +19,8 @@
 		//page
 		public $page;
 		public $max_page;
+		//img_desct
+		public $img_desct;
 		
 		//hàm tạo với kết nối db
 		public function __construct($db){
@@ -101,6 +103,22 @@
 			$this->description = $row['description'];
 			$this->description2 = $row['description2'];
 			$this->created_at = $row['created_at'];
+		}
+		public function img_desct(){
+			$table = 'img_desct';
+			$query = 'SELECT 
+				img.id,
+				img.product_id,
+				img.img_desct
+				FROM '.$table.' img
+					WHERE img.product_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
 		}
 		public function page(){
 			$type = $this->product_type;
