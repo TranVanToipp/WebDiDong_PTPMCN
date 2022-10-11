@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <?php
 $url_type = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read_type.php";
