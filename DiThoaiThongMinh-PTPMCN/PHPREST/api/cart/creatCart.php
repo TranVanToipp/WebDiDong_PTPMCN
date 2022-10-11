@@ -16,7 +16,7 @@ $data = json_decode(file_get_contents("input.txt"));
 $cart->user_id = $data->user_id;
 $cart->user_name = $data->user_name;
 $cart->product_id = $data->product_id;
-$cart->price = $data->price;
+$cart->price = $data->price * $data->num;
 $cart->num = $data->num;
 //create User
 if($cart->create()){

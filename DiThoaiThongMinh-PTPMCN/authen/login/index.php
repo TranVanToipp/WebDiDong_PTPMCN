@@ -43,6 +43,8 @@
             foreach($data->data as $user){
               if($username == $user->userName && $pass == $user->password){
                     $_SESSION['fullname'] = $user->fullname;
+                    $_SESSION['id'] = $user->id;
+
                     header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
                 }
             }
@@ -50,6 +52,10 @@
         }
 		?>
 </div>
+<script>
+
+
+</script>
 
 </body>
 </html>

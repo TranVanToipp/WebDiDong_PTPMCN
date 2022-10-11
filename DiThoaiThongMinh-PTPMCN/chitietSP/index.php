@@ -2,14 +2,16 @@
     $title = 'chi tiết sản phẩm';
 	$baseUrl = '../';
     include_once ($baseUrl.'FE/Layout/header.php');
+    $fullname = "";
+    $id_user = "";
+    if(isset($_SESSION['fullname']) && isset($_SESSION['id'])){
+        $fullname = $_SESSION['fullname'];
+        $id_user = $_SESSION['id'];
+    }
+
 ?>
+
 <link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/chitiet.css">
-<?php
-
-    $url_chitiet = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPreST/api/product/read_single.php?id=2";
-
-
-?>
 
 <div class="grid wide">
     <div class="chitiet-chitiet ">
@@ -18,7 +20,7 @@
 </div>
 <script>
     var data = localStorage.getItem('idSP');
-    var ApiHinhSP = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPreST/api/product/read_single.php?id="+data;
+    var ApiHinhSP = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read_single.php?id="+data;
     function start() {
     
     getChiTietSP(handleSP);
@@ -35,7 +37,6 @@ function getChiTietSP(callback) {
 function handleSP(data) {
     var chitiet = document.querySelector('.chitiet-chitiet')
     var html = data.data.map(function (product) {
-        console.log(product.img);
         return `
         <div class="form-active-chitiet ">
                 <div class="header-chitiet-content">
@@ -194,6 +195,10 @@ function handleSP(data) {
 
 
     btnThemSP.onclick = () => {
+        var fullname = "<?php echo $fullname;?>";
+        var id_user= "<?php echo $id_user;?>";
+        if(fullname != "" && id_user != "") {
+            
         var titleSP = document.querySelector('.header-chitiet-content h3').innerText;
         var imgSPC = document.querySelector('.chitiet-container-above-img').getAttribute('src');
         var priceSP = document.querySelector('.chitiet-container-price h4').innerText;
@@ -204,10 +209,12 @@ function handleSP(data) {
             img: imgSPC,
             price: priceSP
         }
-
+        console.log(data);
         localStorage.setItem('SanPhamGioHang', JSON.stringify(objectSP));
-        
-        
+    }else{
+        console.log("dang nhap");
+    }
+    
     }
     function handleThemSP() {
 
