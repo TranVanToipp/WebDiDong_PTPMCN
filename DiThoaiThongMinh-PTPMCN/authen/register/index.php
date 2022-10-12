@@ -65,7 +65,7 @@
 				$fp = fopen('C:\\wamp23\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
 				fputs($fp,$json);
 				fclose($fp);
-				header('Location:../../../../DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+				header('Location:/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 			}
 		?>
 </body>
