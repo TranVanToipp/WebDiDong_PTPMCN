@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Di Động Thông Minh</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <link rel="stylesheet" href="../assets/css/slideshow.css">
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/main.css">
-    <link rel="stylesheet" href="../assets/css/grid.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="../assets/css/phantrang.css">
+    <link rel="stylesheet" href="../FE/Layout/css/slideshow.css">
+    <link rel="stylesheet" href="../FE/Layout/css/base.css">
+    <link rel="stylesheet" href="../FE/Layout/css/main.css">
+    <link rel="stylesheet" href="../FE/Layout/css/grid.css">
+    <link rel="stylesheet" href="../FE/Layout/css/responsive.css">
+    <link rel="stylesheet" href="../FE/Layout/css/phantrang.css">
     <link rel="stylesheet" href="./font/fontawesome-free-6.1.2-web/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;1,700&display=swap" rel="stylesheet"> 
 </head>
@@ -90,9 +90,7 @@
                             <img src="../assets/img/responsive/menu_mb.svg" alt="menu responsive mobile tablet" class="header__navbar-cart-menu-img">
                         </div>
                         <div class="header__navbar-item-lore-shared ">
-                            
                                 <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login/index.php" class="header__navbar-item-login-link header__navbar-item-lore">Đăng nhập</a>
-                            
                             
                                 <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/change/index.php" class="header__navbar-item-register-link header__navbar-item-lore">Đăng kí</a>
                                 <a href="#" class="header__navbar-item-fullName-link header__navbar-item-lore-shared-hover">Trần văn Tới</a>
@@ -103,12 +101,10 @@
                                         <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đăng xuất</a></li>
                                     </ul>
                                 </div>
-                                
-                           
-                        </div>
-                    </div>  
+                            </div>
+                        </div>  
+                    </div>
                 </div>
-            </div>
         </header>   
         <div class="container">
             <div class="header__navbar-bot">
