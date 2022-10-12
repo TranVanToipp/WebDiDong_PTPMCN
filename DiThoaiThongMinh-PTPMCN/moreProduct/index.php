@@ -106,7 +106,7 @@
                             
                             
                                 <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/change/index.php" class="header__navbar-item-register-link header__navbar-item-lore">Đăng kí</a>
-                                <a href="#" class="header__navbar-item-fullName-link header__navbar-item-lore-shared-hover">Trần văn Tới</a>
+                                <a href="#" class="header__navbar-item-fullName-link header__navbar-item-lore-shared-hover"></a>
                                 <div class="header__navbar-item-box-user">
                                     <ul class="header__navbar-item-box-user-list">
                                         <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
@@ -273,35 +273,38 @@
             }   
             echo '</div>
                 </div>';
-            echo '
-            <div class="home-phantrang">
-                <ul class="home-phantrang--list">';
-            if($page>1){
-                $prev_page = $page-1;
-                echo 
-                '<a href="index.php?page='.$prev_page.'&product_type='.$type.'"<li class="home-phantrang--item"> << </li></a>';
-            }
-            $part = 1;
-            $begin = $page - $part;
-            if($begin <1){
-                $begin = 1;
-            }
-            $end = $page + $part;
-            if($end>$max_page){
-                $end = $max_page;
-            }
-            for($page_item = $begin; $page_item <= $end; $page_item++){
-                echo
-                    '<a href="index.php?page='.$page_item.'&product_type='.$type.'" class="home-phantrang--itemlink"> <li class="home-phantrang--item">'.$page_item.'</li></a>';
-            }
-            if($page<$max_page){
-                $next_page = $page+1;
-                echo
-                    '<a href="index.php?page='.$next_page.'&product_type='.$type.'" class="home-phantrang--itemlink"> <li class="home-phantrang--item"> >> </li></a>';
-            }
-            echo'
-            </ul>
-        </div>';
+			if($max_page>1){
+				echo '
+					<div class="home-phantrang">
+						<ul class="home-phantrang--list">';
+					if($page>1){
+						$prev_page = $page-1;
+						echo 
+						'<a href="index.php?page='.$prev_page.'&product_type='.$type.'"<li class="home-phantrang--item"> << </li></a>';
+					}
+					$part = 1;
+					$begin = $page - $part;
+					if($begin <1){
+						$begin = 1;
+					}
+					$end = $page + $part;
+					if($end>$max_page){
+						$end = $max_page;
+					}
+					for($page_item = $begin; $page_item <= $end; $page_item++){
+						echo
+							'<a href="index.php?page='.$page_item.'&product_type='.$type.'" class="home-phantrang--itemlink"> <li class="home-phantrang--item">'.$page_item.'</li></a>';
+					}
+					if($page<$max_page){
+						$next_page = $page+1;
+						echo
+							'<a href="index.php?page='.$next_page.'&product_type='.$type.'" class="home-phantrang--itemlink"> <li class="home-phantrang--item"> >> </li></a>';
+					}
+					echo'
+					</ul>
+				</div>';
+			}
+            
     ?>
         </div>
         <div class="home-phantrang">
