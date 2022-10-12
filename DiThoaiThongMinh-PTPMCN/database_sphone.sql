@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Sep 28, 2022 at 01:56 PM
+-- Generation Time: Oct 12, 2022 at 03:46 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -52,7 +52,14 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `price` double NOT NULL,
   `num` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`id`, `user_id`, `user_name`, `product_id`, `price`, `num`) VALUES
+(12, 1, 'test123', 1, 134, 1);
 
 -- --------------------------------------------------------
 
@@ -11558,10 +11565,18 @@ DROP TABLE IF EXISTS `img_desct`;
 CREATE TABLE IF NOT EXISTS `img_desct` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
-  `ing_desct` text COLLATE utf8_unicode_ci NOT NULL,
+  `img_desct` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pk_img_desct` (`product_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `img_desct`
+--
+
+INSERT INTO `img_desct` (`id`, `product_id`, `img_desct`) VALUES
+(1, 1, 'samsung34.jpg'),
+(2, 1, 'samsung42.jpg');
 
 -- --------------------------------------------------------
 
@@ -11572,6 +11587,7 @@ CREATE TABLE IF NOT EXISTS `img_desct` (
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
   `user_name` text COLLATE utf8_unicode_ci NOT NULL,
   `phone_number` text COLLATE utf8_unicode_ci NOT NULL,
   `tinh_tp` text COLLATE utf8_unicode_ci NOT NULL,
@@ -11599,6 +11615,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `title` text COLLATE utf8_unicode_ci NOT NULL,
   `price` double NOT NULL,
   `discount` float NOT NULL,
+  `num` int(11) NOT NULL,
   `thumnail` text COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci NOT NULL,
   `description2` text COLLATE utf8_unicode_ci NOT NULL,
@@ -11611,13 +11628,13 @@ CREATE TABLE IF NOT EXISTS `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `product_type`, `title`, `price`, `discount`, `thumnail`, `description`, `description2`, `created_at`) VALUES
-(1, 1, '134sss', 134, 0.1, '134', '124', '1234', '2022-09-15 22:23:13'),
-(2, 2, 'AS', 134, 0.2, 'qwe', 'qwe', 'dx', '2022-09-15 22:23:13'),
-(3, 2, '4wdsf', 1234, 0.2, 'erq', 'qewr', 'qwe', '2022-09-15 22:32:25'),
-(4, 2, 'FSÀ', 1234, 0.5, '234', '124', '24', '2022-09-22 20:38:15'),
-(5, 2, '2134', 124, 0.2, '1234', '213', '124', '2022-09-22 20:38:15'),
-(6, 1, 'Áád', 123, 0.1, 'á', 'ád', 'ád', '2022-09-25 19:15:31');
+INSERT INTO `product` (`id`, `product_type`, `title`, `price`, `discount`, `num`, `thumnail`, `description`, `description2`, `created_at`) VALUES
+(1, 1, '134sss', 134, 0.1, 6, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
+(2, 2, 'AS', 134, 0.2, 0, 'qwe', 'qwe', 'dx', '2022-09-15 22:23:13'),
+(3, 2, '4wdsf', 1234, 0.2, 0, 'erq', 'qewr', 'qwe', '2022-09-15 22:32:25'),
+(4, 2, 'FSÀ', 1234, 0.5, 0, '234', '124', '24', '2022-09-22 20:38:15'),
+(5, 2, '2134', 124, 0.2, 0, '1234', '213', '124', '2022-09-22 20:38:15'),
+(6, 1, 'Áád', 123, 0.1, 0, 'á', 'ád', 'ád', '2022-09-25 19:15:31');
 
 -- --------------------------------------------------------
 
@@ -11695,7 +11712,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `pk_user_role` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `fullname`, `email`, `phone_number`, `address`, `userName`, `password`, `role_id`, `created_at`) VALUES
+(1, 'test123', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt123', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 15:26:13'),
+(2, 'test1234', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt1234', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 22:44:03');
 
 --
 -- Constraints for dumped tables

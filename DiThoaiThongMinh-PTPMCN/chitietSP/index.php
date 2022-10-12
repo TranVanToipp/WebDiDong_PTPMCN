@@ -19,11 +19,14 @@
     </div>
 </div>
 <script>
-    var data = localStorage.getItem('idSP');
-    var ApiHinhSP = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read_single.php?id="+data;
+    var idSP = localStorage.getItem('idSP');
+    var ApiHinhSP = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read_single.php?id="+idSP;
     function start() {
     
-    getChiTietSP(handleSP);
+    getChiTietSP(function(data) {
+        handleSP(data);
+        handleSPCart();
+    });
 }
 start();
 
@@ -191,31 +194,11 @@ function handleSP(data) {
     });
 
     // Xử lí thêm sản phẩm 
-    var btnThemSP = document.querySelector('.chitiet-container-type-btn');
-    btnThemSP.onclick = () => {
-        var fullname = "<?php echo $fullname;?>";
-        var id_user= "<?php echo $id_user;?>";
-        if(fullname != "" && id_user != "") {
-            
-        var titleSP = document.querySelector('.header-chitiet-content h3').innerText;
-        var imgSPC = document.querySelector('.chitiet-container-above-img').getAttribute('src');
-        var priceSP = document.querySelector('.chitiet-container-price h4').innerText;
-
-        console.log(titleSP, imgSPC, priceSP);
-        var objectSP = {
-            title: titleSP,
-            img: imgSPC,
-            price: priceSP
-        }
-        console.log(data);
-        localStorage.setItem('SanPhamGioHang', JSON.stringify(objectSP));
-    }else{
-        console.log("dang nhap");
-    }
-    }
-    function handleThemSP() {
-    }
+    // var btnThemSP = document.querySelector('.chitiet-container-type-btn');
+    
 }
+<script src="./Javascript/laydulieutuform.js"></script>
+
 
 </script>
 
@@ -320,49 +303,49 @@ function handleSP(data) {
                                 </li>
                             </ul>
 
-								<div class="chitiet-container-chitiet-khuyenmai">
-									<h4>Khuyến Mãi</h4>
-									<ul class="chitiet-container-chitiet-khuyenmai-list">
-										<li class="chitiet-container-chitiet-khuyenmai-item">
-											Mã ưu đãi giảm đến 500.000đ khi thanh toán
-										</li>
-										<li class="chitiet-container-chitiet-khuyenmai-item">
-											Mã ưu đãi giảm đến 500.000đ khi thanh toán
-										</li>
-										<li class="chitiet-container-chitiet-khuyenmai-item">
-											Mã ưu đãi giảm đến 500.000đ khi thanh toán
-										</li>
-										<li class="chitiet-container-chitiet-khuyenmai-item">
-											Mã ưu đãi giảm đến 500.000đ khi thanh toán
-										</li>
-									</ul>
-								</div>
-								<form action="'.$_SERVER['PHP_SELF'].'" METHOD ="POST">
-								<input class="chitiet-container-type-btn" type="submit" name="add_cart" value="Thêm vào giỏ hàng">
-								</input>
-								</form>
-								<div class="chitiet-buton-thanhtoan">
-									<button class="chitiet-container-type-btn-tragop-phantram">
-									<h4>Mua trả góp 0%</h4>
-									<span>Duyệt hồ sơ trong 5 phút </span>
-									</button>
+                            <div class="chitiet-container-chitiet-khuyenmai">
+                                <h4>Khuyến Mãi</h4>
+                                <ul class="chitiet-container-chitiet-khuyenmai-list">
+                                    <li class="chitiet-container-chitiet-khuyenmai-item">
+                                        Mã ưu đãi giảm đến 500.000đ khi thanh toán
+                                    </li>
+                                    <li class="chitiet-container-chitiet-khuyenmai-item">
+                                        Mã ưu đãi giảm đến 500.000đ khi thanh toán
+                                    </li>
+                                    <li class="chitiet-container-chitiet-khuyenmai-item">
+                                        Mã ưu đãi giảm đến 500.000đ khi thanh toán
+                                    </li>
+                                    <li class="chitiet-container-chitiet-khuyenmai-item">
+                                        Mã ưu đãi giảm đến 500.000đ khi thanh toán
+                                    </li>
+                                </ul>
+                            </div>
+                            <button class="chitiet-container-type-btn" onclick = 'addCart()'>
+                                Thêm vào giỏ hàng
+                            </button>
 
-									<button class="chitiet-container-type-btn-tragop-the" >
-									<h4> Trả góp qua thẻ</h4>
-									<span>Visa, Mastercart, JCB, Amex</span>
-									</button>
-								</div>
+                            <div class="chitiet-buton-thanhtoan">
+                                <button class="chitiet-container-type-btn-tragop-phantram">
+                                <h4>Mua trả góp 0%</h4>
+                                <span>Duyệt hồ sơ trong 5 phút </span>
+                                </button>
 
-								<div class="chitiet-container-copy">
-									<button class= "chitiet-container-copy-link">
-										<span class="chitiet-container-boder">
-											<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-												<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
-												<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
-											</svg>
-										</span>
-										<span>Sao chép đường dẫn</span>
-									</button>
+                                <button class="chitiet-container-type-btn-tragop-the" >
+                                <h4> Trả góp qua thẻ</h4>
+                                <span>Visa, Mastercart, JCB, Amex</span>
+                                </button>
+                            </div>
+
+                            <div class="chitiet-container-copy">
+                                <button class= "chitiet-container-copy-link">
+                                    <span class="chitiet-container-boder">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                            <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z" />
+                                            <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z" />
+                                        </svg>
+                                    </span>
+                                    <span>Sao chép đường dẫn</span>
+                                </button>
 
                                 <button class= "chitiet-container-copy-thongtin">
                                     <span class="chitiet-container-boder">
@@ -390,7 +373,7 @@ function handleSP(data) {
     //     alert('Không có sản phẩm');
     // }
 
-</script>
+</>
 <!-- <script src = "../Javascript/chitietsanpham.js"></script> -->
 
 

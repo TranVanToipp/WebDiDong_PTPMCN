@@ -28,20 +28,27 @@ if($num > 0){
 		array_push($img_arr['img'],$img_item);
 	}
 }
-
-$product = array (
-	'id' 	=>$product->id,
-	'product_type_name' =>$product->product_type_name,
-	'title' =>$product->title,
-	'price' =>$product->price,
-	'discount' =>$product->discount,
-	'thumnail' =>$product->thumnail,
-	'description' =>html_entity_decode($product->description),//chuyển đổi các kí hiệu HTML entities thành các kí tự tương ứng
-	'description2' =>html_entity_decode($product->description2),
-	'created_at' =>$product->created_at,
-	'img' =>$img_arr['img'],
-);
-array_push($product_arr['data'],$product);
+//nếu trên url người dùng nhập 1 id mà sản phẩm chưa được tạo ra thì ko hiển thị
+if(isset($product->created_at)){
+	$product = array (
+		'id' 	=>$product->id,
+		'product_type_name' =>$product->product_type_name,
+		'title' =>$product->title,
+		'price' =>$product->price,
+		'discount' =>$product->discount,
+		'num' =>$product->num,
+		'thumnail' =>$product->thumnail,
+		'description' =>html_entity_decode($product->description),//chuyển đổi các kí hiệu HTML entities thành các kí tự tương ứng
+		'description2' =>html_entity_decode($product->description2),
+		'created_at' =>$product->created_at,
+		'img' =>$img_arr['img'],
+	);
+	array_push($product_arr['data'],$product);
 	//chuyển đổi sang dạng JSON
 	echo json_encode($product_arr);
+}
+else{
+	echo json_encode(array('message' => 'No product found.'));
+}
+	
 ?>
