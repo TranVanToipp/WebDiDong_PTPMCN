@@ -8,14 +8,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/style.css">
+    <link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/toast.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+
     <title>Đăng nhập</title>
 </head>
+
 <!-- <script src="../../Javascript/user.js">
 
 </script> -->
 <body>
 <div class="main">
-
+<div id="toast"></div>
   <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="form" id="form-1">
       <h3 class="heading">Đăng nhập tài khoản</h3>
        <div class="spacer"></div>
@@ -33,6 +37,17 @@
     </div>
     <button type="submit" class="form-submit">Đăng nhập</button>
   </form>
+  <script>
+    function showErrorToast() {
+        toast({
+            title: "Thất bại!",
+            message: "Tài khoản hoặc mật khẩu sai. Vui lòng kiểm tra lại!",
+            type: "error",
+            duration: 5000
+        });
+    }
+</script>
+<script src= "../../Javascript/Toast_mes.js"></script>
   <?php
         if(isset($_POST['userName']) && isset($_POST['password'])){
             $url = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/read_user.php";
@@ -48,14 +63,12 @@
                     header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
                 }
             }
-            echo "tài khoản or mật khẩu không đúng";
+            
+            echo '<script>showErrorToast();</script>';
         }
 		?>
+
 </div>
-<script>
-
-
-</script>
 
 </body>
 </html>
