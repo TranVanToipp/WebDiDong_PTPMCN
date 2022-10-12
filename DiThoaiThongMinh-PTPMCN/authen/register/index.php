@@ -1,3 +1,11 @@
+
+
+<?php
+
+$msg = '';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,11 +21,11 @@
 
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="form" id="form-1">
           <h3 class="heading">Đăng kí tài khoản</h3>
-      
+			<div style="color: red;text-align:center;"><?=$msg?></div>
           <div class="spacer"></div>
       
           <div class="form-group">
-            <label for="fullname" class="form-label">Tên tài khoản</label>
+            <label for="fullname" class="form-label">Họ và tên</label>
             <input id="fullname" name="fullname" required type="text" placeholder="VD: trantoi" class="form-control">
             <span class="form-message"></span>
           </div>
@@ -42,7 +50,7 @@
       
           <div class="form-group">
             <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
-            <input id="password_confirmation" required name="password_confirmation" placeholder="Nhập lại mật khẩu" minlength="6" type="password" class="form-control">
+            <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" minlength="6" required type="password" class="form-control">
             <span class="form-message"></span>
           </div>
       
@@ -52,20 +60,49 @@
       </div>
 
       <?php
-			if(isset($_POST['fullname'])&&isset($_POST['userName'])&&isset($_POST['password'])&&isset($_POST['email'])){
-				$user_arr = array(
-					'fullname' =>$_POST['fullname'],
-					'email' =>$_POST['email'],
-					'phone_number' =>'',
-					'address' =>'',
-					'userName' =>$_POST['userName'],
-					'password' =>$_POST['password']
-				);
-				$json = json_encode($user_arr);
-				$fp = fopen('C:\\wamp23\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
-				fputs($fp,$json);
-				fclose($fp);
-				header('Location:/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+			if(isset($_POST['fullname']) && isset($_POST['userName']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['password_confirmation'])){
+				$url = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/read_user.php";
+				$json=file_get_contents($url);
+				$data = json_decode($json);
+				if(isset($data->message)){
+					if($_POST['password'] == $_POST['password_confirmation']){
+						$user_arr = array(
+							'fullname' =>$_POST['fullname'],
+							'email' =>$_POST['email'],
+							'phone_number' =>'',
+							'address' =>'',
+							'userName' =>$_POST['userName'],
+							'password' =>$_POST['password']
+						);
+						$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
+						$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
+						fputs($fp,$json);
+						fclose($fp);
+						header('Location:/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+					}else
+						$msg = 'Mật Khẩu Không Khớp, vui lòng kiểm tra lại thông tin'; 
+				}else{
+					foreach($data->data as $user){
+						if($user->userName == $_POST['userName'] && $user->email ==$_POST['email']){
+							$msg = 'Tên Đăng Nhập hoặc email Đã Tồn Tại, vui lòng kiểm tra lại thông tin';
+							die();
+						}
+					}
+					$user_arr = array(
+						'fullname' =>$_POST['fullname'],
+						'email' =>$_POST['email'],
+						'phone_number' =>'',
+						'address' =>'',
+						'userName' =>$_POST['userName'],
+						'password' =>$_POST['password']
+					);
+					$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
+					$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
+					fputs($fp,$json);
+					fclose($fp);
+					header('Location:./WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+				}
+				
 			}
 		?>
 </body>
