@@ -56,7 +56,7 @@
                         </div>
                         <div class="cart-container__item-update-SP">
                             <input type="button" class= "tru" value= "-" name="" id="">
-                            <input type="number" class= "value-quantity" name="" id="">
+                            <input type="number" class= "value-quantity" value = "1" name="" id="">
                             <input type="button" class = "cong" value = "+" name="" id="">
                         </div>
                     </div>
@@ -67,8 +67,47 @@
 </div>
 
 <script>
-    var dataSPGH = JSON.parse(localStorage.getItem('SanPhamGioHang'));
-    var arr = Object.entries(dataSPGH); 
-    console.log(arr);
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    for(let  i = 0; i < $$('.cong').length; i++){
+        let a1 = $$('.value-quantity')[i].value;
+        a1 = parseInt(a1);
+        $$('.cong')[i].onclick = () => {
+            a1++;
+            $$('.value-quantity')[i].value = a1;
+        }
+        $$('.tru')[i].onclick = () => {
+            if(a1 < 2) {
+                return;
+            }else {
+                a1--;
+                $$('.value-quantity')[i].value = a1;
+            }
+        }
+    }
+
+</script>
+
+<script>
+    // var dataSPGH = JSON.parse(localStorage.getItem('SanPhamGioHang'));
+    // var arr = Object.entries(dataSPGH); 
+    var id_user = localStorage.getItem('id_user');
+    var ApiCart = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id="+id_user;
+    function start(){
+        getCart(handleCart);
+    }
+start();
+    function getCart(callback){
+        fetch(ApiCart)
+            .then(function (respon){
+                return respon.json();
+            })
+            .then(callback);
+    }
+
+    function handleCart(data) {
+        console.log(data);
+    }
 
 </script>
