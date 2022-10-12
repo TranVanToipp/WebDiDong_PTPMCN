@@ -72,6 +72,22 @@
 			return false;
 		}
 
+		public function deletes(){
+			$user_id = $this->user_id;
+			$product_id = $this->product_id;
+			$query = 'DELETE FROM '.$this->table.' WHERE user_id = '.$user_id.' AND product_id = '.$product_id;
+			
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->user_id);
+			$stmt->bindParam(2,$this->product_id);
+			
+			if($stmt->execute()){
+				return true;
+			}
+			return false;
+			
+		}
+
 	}
 
 ?>
