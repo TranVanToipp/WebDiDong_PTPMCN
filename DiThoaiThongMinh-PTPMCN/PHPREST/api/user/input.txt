@@ -1,1 +1,1 @@
-{"fullname":"test1234","email":"luongnguyen43.2001@gmail.com","phone_number":"","address":"","userName":"nguyencntt1234","password":"123456"}
+{"fullname":"nguyenvana","email":"vantoicntt06@gmail.com","phone_number":"","address":"","userName":"nguyenvana","password":"nguyenvana"}
