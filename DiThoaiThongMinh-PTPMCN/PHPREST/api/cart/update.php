@@ -9,10 +9,8 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once('../../core/initialize.php');
 
-
-$data = json_decode(file_get_contents("input.txt"));
-
-//create cart
-header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/update_num_product_createCart.php?id='.$data->product_id.'&num='.$data->num);
-
+$cart = new cart($db);
+//lấy dữ liệu
+$data = json_decode(file_get_contents("update.txt"));
+header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/update_num_product_updateCart.php?id='.$data->product_id.'&num='.$data->num.'&id_cart='.$data->id);
 ?>

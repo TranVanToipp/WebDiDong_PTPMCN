@@ -12,6 +12,7 @@
 		public $title;
 		public $price;
 		public $discount;//% giảm giá
+		public $num;//số lượng sản phẩm
 		public $thumnail;
 		public $description;
 		public $description2;
@@ -53,6 +54,7 @@
 				p.title,
 				p.price,
 				p.discount,
+				p.num,
 				p.thumnail,
 				p.description,
 				p.description2,
@@ -79,6 +81,7 @@
 				p.title,
 				p.price,
 				p.discount,
+				p.num,
 				p.thumnail,
 				p.description,
 				p.description2,
@@ -93,16 +96,19 @@
 			$stmt->bindParam(1,$this->id);
 			//execute query
 			$stmt->execute();
-			$row = $stmt->fetch(PDO::FETCH_ASSOC);
-			
-			$this->product_type_name = $row['product_type_name'];
-			$this->title = $row['title'];
-			$this->price = $row['price'];
-			$this->discount = $row['discount'];
-			$this->thumnail = $row['thumnail'];
-			$this->description = $row['description'];
-			$this->description2 = $row['description2'];
-			$this->created_at = $row['created_at'];
+			$num = $stmt->rowCount();
+			if($num>0){
+				$row = $stmt->fetch(PDO::FETCH_ASSOC);
+				$this->product_type_name = $row['product_type_name'];
+				$this->title = $row['title'];
+				$this->price = $row['price'];
+				$this->discount = $row['discount'];
+				$this->num = $row['num'];
+				$this->thumnail = $row['thumnail'];
+				$this->description = $row['description'];
+				$this->description2 = $row['description2'];
+				$this->created_at = $row['created_at'];
+			}
 		}
 		public function img_desct(){
 			$table = 'img_desct';
@@ -192,6 +198,32 @@
 			//execute query
 			$stmt->execute();
 			return $stmt;
+		}
+		//create function update số lượng sản phẩm khi thêm vào giỏ hàng
+		public function update_num_product(){
+			$id = $this->id;
+			$num = $this->num;
+			$query = 'UPDATE '.$this->table.' SET  num = '.$num.' WHERE id = '.$id;
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			$stmt->bindParam(2,$this->num);
+			if($stmt->execute()){
+				return true;
+			}
+			return false;
+		}
+		public function delete_product(){
+			$id = $this->id;
+			$query = 'DELETE FROM '.$this->table.' WHERE id = '.$id;
+			
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			
+			if($stmt->execute()){
+				return true;
+			}
+			return false;
 		}
 	}
 
