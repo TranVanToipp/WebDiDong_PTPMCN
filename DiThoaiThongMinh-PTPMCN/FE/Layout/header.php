@@ -257,11 +257,5 @@
             </li>
         </ul>
     </nav>
-    
-    
 
-
-    <!-- <script src="./Javascript/index.js"></script>
-
-    <script src="./Javascript/blockform.js"></script>  -->
     
