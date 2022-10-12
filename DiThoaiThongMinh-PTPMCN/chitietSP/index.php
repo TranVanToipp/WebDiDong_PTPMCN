@@ -19,11 +19,14 @@
     </div>
 </div>
 <script>
-    var data = localStorage.getItem('idSP');
-    var ApiHinhSP = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read_single.php?id="+data;
+    var idSP = localStorage.getItem('idSP');
+    var ApiHinhSP = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read_single.php?id="+idSP;
     function start() {
     
-    getChiTietSP(handleSP);
+    getChiTietSP(function(data) {
+        handleSP(data);
+        handleSPCart();
+    });
 }
 start();
 
@@ -191,35 +194,11 @@ function handleSP(data) {
     });
 
     // Xử lí thêm sản phẩm 
-    var btnThemSP = document.querySelector('.chitiet-container-type-btn');
-
-
-    btnThemSP.onclick = () => {
-        var fullname = "<?php echo $fullname;?>";
-        var id_user= "<?php echo $id_user;?>";
-        if(fullname != "" && id_user != "") {
-            
-        var titleSP = document.querySelector('.header-chitiet-content h3').innerText;
-        var imgSPC = document.querySelector('.chitiet-container-above-img').getAttribute('src');
-        var priceSP = document.querySelector('.chitiet-container-price h4').innerText;
-
-        console.log(titleSP, imgSPC, priceSP);
-        var objectSP = {
-            title: titleSP,
-            img: imgSPC,
-            price: priceSP
-        }
-        console.log(data);
-        localStorage.setItem('SanPhamGioHang', JSON.stringify(objectSP));
-    }else{
-        console.log("dang nhap");
-    }
+    // var btnThemSP = document.querySelector('.chitiet-container-type-btn');
     
-    }
-    function handleThemSP() {
-
-    }
 }
+<script src="./Javascript/laydulieutuform.js"></script>
+
 
 </script>
 
@@ -394,7 +373,7 @@ function handleSP(data) {
     //     alert('Không có sản phẩm');
     // }
 
-</script>
+</>
 <!-- <script src = "../Javascript/chitietsanpham.js"></script> -->
 
 
