@@ -17,7 +17,7 @@
 
         <div class="cart-container">
             <ul class="cart-container__list">
-            <?php
+<?php
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
         $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
@@ -69,15 +69,36 @@
                         </div>
                         <div class="cart-container__item-update-SP">
                             <input type="button" class= "tru" value= "-" name="truSL" id="">
-                            <input class= "value-quantity" value = "'.$item->num.'" name="'.$item->id.'" id="">
+                            <input class= "value-quantity" value = "'.$item->num.'" name="'.$item->id.'" id="value-quantity">
                             <input type="button" class = "cong" value = "+" name="congSL" id="">
                         </div>
                     </div>
                 </li>
                 ';
-            }
-        }
-    }
+				if(!empty($_POST)){   
+					$a = $item->id;
+					//$num = $_POST[$a];
+					$cart = array(
+						'id' =>$item->id,
+						'product_id' =>$item->product_id,
+						'price' =>$item->price,
+						'num' =>$num
+					);
+					$json = json_encode($cart);
+					$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\cart\\update.txt', 'w');
+					fputs($fp,$json);
+					fclose($fp);
+				}
+				echo '<form action="'.$_SERVER['PHP_SELF'].'" method="POST">
+					<div class = "update-soluong">
+						<button type="submit" class = "update-soluong" name ="update" value = "Cập nhật sản phẩm">
+							Cập nhật sản phẩm
+						</button>
+					</div>
+				</form>';
+			}
+		}
+	}
 ?>
             </ul>
             
@@ -91,36 +112,6 @@
         </form> -->
     </div>
 </div>
-
-<?php
-
-if(!empty($_POST) && isset($_SESSION['id'])){
-    $id = $_SESSION['id'];
-    $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
-    $json = file_get_contents($url);
-    $data = json_decode($json);
-    if(isset($data->message)){
-        header('Location:../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/');
-        die();
-    }else{
-        foreach($data->data as $item){   
-            $a = $item->id;
-            //$num = $_POST['14'];
-            $cart = array(
-                'id' =>$item->id,
-                'product_id' =>$item->product_id,
-                'price' =>$item->price,
-                'num' =>$num
-            );
-            $json = json_encode($cart);
-            $fp = fopen('C:\\wamp23\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\cart\\update.txt', 'w');
-            fputs($fp,$json);
-            fclose($fp);
-        }
-    }
-}
-
-?>
 
 
 
