@@ -187,7 +187,11 @@ if(isset($_POST['add_cart'])){
 						'num' =>$num
 				   );
 				$json = json_encode($cart_arr);
+<<<<<<< HEAD
 				$fp = fopen('C:/wamp23/www/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/input.txt', 'w');
+=======
+				
+>>>>>>> 
 				fputs($fp,$json);
 				fclose($fp);
 				unset($_SESSION['product_id']);
