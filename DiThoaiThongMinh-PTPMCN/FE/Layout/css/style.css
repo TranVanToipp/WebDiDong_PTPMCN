@@ -105,3 +105,8 @@
   .spacer {
     margin-top: 36px;
   }
+
+  .form-dangki-link {
+    text-decoration: none;
+    font-size: 1.3rem;
+  }

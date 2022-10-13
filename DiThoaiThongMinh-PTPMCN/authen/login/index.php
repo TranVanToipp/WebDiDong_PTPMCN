@@ -35,6 +35,9 @@
         <input id="password" name="password" required type="password" minlength="6"  class="form-control">
         <span class="form-message"></span>
     </div>
+    <div class="form-dangki">
+        <a href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/register/index.php" class="form-dangki-link">Đăng kí tài khoản</a>
+    </div>
     <button type="submit" class="form-submit">Đăng nhập</button>
   </form>
   <script>

@@ -45,7 +45,9 @@
             <input id="password_confirmation" required name="password_confirmation" placeholder="Nhập lại mật khẩu" minlength="6" type="password" class="form-control">
             <span class="form-message"></span>
           </div>
-      
+          <div class="form-dangki">
+        <a href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login/index.php" class="form-dangki-link">Đăng nhập tài khoản</a>
+    </div>
           <button class="form-submit" type="submit">Đăng ký</button>
         </form>
       

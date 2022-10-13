@@ -17,52 +17,36 @@
 
         <div class="cart-container">
             <ul class="cart-container__list">
-                
-            </ul>
-        </div>
-    </div>
-</div>
-
-
-
-<script>
-    // var dataSPGH = JSON.parse(localStorage.getItem('SanPhamGioHang'));
-    // var arr = Object.entries(dataSPGH); 
-    var id_user = localStorage.getItem('id_user');
-    console.log(id_user);
-    var ApiCart = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id=1";
-    function start(){
-        getCart(handleCart);
-    }
-start();
-    function getCart(callback){
-        fetch(ApiCart)
-            .then(function (respon){
-                return respon.json();
-            })
-            .then(callback);
-    }
-
-    function handleCart(data) {
-        var itemCart = document.querySelector('.cart-container__list');
-        var html = data.data.map( (item) => {
-            return `
-                <li class="cart-container__item">
-                    <div class="cart-container__item-check">
-                        <input type="checkbox" name="" id="" class = "cart-container__item">
-                    </div>
+            <?php
+    if(isset($_SESSION['id'])){
+        $id = $_SESSION['id'];
+        $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
+        $json = file_get_contents($url);
+		$data = json_decode($json);
+        if(isset($data->message)){
+			header('Location:../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/');
+			die();
+		}else{
+            foreach($data->data as $item){
+                echo '
+                    <li class="cart-container__item">
+                        <div class="cart-container__item-check">
+                            <input type="checkbox" name="" id="" class = "cart-container__item">
+                        </div>
                     <div class="cart-container__item-box ">
                         <a href="" class="cart-container__box-img-link">
-                            <img src="${item.thumnail}" alt="Đây là sản phẩm">
+                            <img src="../assets/photos/'.$item->thumnail.'" alt="Đây là sản phẩm">
                         </a>
                         <div class="cart-container__item-xoa">
                         <i class="fa-solid fa-angle-left fa-angle-left-color"></i>
+                        <a href="http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/delete.php?id='.$item->id.'" class="">
                             <span>Xóa</span>
+                        </a>
                         </div>
                     </div>
                     <div class="cart-container__item-content ">
                         <div class="cart-container__item-title">
-                            ${item.title}
+                            '.$item->title.'
                         </div>
                         <div class="cart-container__item-salecontent">
                             <div class="cart-container__item-sale">
@@ -77,44 +61,91 @@ start();
                     <div class="cart-container__item-price-content ">
                         <div class="cart-container__item-price-tren">
                             <div class="cart-container__item-price">
-                                ${item.price}
+                                '.$item->price.'
                             </div>
                             <div class="cart-container__item-oulprice">
-                                ${item.discount}
+                            '.$item->discount.'
                             </div>
                         </div>
                         <div class="cart-container__item-update-SP">
-                            <input type="button" class= "tru" value= "-" name="" id="">
-                            <input type="number" class= "value-quantity" value = "${item.num}" name="" id="">
-                            <input type="button" class = "cong" value = "+" name="" id="">
+                            <input type="button" class= "tru" value= "-" name="truSL" id="">
+                            <input class= "value-quantity" value = "'.$item->num.'" name="'.$item->id.'" id="">
+                            <input type="button" class = "cong" value = "+" name="congSL" id="">
                         </div>
                     </div>
                 </li>
-            `;
-        });
-        itemCart.innerHTML = html.join('');
-
-        // Xử lí tăng, giảm số lượng
-        const $ = document.querySelector.bind(document);
-        const $$ = document.querySelectorAll.bind(document);
-        console.log('đây là log')
-        for(let  i = 0; i < $$('.cong').length; i++){
-            let a1 = $$('.value-quantity')[i].value;
-            a1 = parseInt(a1);
-            $$('.cong')[i].onclick = () => {
-                a1++;
-                $$('.value-quantity')[i].value = a1;
-            }
-            $$('.tru')[i].onclick = () => {
-                if(a1 < 2) {
-                    return;
-                }else {
-                    a1--;
-                    $$('.value-quantity')[i].value = a1;
-                }
+                ';
             }
         }
+    }
+?>
+            </ul>
+            
+        </div>
+        <!-- <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+            <div class = "update-soluong">
+                <button type="submit" class = "update-soluong" name ="update" value = "Cập nhật sản phẩm">
+                    Cập nhật sản phẩm
+                </button>
+            </div>
+        </form> -->
+    </div>
+</div>
 
-    }   
+<?php
+
+if(!empty($_POST) && isset($_SESSION['id'])){
+    $id = $_SESSION['id'];
+    $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
+    $json = file_get_contents($url);
+    $data = json_decode($json);
+    if(isset($data->message)){
+        header('Location:../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/');
+        die();
+    }else{
+        foreach($data->data as $item){   
+            $a = $item->id;
+            //$num = $_POST['14'];
+            $cart = array(
+                'id' =>$item->id,
+                'product_id' =>$item->product_id,
+                'price' =>$item->price,
+                'num' =>$num
+            );
+            $json = json_encode($cart);
+            $fp = fopen('C:\\wamp23\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\cart\\update.txt', 'w');
+            fputs($fp,$json);
+            fclose($fp);
+        }
+    }
+}
+
+?>
+
+
+
+<script>
+    // Xử lí tăng, giảm số lượng
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+    for(let  i = 0; i < $$('.cong').length; i++){
+        let a1 = $$('.value-quantity')[i].value;
+        a1 = parseInt(a1);
+        $$('.cong')[i].onclick = () => {
+            a1++;
+            $$('.value-quantity')[i].value = a1;
+        }
+        $$('.tru')[i].onclick = () => {
+            if(a1 < 2) {
+                return;
+            }else {
+                a1--;
+                $$('.value-quantity')[i].value = a1;
+            }
+        }
+    }
+  
 </script>
+
+
 
