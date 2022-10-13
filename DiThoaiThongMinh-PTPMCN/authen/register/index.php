@@ -1,8 +1,10 @@
 
 
 <?php
-
-$msg = '';
+session_start();
+if(!isset($msg)){
+	$msg = '';
+}
 
 ?>
 
@@ -68,18 +70,10 @@ $msg = '';
 				$data = json_decode($json);
 				if(isset($data->message)){
 					if($_POST['password'] == $_POST['password_confirmation']){
-						$user_arr = array(
-							'fullname' =>$_POST['fullname'],
-							'email' =>$_POST['email'],
-							'phone_number' =>'',
-							'address' =>'',
-							'userName' =>$_POST['userName'],
-							'password' =>$_POST['password']
-						);
-						$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
-						$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
-						fputs($fp,$json);
-						fclose($fp);
+						$_SESSION['fullname'] = $_POST['fullname'];
+						$_SESSION['email'] = $_POST['email'];
+						$_SESSION['userName'] = $_POST['userName'];
+						$_SESSION['password'] = $_POST['password'];
 						header('Location:/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 					}else
 						$msg = 'Mật Khẩu Không Khớp, vui lòng kiểm tra lại thông tin'; 
@@ -90,19 +84,6 @@ $msg = '';
 							die();
 						}
 					}
-					$user_arr = array(
-						'fullname' =>$_POST['fullname'],
-						'email' =>$_POST['email'],
-						'phone_number' =>'',
-						'address' =>'',
-						'userName' =>$_POST['userName'],
-						'password' =>$_POST['password']
-					);
-					$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
-					$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
-					fputs($fp,$json);
-					fclose($fp);
-					header('Location:./WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 				}
 				
 			}
