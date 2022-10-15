@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //headers
 header('Access-Control-Allow-Origin:*');//cho phép yêu cầu HTTP
 header('Content-Type: application/json');
@@ -11,15 +11,19 @@ include_once('../../core/initialize.php');
 
 $user = new user($db);
 
-$user->fullname = $_SESSION['fullname'];
-$user->email = $_SESSION['email'];
-$user->phone_number = '';
-$user->address = '';
-$user->userName = $_SESSION['userName'];
-$user->password = $_SESSION['password'];
+$fullname = $_SESSION['fullname'];
+$email = $_SESSION['email'];
+$userName = $_SESSION['userName'];
+$password = $_SESSION['password'];
+
+$user->fullname = $fullname;
+$user->email = $email;
+$user->phone_number = $phone_number;
+$user->address = $address;
+$user->userName = $userName;
+$user->password = $password;
 //create User
 if($user->create()){
-	session_destroy();//hủy toàn bộ session.
 	header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
 }
 else {echo 'error';}

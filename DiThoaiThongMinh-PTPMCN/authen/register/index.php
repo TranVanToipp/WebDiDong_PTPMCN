@@ -63,7 +63,7 @@ if(!isset($msg)){
       
       </div>
 
-      <?php
+       <?php
 			if(isset($_POST['fullname']) && isset($_POST['userName']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['password_confirmation'])){
 				$url = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/read_user.php";
 				$json=file_get_contents($url);
@@ -84,6 +84,11 @@ if(!isset($msg)){
 							die();
 						}
 					}
+					$_SESSION['fullname'] = $_POST['fullname'];
+					$_SESSION['email'] = $_POST['email'];
+					$_SESSION['userName'] = $_POST['userName'];
+					$_SESSION['password'] = $_POST['password'];
+					header('Location:./WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 				}
 				
 			}
