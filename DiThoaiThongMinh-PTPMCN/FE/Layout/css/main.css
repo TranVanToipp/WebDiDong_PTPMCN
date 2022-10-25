@@ -78,7 +78,18 @@
     flex: 1;
     height: 100%;
     border-radius: 2px;
-    
+}
+
+/* Icon search */
+#searchbt_simple {
+    background: url(../../../assets/img/icon/search.svg) no-repeat scroll center center;
+    border: medium;
+    position: absolute;
+    right: 34px;
+    width: 36px;
+    top: 17px;
+    text-indent: -99999px;
+    padding: 5px 6px;
 }
 
 .header__search-input {
@@ -166,7 +177,7 @@
 .header__navbar-item-cart {
     width: 144px;
     height: 36px;
-    padding: 0 0 0 30px;
+    /* padding: 0 0 0 30px; */
     position: relative;
     cursor: pointer;
 }
@@ -734,6 +745,7 @@
     align-items: center;
     justify-content: center;
     margin-top: -10px;
+    right: 0;
 }
 
 .header__navbar-item-lore-shared a:hover {
@@ -785,4 +797,196 @@
     margin-left: 10px;
 }
 
+/* 
+    *Search css thêm các kiểu sắp xếp   
+ */
+.timkiem-nhieu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
 
+.timkiem-3loai {
+    display: flex;
+    
+}
+
+.box-checkbox {
+    display: flex;
+}
+
+.sort-total {
+    float: left;
+    /* font-weight: bold; */
+    margin: 0 0 15px;
+    padding-top: 3px;
+    font-size: 1.5rem;
+    /* opacity: 0.9; */
+    color: #333;
+}
+
+.box-checkbox a {
+    height: 16px;
+    margin: 0 25px;
+}
+
+.box-checkbox .c-checkitem:first-child {
+    margin-left: 25px;
+}
+
+.c-checkitem .tick-checkbox {
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    margin-right: 2px;
+    height: 16px;
+    width: 16px;
+}
+
+.c-checkitem.active .tick-checkbox {
+    background-color: #4a90e2;
+    border: none;
+}
+
+.c-checkitem.active {
+    position: relative;
+}
+
+.c-checkitem.active::before {
+    height: 8px;
+    left: 4px;
+    transform: rotate(-35deg);
+}
+
+.c-checkitem.active::before, .c-checkitem.active::after {
+    background-color: #fff;
+    bottom: 2px;
+    border-radius: 20px;
+    content: '';
+    position: absolute;
+    width: 2px;
+}
+
+.c-checkitem.active::after {
+    height: 12px; 
+    left: 9px;
+    transform: rotate(35deg);
+}
+
+.c-checkitem.active::after {
+    height: 12px;
+    left: 9px;
+    transform: rotate(35deg);
+}
+
+
+.c-checkitem .tick-checkbox, .c-checkitem p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.c-checkitem .tick-checkbox {
+    background: #fff;
+}
+
+ .sort_select .sort-show::before {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #333;
+    content: '';
+    height: 0;
+    position: absolute;
+    top: 6px;
+    right: 0;
+    width: 0;
+}
+
+/* Chữ của thẻ a */
+.box-checkbox .c-checkitem p {
+    font-size: 12px;
+    line-height: 16px;
+    color: #333;
+}
+
+.c-checkitem .tick-checkbox, .c-checkitem p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Ô chọn sort */
+.sort-select {
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.sort-select .click-sort {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 12px;
+    padding: 6px 15px 6px 8px;
+}
+
+/* Icon */
+.sort-select .sort-show::before {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid #333;
+    content: '';
+    height: 0;
+    position: absolute;
+    top: 10px;
+    right: 4px;
+    width: 0;
+}
+/* Box sort */
+.sort-select-main {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 20%);
+    /* display: none; */
+    position: absolute;
+    padding: 0 7px;
+    top: 30px;
+    right: 0;
+    width: 160px;
+    z-index: 2;
+}
+
+.sort-select-main a {
+    text-decoration: none;
+}
+
+.sort-select-main p {
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.sort a {
+    color: #000;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 11px 3px;
+    display: block;
+}
+
+/* CSS header fix */
+
+@keyframes sticky1 {
+    from {
+        transform: translateY(-140px);
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    animation: sticky1 .5s;
+    z-index: 10;
+}
