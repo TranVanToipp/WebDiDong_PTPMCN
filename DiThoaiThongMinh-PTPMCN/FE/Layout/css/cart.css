@@ -155,3 +155,291 @@
     clear: both;
 }
 
+.total-provisional {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.total-provisional span {
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.fillinform {
+    display: flex;
+}
+
+.infor-customer {
+    padding: 10px 30px;
+}
+
+.form-customer .fillinform input {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    padding: 10px;
+    color: #333;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* cart is_emty */
+.container_giohang_isemty {
+    
+}
+
+.container_giohang_isemty img {
+    width: 20%;
+    display: flex;
+    margin: auto;
+}
+
+.textcart_trong {
+    text-align: center;
+    color: rgba(0,0,0,.6);
+    font-size: 1.5rem;
+    line-height: 1rem;
+    margin-top: 1.125rem;
+    margin-bottom: 1.125rem;
+    
+}
+
+.button_cart-mua {
+    
+    border-radius: 4px;
+    
+    margin: 10px 10px;
+    color: #288ad6;
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.button_cart-mua__link {
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid #288ad6;
+    display: flex;
+    margin: auto;
+    padding: 10px 20%;
+    color: #288ad6;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.dathang-content {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 25px;
+}
+
+.header_dathang {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.heading-text {
+    color: #666;
+    font-size: 1.3rem;
+}
+
+.heading-text__gia {
+    color: #f30c28;
+    font-size: 1.3rem;
+}
+
+.text-dieukien {
+    font-size: 1.4rem;
+
+}
+
+.container_dieukien {
+
+}
+
+.button-container__dathang {
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
+    padding: 15px 0;
+    background: linear-gradient(180deg,#f79429,#f7712e);
+}
+
+.button-container__dathang-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--while-color);
+    display: flex;
+    justify-content: center;
+}
+
+.footer-dathang {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Cách thức nhận hàng */
+.choosegetgoods h4 {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-radio-check lable {
+    cursor: pointer;
+    display: inline-flex;
+    /* align-items: center; */
+    margin-right: 25px;
+}
+
+.form-radio-check lable span {
+    margin-left: 5px;
+    font-size: 1.4rem;
+    color: rgb(34, 32, 32);
+}
+
+/* Đặt hàng */
+
+.form-content__thongtin {
+    display: flex;
+    justify-content: space-between;
+   
+}
+.selection_form-dathang {
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    
+    align-items: center;
+    outline: none;
+    width: 100%;
+}
+
+.form-content__tinh {
+    width: 50%;
+    display: flex;
+    position: relative;
+    background: #fff;
+}
+
+.selection_form--quan {
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    
+    align-items: center;
+    outline: none;
+    width: 100%;
+}
+
+.form-content-huyen {
+    width: 50%;
+    display: flex;
+}
+
+.form-giaohang__content {
+    background: #f0f0f0;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.mainTab {
+    position: relative;
+}
+
+.form-giaohang__content::before {
+    margin-top: -27px;
+    content: "";
+    position: absolute;
+    /* top: 2px; */
+    left: 333px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #f0f0f0;
+}
+
+.form-content__thongxa {
+    display: flex;
+}
+
+/* drop */
+
+.form-giaohang__content .heading-giaohang {
+    font-size: 1.5rem;
+    padding: 10px 0;
+}
+
+.selection-input__content-text {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.select-dropdown {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    display: none;
+    /* left: 0;
+    right: 0; */
+}
+
+.form-content__tinh:hover .select-dropdown {
+    display: block;
+}
+
+.select-results {
+    /* right: 50%;
+    left: 25%; */
+    
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-sizing: border-box;
+   
+    position: absolute;
+    /* left: -100000px; */
+    width: 50%;
+    z-index: 1051;
+}
+
+.select-results__options {
+    list-style-type: none;
+}
+
+.select2-results__option {
+    font-size: 1.3rem;
+    padding: 6px 6px;
+    opacity: 0.9;
+}
+
+.option_timkiemtinh--input {
+    /* width: 200%; */
+}
+
+.select2-results__option:hover {
+    background-color: #5897fb;
+    cursor: pointer;
+    
+}
+
+.select-dropdown .select-results {
+    max-height: 150px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+
+
+
+   
