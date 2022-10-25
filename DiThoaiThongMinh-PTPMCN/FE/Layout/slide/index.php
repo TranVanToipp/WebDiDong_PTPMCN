@@ -18,8 +18,6 @@
         opacity: 0.5;
     }
 
-    
-
     .header__slide-show .slide-right{
         position:absolute;
         right: 457px;
@@ -68,7 +66,9 @@
                         </div>
                         <ul class="header__slide-list">
                             <li class="header__slide-item">
-                                <div class="tab-item active">Trải nghiệm Galaxy Z</div>
+                                <div class="tab-item active">
+                                    Trải nghiệm Galaxy Z
+                                </div>
                             </li>
                             <li class="header__slide-item">
                                 <div class="tab-item">

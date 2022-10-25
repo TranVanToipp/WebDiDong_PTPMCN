@@ -29,7 +29,7 @@
             <div class="grid wide">
                 <div class="header__navbar">
                     <div class="header__navbar-item header__navbar-logo">
-                        <a href="" class="header__navbar-home-link">
+                        <a href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN" class="header__navbar-home-link">
                             <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/logo.svg" alt="Hình ảnh logo home" class="header__navbar-logo-img">
                             <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsive/logo_1648529142.svg" alt="Hình ảnh logo home" class="header__navbar-logoresponsive-img">
                         </a>
@@ -59,11 +59,13 @@
                         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                             <div class="header__search">
                                 <div class="header__search-input-wrap">
-                                    <input type="text" name="searchInput"  class="header__searh-input" placeholder="Bạn tìm gì...">
+                                    <input type="text" name="searchInput"  class="header__search-input" placeholder="Bạn tìm gì...">
                                 </div>
-                                <input type="submit" name="ok" value ="Search"/>
-                                    <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
-                                </input>
+                                <input type="submit" id ="searchbt_simple" name="ok" value ="Search"/>
+                                <!-- <i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i> -->
+                                <!-- <input href="" type="submit" name="ok"  class="header__search-btn">
+										<i class="header__search-btn-icon fa-solid fa-magnifying-glass"></i>
+								</input> -->
                             </div>
                         </form>
                         <?php
@@ -88,37 +90,63 @@
                                 <span>Gần bạn</span>
                             </div>
                         </a> -->
-                        <div href="" class="header__navbar-menu-link header__navbar-item-cart header__navbar-item-hover header__navbar-item-click">
+                        <a href="./cart/index.php" class="header__navbar-menu-link header__navbar-item-cart header__navbar-item-hover header__navbar-item-click">
                             <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/cart.svg" alt="" class="header__navbar-menu-img">
                             <div class="header__navbar-menu-right header__navbar-cart-basket ">
                                 <span>Giỏ hàng</span>
-                                <span class="header__navbar-number-cart">0</span>
+                                <span class="header__navbar-number-cart">
+                                    <?php
+                                        // Số lượng trong giỏ hàng
+                                    
+                                    ?>
+                                    0
+                                </span>
                             </div>
 
-                           
                             <!-- LIST -->
                             <ul class="header__navbar-cart-list">
                                 <h4>Sản phẩm mới thêm</h4>
-                                
+                                <?php
+                                    if (count($_SESSION['cart'])>0){
+                                        if (isset($_SESSION['cart'])) {
+                                            $i = 0;
+                                            foreach ($_SESSION['cart'] as $sanpham) {
+                                                echo '
+                                                    <li class="header__navbar-cart-item">
+                                                        <div class="header__navbar-cart-img">
+                                                            <img src="'.$sanpham[0].'" alt="Hình sản phẩm" class="header__navbar-cart-img-link">
+                                                        </div>
+                                                        <div class="header__navbar-cart-name">
+                                                        '.$sanpham[1].'
+                                                        </div>
+                                                        
+                                                        <div class="header__navbar-cart-price">
+                                                            '.$sanpham[2].'
+                                                        </div>
+                                                    </li>
+                                                ';
+                                                $i++;
+                                            }}}
+                                ?>
                                 <span class="header__navbar-cart-list-span">
                                     Tổng tiền: 0
                                 </span>
                                 <sup>đ</sup>
                             </ul>
-                        </div>
+                        </a>
                         <div class="header__navbar-cart-menu">
                             <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsive/menu_mb.svg" alt="menu responsive mobile tablet" class="header__navbar-cart-menu-img">
                         </div>
-                        <div class="header__navbar-item-lore-shared">
+                        <div class="header__navbar-item-lore-shared header__navbar-item-lore-shared-hover">
                             <?php 
-                                if(isset($_SESSION['fullname'])) {
+                                if(isset($_SESSION['fullname']) && isset($_SESSION['id'])) {
                                     echo '
-                                        <a href="#" class="header__navbar-item-fullName-link header__navbar-item-lore-shared-hover">'.$_SESSION['fullname'].'</a>
+                                        <a href="#" class="header__navbar-item-fullName-link">'.$_SESSION['fullname'].'</a>
                                         <div class="header__navbar-item-box-user">
                                             <ul class="header__navbar-item-box-user-list">
                                                 <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
                                                 <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đổi mật khẩu</a></li>
-                                                <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đăng xuất</a></li>
+                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'authen/logout/index.php" >Đăng xuất</a></li>
                                             </ul>
                                         </div>
                                     ';
@@ -187,7 +215,7 @@
                 </div>  
             </div> 
      <!-- Phần footer Web -->
-        
+ <script src = "./Javascript/index.js"></script>       
     </div>
         <!-- MODAL MENU -->
     <div class="grid wide">
