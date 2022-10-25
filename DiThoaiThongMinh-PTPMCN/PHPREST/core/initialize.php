@@ -11,4 +11,5 @@
 	require_once(CORE_PATH.DS."product.php");
 	require_once(CORE_PATH.DS."user.php");
 	require_once(CORE_PATH.DS."cart.php");
+	require_once(CORE_PATH.DS."tinhTP.php");
 ?>

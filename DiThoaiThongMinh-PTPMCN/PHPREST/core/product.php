@@ -20,9 +20,6 @@
 		//page
 		public $page;
 		public $max_page;
-		//img_desct
-		public $img_desct;
-		
 		//hàm tạo với kết nối db
 		public function __construct($db){
 			$this->comn=$db;
@@ -45,6 +42,69 @@
 			
 			return $stmt;
 		}
+
+		public function sortBangChuCai(){
+			//create query
+			$query = 'SELECT * FROM '.$this->table.' 
+					ORDER BY thumnail ASC';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function sortGiamGia(){
+			//create query
+			$query = 'SELECT * FROM '.$this->table.' 
+					ORDER BY discount DESC';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		//seletct tất cả các sản phẩm
+		public function productALl(){
+			//create query
+			$query = 'SELECT * FROM '.$this->table;
+				
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		// Sắp xếp sản phẩm giảm dần
+		public function sortGiam(){
+			//create query
+			$query = 'SELECT * FROM '.$this->table.' 
+					ORDER BY price DESC';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function sortTang(){
+			//create query
+			$query = 'SELECT * FROM '.$this->table.' 
+					ORDER BY price ASC';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
 		//select sản phẩm.
 		public function read($num){
 			//create query
@@ -118,6 +178,23 @@
 				img.img_desct
 				FROM '.$table.' img
 					WHERE img.product_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function discount() {
+			$table = 'discount';
+			$query = 'SELECT 
+				dis.id,
+				dis.product_id,
+				dis.discount_text
+				FROM '.$table.' dis
+					WHERE dis.product_id = ?';
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
 			$stmt->bindParam(1,$this->id);

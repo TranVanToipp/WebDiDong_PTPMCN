@@ -10,13 +10,28 @@ include_once('../../core/initialize.php');
 //khởi tạo product
 $product = new product($db);
 $product_img = new product($db);
+$product_discount = new product($db);
 $product->id = isset($_GET['id']) ? $_GET['id'] : die();
 $product_img->id = isset($_GET['id']) ? $_GET['id'] : die();
+$product_discount->id = isset($_GET['id']) ? $_GET['id'] : die();
 //product query
 $product->read_single();
 $result = $product_img->img_desct();
+$result_discount = $product_discount->discount();
 $product_arr['data'] = array();
 $num = $result->rowCount();
+$num2 = $result_discount->rowCount();
+$dis_arr['dis'] = array();
+if($num2 > 0) {
+	while($row = $result_discount->fetch(PDO::FETCH_ASSOC)){
+		extract($row);
+		$discount_item = array(
+			'product_id' =>$id,
+			'discount_text' => $discount_text
+		);
+		array_push($dis_arr['dis'],$discount_item);
+	}
+}
 $img_arr['img'] = array();
 if($num > 0){
 	while($row = $result->fetch(PDO::FETCH_ASSOC)){
@@ -42,6 +57,7 @@ if(isset($product->created_at)){
 		'description2' =>html_entity_decode($product->description2),
 		'created_at' =>$product->created_at,
 		'img' =>$img_arr['img'],
+		'discount_text' => $dis_arr['dis'],
 	);
 	array_push($product_arr['data'],$product);
 	//chuyển đổi sang dạng JSON
