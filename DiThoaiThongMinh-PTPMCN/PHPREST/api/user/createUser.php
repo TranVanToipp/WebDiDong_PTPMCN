@@ -10,15 +10,18 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 include_once('../../core/initialize.php');
 
 $user = new user($db);
-//lấy dữ liệu
-$data = json_decode(file_get_contents("input.txt"));
 
-$user->fullname = $data->fullname;
-$user->email = $data->email;
-$user->phone_number = $data->phone_number;
-$user->address = $data->address;
-$user->userName = $data->userName;
-$user->password = $data->password;
+$fullname = $_SESSION['fullname'];
+$email = $_SESSION['email'];
+$userName = $_SESSION['userName'];
+$password = $_SESSION['password'];
+
+$user->fullname = $fullname;
+$user->email = $email;
+$user->phone_number = $phone_number;
+$user->address = $address;
+$user->userName = $userName;
+$user->password = $password;
 //create User
 if($user->create()){
 	header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');

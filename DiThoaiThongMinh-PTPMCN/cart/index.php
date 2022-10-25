@@ -20,201 +20,110 @@
         <div class="cart-container">
             <ul class="cart-container__list">
             <?php
-                if (count($_SESSION['cart'])>0){
-                    if (isset($_SESSION['cart'])) {
-                        $i = 0;
-                        foreach ($_SESSION['cart'] as $sanpham) {
-                            echo '<li class="cart-container__item">
-                                        <div class="cart-container__item-check">
-                                            <input type="checkbox" name="" id="" class = "cart-container__item">
-                                        </div>
-                                    <div class="cart-container__item-box ">
-                                        <a href="" class="cart-container__box-img-link">
-                                            <img src="../assets/photos/'.$sanpham[0].'" alt="Đây là sản phẩm">
-                                        </a>
-                                        <div class="cart-container__item-xoa">
-                                        <i class="fa-solid fa-angle-left fa-angle-left-color"></i>
-                                        <a href="deleteCart.php?id='.$i.'" class="">
-                                            <span>Xóa</span>
-                                        </a>
-                                        </div>
-                                    </div>
-                                    <div class="cart-container__item-content ">
-                                        <div class="cart-container__item-title">
-                                            '.$sanpham[1].'
-                                        </div>
-                                        <div class="cart-container__item-salecontent">
-                                            <div class="cart-container__item-sale">
-                                                Mua online thêm quà:
-                                            </div>
-                                            <div class="cart-container__item-salechon">
-                                                Chọn 1 trong 2 khuyến mãi:
-                                            </div>
-                                        </div>
-                                        <span class= "cart-container__textmausp" >Màu: xanh</span>
-                                    </div>
-                                    <div class="cart-container__item-price-content ">
-                                        <div class="cart-container__item-price-tren">
-                                            <div class="cart-container__item-price">
-                                                '.$sanpham[2].'
-                                            </div>
-                                            <div class="cart-container__item-oulprice">
-                                            '.$sanpham[3].'
-                                            </div>
-                                        </div>
-                                        <div class="cart-container__item-update-SP">
-                                            <input type="button" class= "tru" value= "-" name="truSL" id="">
-                                            <input class= "value-quantity" value = "1" name="" id="">
-                                            <input type="button" class = "cong" value = "+" name="congSL" id="">
-                                        </div>
-                                    </div>
-                                </li>';
-                            $i++;
-                        }
-                       // header("Location:../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/cart/index.php");
-    
-                    }    
-                }else {
-                    // header("Location:../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/cart/index.php");
-                    echo '
-                        <div class="container_giohang_isemty">
-                            <img src="../assets/img/cart/giohangis_emty.png" alt="Hình giỏ hàng trống" class="giohang_rong">
+    if(isset($_SESSION['id'])){
+        $id = $_SESSION['id'];
+        $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
+        $json = file_get_contents($url);
+		$data = json_decode($json);
+        if(isset($data->message)){
+			header('Location:../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/');
+			die();
+		}else{
+            foreach($data->data as $item){
+                echo '
+                    <li class="cart-container__item">
+                        <div class="cart-container__item-check">
+                            <input type="checkbox" name="" id="" class = "cart-container__item">
                         </div>
-                        <div class="textcart_trong">Giỏ hàng của bạn còn trống</div>
-                        <div class="button_cart-mua">
-                            <a href="../" class="button_cart-mua__link">Về Trang Chủ</a>
+                    <div class="cart-container__item-box ">
+                        <a href="" class="cart-container__box-img-link">
+                            <img src="../assets/photos/'.$item->thumnail.'" alt="Đây là sản phẩm">
+                        </a>
+                        <div class="cart-container__item-xoa">
+                        <i class="fa-solid fa-angle-left fa-angle-left-color"></i>
+                        <a href="http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/delete.php?id='.$item->id.'" class="">
+                            <span>Xóa</span>
+                        </a>
                         </div>
-                    ';
-                }
-               
-             ?>
+                    </div>
+                    <div class="cart-container__item-content ">
+                        <div class="cart-container__item-title">
+                            '.$item->title.'
+                        </div>
+                        <div class="cart-container__item-salecontent">
+                            <div class="cart-container__item-sale">
+                                Mua online thêm quà:
+                            </div>
+                            <div class="cart-container__item-salechon">
+                                Chọn 1 trong 2 khuyến mãi:
+                            </div>
+                        </div>
+                        <span class= "cart-container__textmausp" >Màu: xanh</span>
+                    </div>
+                    <div class="cart-container__item-price-content ">
+                        <div class="cart-container__item-price-tren">
+                            <div class="cart-container__item-price">
+                                '.$item->price.'
+                            </div>
+                            <div class="cart-container__item-oulprice">
+                            '.$item->discount.'
+                            </div>
+                        </div>
+                        <div class="cart-container__item-update-SP">
+                            <input type="button" class= "tru" value= "-" name="truSL" id="">
+                            <input class= "value-quantity" value = "'.$item->num.'" name="'.$item->id.'" id="">
+                            <input type="button" class = "cong" value = "+" name="congSL" id="">
+                        </div>
+                    </div>
+                </li>
+                ';
+            }
+        }
+    }
+?>
             </ul>
-            <div class="total-provisional">
-                <span class="total-quantity">
-                    <span class="total-lable">Tạm tính</span>
-                    (8 sản phẩm)
-                </span>
-                <span class="tem-total-product-quantity">51.520.000₫</span>
+            
+        </div>
+        <!-- <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
+            <div class = "update-soluong">
+                <button type="submit" class = "update-soluong" name ="update" value = "Cập nhật sản phẩm">
+                    Cập nhật sản phẩm
+                </button>
             </div>
-        </div>
-        <div class="infor-customer">
-            <h4>Thông tin khách hàng</h4>
-            <form action="" class = "form-customer">
-                <div class="sex-customer">
-                    <input type="radio" name="fav_language" id="" value= "Anh">
-                    Anh
-                    <input type="radio" name="fav_language" id="" value= "chi">
-                    Chị
-                </div>
+        </form> -->
+    </div>
+</div>
 
-                <div class="fillinform">
-                   
-                        <input placeholder="Họ và Tên" type="text" maxlength = "50" required= "required" name="" id="">
-                   
-                        <input placeholder="Số điện thoại" maxlength = "10" required= "required" name="" id="">
-                    
-                </div>
-            </form>
-        </div>
+<?php
 
-        <div class="choosegetgoods">
-            <h4>Chọn cách thức nhận hàng</h4>
-            <div class="click-choose">
-                <div class="form-radio-check">
-                    <lable class="check-giaotannoi">
-                        <input type="radio" name="fav_language" id="" value= "Anh">
-                        <span>Giao tận nơi</span>
-                    </lable>
-                    <lable class="click-nhantaicuahang">
-                        <input type="radio" name="fav_language" id="" value= "chi">
-                        <span>Nhận tại cữa hàng</span>
-                    </lable>
+if(!empty($_POST) && isset($_SESSION['id'])){
+    $id = $_SESSION['id'];
+    $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
+    $json = file_get_contents($url);
+    $data = json_decode($json);
+    if(isset($data->message)){
+        header('Location:../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/');
+        die();
+    }else{
+        foreach($data->data as $item){   
+            $a = $item->id;
+            //$num = $_POST['14'];
+            $cart = array(
+                'id' =>$item->id,
+                'product_id' =>$item->product_id,
+                'price' =>$item->price,
+                'num' =>$num
+            );
+            $json = json_encode($cart);
+            $fp = fopen('C:\\wamp23\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\cart\\update.txt', 'w');
+            fputs($fp,$json);
+            fclose($fp);
+        }
+    }
+}
 
-                    
-                </div>
+?>
 
-                <div class="form-giaohang__content">
-                   <div class="mainTab">
-                   <div class="heading-giaohang">
-                        <span>Chọn địa chỉ để biết thời gian và phí vận chuyển (nếu có)</span>
-                    </div>
-                    <div class="form-container">
-                        <div class="form-content__thongtin">
-                            <div class="form-content__tinh">
-                                <span class="selection_form-dathang">
-                                    <span class="selection-input__content">
-                                        <span class="selection-input__content-text">
-                                            Tỉnh/ Thành phố
-                                        </span>
-                                        <span class="selection-icon__dow">
-                                            <!-- icon dow -->
-                                        </span>
-                                    </span>
-                                </span>
-                                <span class="select-dropdown">
-                                    <span class="select-results">
-                                        <ul class="select-results__options" role ="listbox" aria-expanded="true" aria-hidden="false">
-                                            <li class="select2-results__option" role = "option">
-                                                Tỉnh/ Thành phố 
-                                            </li>
-                                            <input type="text" class="option_timkiemtinh--input" name="" id="">
-                                            
-                                        </ul>
-                                    </span>
-                                </span>
-                            </div>
-
-
-                            
-
-                            <!-- Quận huyện -->
-                            <div class="form-content-huyen">
-                                <span class="selection_form--quan">
-                                    <span class="selection-input__quan">
-                                        <span class="selection-input__quan-text">
-                                            Quận /Huyện
-                                        </span>
-                                        <span class="selection-icon__dow">
-                                            <!-- icon dow -->
-                                        </span>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
-                        
-
-                        
-
-                        <div class="form-content__thongxa">
-                            <span class="selection_form-dathang">
-                                <span class="selection-input__content">
-                                    <span class="selection-input__content-text">
-                                        Tỉnh/ Thành phố
-                                    </span>
-                                    <span class="selection-icon__dow">
-                                        <!-- icon dow -->
-                                    </span>
-                                </span>
-                            </span>
-
-                                <!-- Quận huyện -->
-                            <span class="selection_form--quan">
-                                <span class="selection-input__quan">
-                                    <span class="selection-input__quan-text">
-                                        Quận /Huyện
-                                    </span>
-                                    <span class="selection-icon__dow">
-                                        <!-- icon dow -->
-                                    </span>
-                                </span>
-                            </span>
-                        </div>
-
-                    </div>
-                   </div>
-                </div>
-            </div>
-        </div>
 
         <div class="dathang-content">
             <div class="header_dathang">

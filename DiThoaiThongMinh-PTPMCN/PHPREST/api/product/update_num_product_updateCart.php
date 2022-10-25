@@ -1,7 +1,5 @@
 <?php
-
-//headers
-		//headers
+session_start();
 header('Access-Control-Allow-Origin:*');//cho phép yêu cầu HTTP
 header('Content-Type: application/json');
 header('Access-Control-Allow-Methods: POST');
@@ -10,7 +8,7 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers,Content-Type,
 
 include_once('../../core/initialize.php');
 
-//khởi tạo product
+$cart = new cart($db);
 $product = new product($db);
 $product_update = new product($db);
 $product->id = isset($_GET['id']) ? $_GET['id'] : die();
@@ -29,20 +27,20 @@ if($product_update->num > 0){
 		header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/cart');
 	}
 } else if($product_update->num == 0){
-	update();
-	//delete sản phẩm
-	header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/delete_product.php?id='.$product_update->id);
+	if($product_update->update_num_product()){
+		update();
+		//delete sản phẩm
+		header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/delete_product.php?id='.$product_update->id);
+	}
 }else {
 	echo 'số lượng không hợp lệ';
 }
 function update(){
-	$cart = new cart($db);
 	//lấy dữ liệu
-	$data_update = json_decode(file_get_contents("../cart/update.txt"));
-
-	$cart->id = $data_update->id;
-	$cart->price = $data_update->price * $data_update->num;
-	$cart->num = $data_update->num;
+	
+	$cart->id = $data->id;
+	$cart->price = $data->price * $_GET['num'];
+	$cart->num = $_GET['num'];
 	$cart->update();
 }
 ?>

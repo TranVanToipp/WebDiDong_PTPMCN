@@ -1,8 +1,10 @@
 
 
 <?php
-
-$msg = '';
+session_start();
+if(!isset($msg)){
+	$msg = '';
+}
 
 ?>
 
@@ -61,25 +63,17 @@ $msg = '';
       
       </div>
 
-      <?php
+       <?php
 			if(isset($_POST['fullname']) && isset($_POST['userName']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['password_confirmation'])){
 				$url = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/read_user.php";
 				$json=file_get_contents($url);
 				$data = json_decode($json);
 				if(isset($data->message)){
 					if($_POST['password'] == $_POST['password_confirmation']){
-						$user_arr = array(
-							'fullname' =>$_POST['fullname'],
-							'email' =>$_POST['email'],
-							'phone_number' =>'',
-							'address' =>'',
-							'userName' =>$_POST['userName'],
-							'password' =>$_POST['password']
-						);
-						$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
-						$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
-						fputs($fp,$json);
-						fclose($fp);
+						$_SESSION['fullname'] = $_POST['fullname'];
+						$_SESSION['email'] = $_POST['email'];
+						$_SESSION['userName'] = $_POST['userName'];
+						$_SESSION['password'] = $_POST['password'];
 						header('Location:/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 					}else
 						$msg = 'Mật Khẩu Không Khớp, vui lòng kiểm tra lại thông tin'; 
@@ -90,18 +84,10 @@ $msg = '';
 							die();
 						}
 					}
-					$user_arr = array(
-						'fullname' =>$_POST['fullname'],
-						'email' =>$_POST['email'],
-						'phone_number' =>'',
-						'address' =>'',
-						'userName' =>$_POST['userName'],
-						'password' =>$_POST['password']
-					);
-					$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
-					$fp = fopen('C:\\wamp64\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\user\\input.txt', 'w');
-					fputs($fp,$json);
-					fclose($fp);
+					$_SESSION['fullname'] = $_POST['fullname'];
+					$_SESSION['email'] = $_POST['email'];
+					$_SESSION['userName'] = $_POST['userName'];
+					$_SESSION['password'] = $_POST['password'];
 					header('Location:./WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 				}
 				
