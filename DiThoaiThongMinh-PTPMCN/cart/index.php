@@ -94,37 +94,6 @@
     </div>
 </div>
 
-<?php
-
-if(!empty($_POST) && isset($_SESSION['id'])){
-    $id = $_SESSION['id'];
-    $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/cart/read_cart.php?user_id='.$id;
-    $json = file_get_contents($url);
-    $data = json_decode($json);
-    if(isset($data->message)){
-        header('Location:../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/');
-        die();
-    }else{
-        foreach($data->data as $item){   
-            $a = $item->id;
-            //$num = $_POST['14'];
-            $cart = array(
-                'id' =>$item->id,
-                'product_id' =>$item->product_id,
-                'price' =>$item->price,
-                'num' =>$num
-            );
-            $json = json_encode($cart);
-            $fp = fopen('C:\\wamp23\\www\\WebDiDong_PTPMCN\\DiThoaiThongMinh-PTPMCN\\PHPREST\\api\\cart\\update.txt', 'w');
-            fputs($fp,$json);
-            fclose($fp);
-        }
-    }
-}
-
-?>
-
-
         <div class="dathang-content">
             <div class="header_dathang">
                 <span class="heading-text">Tổng tiền:</span>
