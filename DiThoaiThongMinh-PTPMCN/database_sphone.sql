@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 12, 2022 at 03:46 PM
+-- Generation Time: Oct 26, 2022 at 07:39 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -52,14 +52,15 @@ CREATE TABLE IF NOT EXISTS `cart` (
   `price` double NOT NULL,
   `num` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `cart`
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `user_name`, `product_id`, `price`, `num`) VALUES
-(12, 1, 'test123', 1, 134, 1);
+(12, 1, 'test123', 1, 134, 1),
+(18, 4, 'Tới Trần', 2, 134, 1);
 
 -- --------------------------------------------------------
 
@@ -111,7 +112,19 @@ CREATE TABLE IF NOT EXISTS `configuration` (
   `sim` text COLLATE utf8_unicode_ci NOT NULL,
   `pin` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `configuration`
+--
+
+INSERT INTO `configuration` (`id`, `product_id`, `screen`, `operating_system`, `front_camera`, `rear_camera`, `chip`, `ram`, `sim`, `pin`) VALUES
+(1, 1, '6.7\" - Tần số quét 120 Hz', 'iPhone (iOS)', '12 MP', '48MP x12MP x 12MP', 'Apple A16 Bionic', '16GB', '2 Sim', '4323 mAh'),
+(2, 2, '1290 x 2796 pixels', 'iPhone (iOS)', '12 MP', '48MP x12MP x 12MP', 'Apple A16 Bionic', '6 GB', '2 Sim', '4323 mAh'),
+(4, 3, '1284 x 2778 Pixels', '', '12 MP', '3 camera 12 MP', 'Apple A15 Bionic 6 nhân', '6 GB', '2Sim', '4352 mAh'),
+(5, 5, '6.1\" - Tần số quét 60 Hz', '828 x 1792 Pixels', '12MP', '2 camera 12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '1 Nano SIM & 1 eSIM', '3110 mAh'),
+(6, 6, '6.5\" - Tần số quét 60 Hz', '8 nhân 1.6 GHz', '5 MP', 'Chính 48 MP & Phụ 2 MP', '4', '3 GB', '2 Nano SIM', '5000 mAh'),
+(7, 7, '6.5\" - Tần số quét 60 Hz', 'HD+ (720 x 1600 Pixels)', '5 MP', 'Chính 13 MP & Phụ 2 MP, 2 MP', '8 GB', '8 GB', '2 Nano SIM', '5000 mAh');
 
 -- --------------------------------------------------------
 
@@ -11558,6 +11571,43 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `discount`
+--
+
+DROP TABLE IF EXISTS `discount`;
+CREATE TABLE IF NOT EXISTS `discount` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `discount_text` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `discount`
+--
+
+INSERT INTO `discount` (`id`, `product_id`, `discount_text`) VALUES
+(1, 1, 'Giảm 5% tối đa 1.000.000đ khi thanh toán qua Kredivo'),
+(2, 1, 'Tặng 500.000đ khi mua Apple Watch hoặc AirPods 3'),
+(3, 1, 'Tặng 400.000đ khi mua ốp lưng chính hãng Apple'),
+(4, 2, 'Tặng 100.000đ mua Tai Nghe Bluetooth'),
+(5, 2, 'Mua combo ốp lưng, cường lực chỉ 150.000đ'),
+(6, 2, 'Mua Củ sạc nhanh Samsung 25W Type-C Chính hãng chỉ 350.000đ'),
+(7, 2, 'Hotsale chỉ 2 ngày 25-26/10 (KHBH lại ngày 24/10)'),
+(8, 3, 'Tặng ốp lưng chính hãng theo máy (mặc định)'),
+(9, 3, 'Tặng 100.000đ mua Tai Nghe Bluetooth Redmi Buds 3'),
+(10, 3, 'Mua combo ốp lưng, cường lực chỉ 150.000đ'),
+(11, 4, 'Phụ kiện bảo vệ: Ốp lưng, Dán cường lực, Dán PPF, Dán Camera với giá chỉ từ 50.000đ.'),
+(12, 4, 'Tặng ốp lưng chính hãng theo máy (mặc định)'),
+(13, 5, 'Tặng 100.000đ mua Tai Nghe Bluetooth Redmi Buds 3'),
+(14, 5, 'Mua combo ốp lưng, cường lực chỉ 150.000đ'),
+(15, 6, 'Giảm đến 500.000đ áp dụng sản phẩm từ 3 triệu. Chi tiết\r\nTặng Samsung Lucky Box'),
+(16, 5, 'Đặc quyền Galaxy: Phòng chờ thương gia, xem phim, ăn uống phong cách - Chi tiết'),
+(17, 5, 'Trả góp lãi suất 0% đến 12 hoặc 24 tháng qua thẻ tín dụng và nhà tài chính - Chi tiết');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `img_desct`
 --
 
@@ -11568,7 +11618,7 @@ CREATE TABLE IF NOT EXISTS `img_desct` (
   `img_desct` text COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `pk_img_desct` (`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `img_desct`
@@ -11576,7 +11626,21 @@ CREATE TABLE IF NOT EXISTS `img_desct` (
 
 INSERT INTO `img_desct` (`id`, `product_id`, `img_desct`) VALUES
 (1, 1, 'samsung34.jpg'),
-(2, 1, 'samsung42.jpg');
+(2, 1, 'samsung42.jpg'),
+(3, 6, 'Đen iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
+(4, 6, 'Đỏ iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
+(5, 6, 'Hồng iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
+(6, 6, 'Trắng iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
+(7, 5, 'DenOppoA16K 3GB32GB.webp'),
+(8, 5, 'XanhOppoA16K 3GB32GB.webp'),
+(9, 5, 'XanhRealme9 Pro5G8GB128GB.jpeg'),
+(10, 5, ''),
+(11, 3, 'Đen Samsung Galaxy S22 Ultra 8GB128GB.webp'),
+(12, 3, 'Hồng Samsung Galaxy S22 Ultra 8GB128GB.webp'),
+(13, 3, 'Trắng Samsung Galaxy S22 Ultra 8GB128GB.webp'),
+(14, 3, 'Xanh Samsung Galaxy S22 Ultra 8GB128GB.webp'),
+(15, 1, 'Đen iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
+(16, 1, 'BacIP8.webp');
 
 -- --------------------------------------------------------
 
@@ -11589,18 +11653,19 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `user_name` text COLLATE utf8_unicode_ci NOT NULL,
+  `gender` text COLLATE utf8_unicode_ci NOT NULL,
   `phone_number` text COLLATE utf8_unicode_ci NOT NULL,
   `tinh_tp` text COLLATE utf8_unicode_ci NOT NULL,
   `quan_huyen` text COLLATE utf8_unicode_ci NOT NULL,
   `xa_phuong` text COLLATE utf8_unicode_ci NOT NULL,
   `product` text COLLATE utf8_unicode_ci NOT NULL,
   `num` int(11) NOT NULL,
-  `total_money` double NOT NULL,
+  `money` double NOT NULL,
   `note` text COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -11629,12 +11694,11 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `product_type`, `title`, `price`, `discount`, `num`, `thumnail`, `description`, `description2`, `created_at`) VALUES
-(1, 1, '134sss', 134, 0.1, 6, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
-(2, 2, 'AS', 134, 0.2, 0, 'qwe', 'qwe', 'dx', '2022-09-15 22:23:13'),
-(3, 2, '4wdsf', 1234, 0.2, 0, 'erq', 'qewr', 'qwe', '2022-09-15 22:32:25'),
-(4, 2, 'FSÀ', 1234, 0.5, 0, '234', '124', '24', '2022-09-22 20:38:15'),
-(5, 2, '2134', 124, 0.2, 0, '1234', '213', '124', '2022-09-22 20:38:15'),
-(6, 1, 'Áád', 123, 0.1, 0, 'á', 'ád', 'ád', '2022-09-25 19:15:31');
+(1, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 134, 0.1, 1, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
+(3, 2, 'Samsung Galaxy A03 3GB/32GB Chính Hãng', 1234, 0.2, 0, 'maycu22.jpg', 'qewr', 'qwe', '2022-09-15 22:32:25'),
+(4, 2, 'Samsung Galaxy A52 8GB/128GB Chính Hãng', 1234, 0.5, 0, 'maycu13.jpg', '124', '24', '2022-09-22 20:38:15'),
+(5, 2, 'Oppo Reno6 Z 5G 8GB/128GB chính hãng', 124, 0.2, 0, 'oppo12.jpg', '213', '124', '2022-09-22 20:38:15'),
+(6, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 123, 0.1, 0, 'maycu13.jpg', 'ád', 'ád', '2022-09-25 19:15:31');
 
 -- --------------------------------------------------------
 
@@ -11696,6 +11760,84 @@ CREATE TABLE IF NOT EXISTS `rom` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `thongtinchung`
+--
+
+DROP TABLE IF EXISTS `thongtinchung`;
+CREATE TABLE IF NOT EXISTS `thongtinchung` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `thoidiemramat` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `thongtinchung`
+--
+
+INSERT INTO `thongtinchung` (`id`, `product_id`, `thoidiemramat`) VALUES
+(1, 1, '2022'),
+(5, 4, '2019'),
+(3, 2, '2021'),
+(4, 3, '2020'),
+(6, 5, '2018'),
+(7, 6, '2017'),
+(8, 7, '2019');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `thongtinsp`
+--
+
+DROP TABLE IF EXISTS `thongtinsp`;
+CREATE TABLE IF NOT EXISTS `thongtinsp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `thuonghieu` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `thongtinsp`
+--
+
+INSERT INTO `thongtinsp` (`id`, `product_id`, `thuonghieu`) VALUES
+(1, 1, 'Apple '),
+(2, 2, 'Iphone'),
+(3, 3, 'Oppo'),
+(4, 4, 'SamSung'),
+(5, 5, 'Oppo');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tienich`
+--
+
+DROP TABLE IF EXISTS `tienich`;
+CREATE TABLE IF NOT EXISTS `tienich` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `baomatnangcao` text NOT NULL,
+  `ghiam` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tienich`
+--
+
+INSERT INTO `tienich` (`id`, `product_id`, `baomatnangcao`, `ghiam`) VALUES
+(1, 1, 'Mở khoá khuôn mặt Face ID', 'Có (microphone chuyên dụng chống ồn)'),
+(2, 2, 'Mở khoá khuôn mặtMở khoá vân tay cạnh viền', 'Có'),
+(3, 3, 'Mở khoá khuôn mặt Face ID', 'Có (microphone chuyên dụng chống ồn)'),
+(4, 4, 'Mở khoá vân tay dưới màn hình', 'Có'),
+(5, 5, 'Mở khoá vân tay dưới màn hình', 'Có');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `user`
 --
 
@@ -11712,7 +11854,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `pk_user_role` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -11720,7 +11862,9 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`id`, `fullname`, `email`, `phone_number`, `address`, `userName`, `password`, `role_id`, `created_at`) VALUES
 (1, 'test123', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt123', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 15:26:13'),
-(2, 'test1234', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt1234', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 22:44:03');
+(2, 'test1234', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt1234', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 22:44:03'),
+(3, 'nguyenvana', 'vantoicntt06@gmail.com', '', '', 'nguyen', '34d7691392bb5f0e825bb5d5bec3557b', 2, '2022-10-12 23:33:05'),
+(4, 'Tới Trần', 'vantoicntt06@gmail.com', '', '', 'nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-12 23:37:12');
 
 --
 -- Constraints for dumped tables

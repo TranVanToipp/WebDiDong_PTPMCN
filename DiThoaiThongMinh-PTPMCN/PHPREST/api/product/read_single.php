@@ -11,16 +11,53 @@ include_once('../../core/initialize.php');
 $product = new product($db);
 $product_img = new product($db);
 $product_discount = new product($db);
+$product_configuration = new product($db);
+$product_thongtinchung = new product($db);
 $product->id = isset($_GET['id']) ? $_GET['id'] : die();
 $product_img->id = isset($_GET['id']) ? $_GET['id'] : die();
 $product_discount->id = isset($_GET['id']) ? $_GET['id'] : die();
+$product_configuration->id = isset($_GET['id']) ? $_GET['id'] : die();
+$product_thongtinchung->id = isset($_GET['id']) ? $_GET['id'] : die();
 //product query
 $product->read_single();
 $result = $product_img->img_desct();
 $result_discount = $product_discount->discount();
+$result_conf = $product_configuration->configuration();
+$result_ttchung = $product_thongtinchung->thongtinchung();
 $product_arr['data'] = array();
 $num = $result->rowCount();
 $num2 = $result_discount->rowCount();
+$num3 = $result_conf->rowCount();
+$num4 = $result_ttchung->rowCount();
+$ttchung_arr['ttchung'] = array();
+if ($num4 > 0){
+	while($row = $result_ttchung->fetch(PDO::FETCH_ASSOC)){
+		extract($row);
+		$ttchung_item = array(
+			'product_id' =>$id,
+			'thoidiemramat' => $thoidiemramat,
+		);
+		array_push($ttchung_arr['ttchung'],$ttchung_item);
+	}	
+}
+$conf_arr['conf'] = array();
+if($num3 > 0){
+	while($row = $result_conf->fetch(PDO::FETCH_ASSOC)){
+		extract($row);
+		$conf_item = array(
+			'product_id' =>$id,
+			'screen' => $screen,
+			'operating_system' => $operating_system,
+			'front_camera' => $front_camera,
+			'rear_camera' => $rear_camera,
+			'chip' => $chip,
+			'ram' => $ram,
+			'sim' => $sim,
+			'pin' => $pin,
+		);
+		array_push($conf_arr['conf'],$conf_item);
+	}
+}
 $dis_arr['dis'] = array();
 if($num2 > 0) {
 	while($row = $result_discount->fetch(PDO::FETCH_ASSOC)){
@@ -58,6 +95,8 @@ if(isset($product->created_at)){
 		'created_at' =>$product->created_at,
 		'img' =>$img_arr['img'],
 		'discount_text' => $dis_arr['dis'],
+		'conf' => $conf_arr['conf'],
+		'ttchung' => $ttchung_arr['ttchung'],
 	);
 	array_push($product_arr['data'],$product);
 	//chuyển đổi sang dạng JSON

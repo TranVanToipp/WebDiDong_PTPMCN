@@ -17,6 +17,11 @@
 		public $description;
 		public $description2;
 		public $created_at;
+
+		//Mô tả sản phẩm
+		public $configuration;
+		//thông tin chung
+		public $thongtinchung;
 		//page
 		public $page;
 		public $max_page;
@@ -203,6 +208,84 @@
 			
 			return $stmt;
 		}
+
+		public function configuration (){
+			$table = 'configuration';
+			$query = 'SELECT 
+				conf.id,
+				conf.product_id,
+				conf.screen,
+				conf.operating_system,
+				conf.front_camera,
+				conf.rear_camera,
+				conf.chip,
+				conf.ram,
+				conf.sim,
+				conf.pin
+				FROM '.$table.' conf
+					WHERE conf.product_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function thongtinchung (){
+			$table = 'thongtinchung';
+			$query = 'SELECT 
+				ttchung.id,
+				ttchung.product_id,
+				ttchung.thoidiemramat
+				FROM '.$table.' ttchung 
+					WHERE ttchung.product_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function thongtinsp (){
+			$table = 'thongtinsp';
+			$query = 'SELECT 
+				ttsanpham.id,
+				ttsanpham.product_id,
+				ttsanpham.thuonghieu,
+				FROM '.$table.' ttsanpham
+					WHERE ttsanpham.product_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function tienich (){
+			$table = 'tienich';
+			$query = 'SELECT 
+				tienich.id,
+				tienich.product_id,
+				tienich.baomatnangcao,
+				tienich.ghiam,
+				FROM '.$table.' tienich
+					WHERE tienich.product_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+
 		public function page(){
 			$type = $this->product_type;
 			//lấy số lượng bản ghi

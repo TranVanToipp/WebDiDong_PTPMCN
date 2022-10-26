@@ -12,4 +12,7 @@
 	require_once(CORE_PATH.DS."user.php");
 	require_once(CORE_PATH.DS."cart.php");
 	require_once(CORE_PATH.DS."tinhTP.php");
+	require_once(CORE_PATH.DS."quanhuyen.php");
+	require_once(CORE_PATH.DS."xa_phuong.php");
+	require_once(CORE_PATH.DS."orders.php");
 ?>

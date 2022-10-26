@@ -990,3 +990,240 @@
     animation: sticky1 .5s;
     z-index: 10;
 }
+
+/* Tìm kiếm loc */
+.timkiem-field__loc {
+    position: relative;
+}
+
+.field_filter {
+    display: inline-block;
+}
+
+.filterAll .open {
+    z-index: 99999;
+}
+
+.dropdown-field__btn {
+    /* padding-left: 30px; */
+    box-shadow: 0 0 12px rgb(0 0 0 / 18%);
+    border-radius: 0;
+    border: none;
+    font-size: 1.4rem;
+    padding: 7px;
+    
+}
+
+
+.dropdown-menu__loc {
+    border: none;
+    /* width: auto; */
+    /* min-width: 350px;
+    padding: 10px; */
+    box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
+    border-radius: 3px;
+    grid-gap: 6px;
+    margin-top: 15px;
+    max-width: 85%;
+    /* position: absolute; */
+    
+}
+
+.open-drowdown-loc {
+    /* position: ; */
+}
+
+.dropdown-menu__loc:before {
+    content: "";
+    position: absolute;
+    border-left: 12px solid transparent;
+    border-bottom: 10px solid #fff;
+    border-right: 12px solid transparent;
+    left: 20px;
+    top: 38px;
+}
+
+.filter-exist {
+    padding: 20px 20px 0;
+}
+
+.filter-exist__title {
+    display: inline-block;
+    margin-right: 12px;
+}
+
+.filter-origin__danhmuc {
+    padding: 20px;
+    border-bottom: 1px solid #ccc;
+    line-height: 1.7;
+}
+
+.filter-origin__danhmuc--title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.flex-container--danhmuc {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    flex-wrap: wrap;
+    grid-gap: 10px;
+}
+
+.checkbox-danhmuc {
+    position: relative;
+    margin-bottom: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: auto;
+    height: 35px;
+    display: inline-block;
+}
+
+.checkbox-danhmuc input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark--danhmuc {
+    white-space: nowrap;
+    padding: 0 10px;
+    margin: 20px 0;
+}
+
+.checkmark--danhmuc {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.checkmark--danhmuc:hover {
+    border: 1px solid #f9920f;
+}
+
+
+.checkmark--danhmuc__img {
+    max-height: 20px;
+    min-width: 30px;
+}
+
+.filter-detail__contenSP {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.filter-detail__contenSP .item-filter {
+    border-bottom: 1px solid #ccc;
+    padding: 20px;
+}
+
+.title-gia {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.ul_item {
+    display: flex;
+    flex-wrap: wrap;
+    grid-gap: 10px;
+}
+
+.ul_item .check-box {
+    width: auto;
+    display: flex;
+    font-weight: 400;
+}
+
+.check-box input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.ul_item .check-box .checkmark {
+    padding: 8px 9px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    position: unset;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    
+}
+
+.ul_item .check-box .checkmark:hover {
+    color: #f9920f;
+    border: 1px solid #f9920f;
+    cursor: pointer;
+}
+
+.ul_item .check-box .checkmark {
+    padding: 8px 9px;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    position: unset;
+}
+
+.check-box .checkmark {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    
+    /* display: flex; */
+    
+}
+
+.list-filter-exist {
+    display: inline-flex;
+    flex-wrap: wrap;
+    grid-gap: 10px;
+}
+
+.a_exist {
+    border: 1px solid #777;
+    border-radius: 3px;
+    height: 35px;
+    padding: 0 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+    cursor: pointer;
+}
+
+
+
+
+

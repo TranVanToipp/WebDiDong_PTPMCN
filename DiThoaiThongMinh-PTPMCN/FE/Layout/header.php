@@ -217,48 +217,8 @@
      <!-- Phần footer Web -->
  <script src = "./Javascript/index.js"></script>       
     </div>
-        <!-- MODAL MENU -->
-    <div class="grid wide">
-        <div class="modal ">
-            <div class="form-active">
-                <div class="form-active-div">
-                    <i class="form-active-close fa-solid fa-xmark"></i>
-                </div>
-                <h3>Product điện thoại</h3>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px;">ID</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-ID" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">Image</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-IMAGE" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">Name</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-NAME" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">Price</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-PRICE" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">PriceOld</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-Price_OLD" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">percent</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-PERCENT" id=""> 
-                </div>
-
-                <div class="form-active-div">
-                    <button type="submit" class="form-active-div-delete">Create</button>
-                    <button type="submit" class="form-active-div-update">Update</button>
-                    <button type="submit">Thêm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="over-lay"></div>
+       
+    
     <!-- Modal Mobile -->
     <nav class="nav-mobile">
         <div class="nav-mobile-header">

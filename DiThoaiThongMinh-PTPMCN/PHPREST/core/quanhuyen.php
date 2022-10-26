@@ -13,8 +13,14 @@
         }
 
         public function getQuanHuyen() {
-            $query = 'SELECT * FROM '.$this->table.'
-            WHERE matp = ?';
+            $query = 'SELECT * FROM '.$this->table.' WHERE matp = ?';
+			
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->matp);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
         }
     }
 ?>

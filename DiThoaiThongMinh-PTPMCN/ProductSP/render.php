@@ -3,12 +3,13 @@ $url_type = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/a
 $json_type = file_get_contents($url_type);
 $data_type = json_decode($json_type);
     foreach($data_type->data as $product_type){
+        $dienthoai = 'Điện thoại';
         echo '
         <div class="header__nav-tab" > 
             <div class = "header__nav-type">
                 <img src="./assets/img/quangcao-containner/dienthoai_1637814357.svg" alt="" class="header__nav-tab-img">
                 <div class="header__nav-tab-vac">
-                    <span>'.$product_type->product_type_name.'</span>
+                    <span>'.$dienthoai.' '.$product_type->product_type_name.'</span>
                 </div>
             </div>
             <div class = "header__nav-tab-xemthem">
