@@ -1,5 +1,4 @@
 <?php
-
 	class orders{
 		//db stuff
 		private $comn;
@@ -24,6 +23,18 @@
 		public function __construct($db){
 			$this->comn=$db;
 		}
+		public function select_orders(){
+			$query = 'SELECT * FROM '.$this->table.' WHERE user_id = ?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->user_id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+		
+		
 		public function create(){
 			//create query
 			$query = 'INSERT INTO '.$this->table.' SET user_id = :user_id, user_name = :user_name, gender = :gender, phone_number = :phone_number, tinh_tp = :tinh_tp, 
