@@ -551,6 +551,7 @@
     display: flex;
     padding: 0;
     flex-wrap: wrap;
+    margin-top: 50px;
 }
 
 /* .footer-item-text {
