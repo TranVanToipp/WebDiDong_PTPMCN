@@ -15,4 +15,5 @@
 	require_once(CORE_PATH.DS."quanhuyen.php");
 	require_once(CORE_PATH.DS."xa_phuong.php");
 	require_once(CORE_PATH.DS."orders.php");
+	require_once(CORE_PATH.DS."comment.php");
 ?>

@@ -5,7 +5,7 @@
     include_once('../../core/initialize.php');
 
     //khởi tạo devvn_tinhthanhpho
-    $devvn_quanhuyen = new quanhuyen($db);
+    $devvn_quanhuyen = new quanhuyen ($db);
 	
 	$devvn_quanhuyen->matp = isset($_GET['matp']) ? $_GET['matp'] : die();
 	$result = $devvn_quanhuyen->getQuanHuyen();

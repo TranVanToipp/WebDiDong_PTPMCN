@@ -1,5 +1,4 @@
 <?php
-
 	class product{
 		//db stuff
 		private $comn;
@@ -22,6 +21,8 @@
 		public $configuration;
 		//thông tin chung
 		public $thongtinchung;
+		//tt sản phẩm
+		public $thongtinsp;
 		//page
 		public $page;
 		public $max_page;
@@ -255,7 +256,7 @@
 			$query = 'SELECT 
 				ttsanpham.id,
 				ttsanpham.product_id,
-				ttsanpham.thuonghieu,
+				ttsanpham.thuonghieu 
 				FROM '.$table.' ttsanpham
 					WHERE ttsanpham.product_id = ?';
 			//prepare statement
@@ -263,7 +264,6 @@
 			$stmt->bindParam(1,$this->id);
 			//execute query
 			$stmt->execute();
-			
 			return $stmt;
 		}
 
@@ -273,7 +273,7 @@
 				tienich.id,
 				tienich.product_id,
 				tienich.baomatnangcao,
-				tienich.ghiam,
+				tienich.ghiam 
 				FROM '.$table.' tienich
 					WHERE tienich.product_id = ?';
 			//prepare statement

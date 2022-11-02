@@ -28,11 +28,11 @@ $data_type = json_decode($json_type);
                             <div class="home-product-item-img" style="background-image:url(./assets/photos/'.$product_item->thumnail.'");"></div>
                             <h4 class="home-product-item-name">'.$product_item->title.'</h4>
                         <div class="home-product-item-price">
-                            <span class="home-product-item__price-current">'.$product_item->price.'</span>
-                            <span class="home-product-item__price-old">'.$product_item->discount.'</span>
+                            <span class="home-product-item__price-current">'.($product_item->price-$product_item->price*$product_item->discount).'</span>
+                            <span class="home-product-item__price-old">'.$product_item->price.'</span>
                         </div>
                         <div class="home-product-item__sale-off">
-                            <span class="home-product-item__sale-off-percent">'.$product_item->discount.'</span>
+                            <span class="home-product-item__sale-off-percent">'.($product_item->discount*100).'%</span>
                         </div>
                     </div>
                 </a>';

@@ -15,9 +15,42 @@ $product = new product($db);
 $product_update = new product($db);
 
 
+function rdMaHD($length = 7){
+	$s='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$sLength= strlen($s);
+	$randomMXN='';
+	for($i=0;$i<$length;$i++){
+		$randomMXN.=$s[rand(0,$sLength-1)];
+	}
+	return $randomMXN;
+}
+
+function layMaHD(){
+	$url="http://localhost/webDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/select_order_id.php";
+	$json = file_get_contents($url);
+	$data = json_decode($json);
+	if(isset($data->message)){
+		$mahd="HD_".rdMaHD();
+		return $mahd;
+	}
+	else {
+		$mahd="";
+		while($mahd==""){
+			$mahd="HD_".rdMaHD();
+			foreach($data->data as $row){
+			if($row->maHD == $mahd)
+				$mahd="";
+			}
+		}
+		return $mahd;
+	}
+}
+$maHD = layMaHD();
+$_SESSION['maHD'] = $maHD;
 
 $orders->user_id = $_SESSION['id'];
 $orders->user_name = $_SESSION['name'];
+$orders->maHD = $maHD;
 $orders->gender = $_SESSION['gender'];
 $orders->phone_number = $_SESSION['telephone'];
 $orders->tinh_tp = $_SESSION['matp'];
@@ -43,5 +76,5 @@ foreach ($_SESSION['cart'] as $sanpham){
 		}
 }
 unset($_SESSION['cart']);
-header("Location:../../../chuyen_den_trang_dat_hang_thanh_cong");
+header("Location:../../../cart/cartThanhCong.php");
 ?>

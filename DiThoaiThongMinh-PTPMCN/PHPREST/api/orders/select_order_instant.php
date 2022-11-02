@@ -22,6 +22,7 @@ if($num >0){
 	while($row = $result->fetch(PDO::FETCH_ASSOC)){
 		extract($row);
 		$orders_item = array(
+			'maHD' => $maHD,
 			'name' 	=>$user_name,
 			'phone_number'=>$phone_number,
 			'note' =>$note,

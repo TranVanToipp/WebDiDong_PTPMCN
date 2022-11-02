@@ -65,7 +65,6 @@ function audoSlide() {
         });
     
         tabpanes.forEach(function (item) {
-            console.log(item);
             item.classList.remove('active');
         });
     

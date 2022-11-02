@@ -1,4 +1,3 @@
-
 <?php
 	$a_ajax2 = $_GET['a_ajax2'];
 	$url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/xaphuongthitran/select_xaphuong.php?maqh='.$a_ajax2;

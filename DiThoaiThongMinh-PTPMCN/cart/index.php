@@ -190,7 +190,7 @@ $total_money = 0;
 						<span class="text-dieukien">Cần thanh toán trước 849.000₫ trong 24h sau khi đặt hàng để giữ hàng</span>
 					</div>
 					<div class="button-container__dathang">
-						<input type="submit" name ="btnDatHang" value ="Đặt Hàng"/>
+						<input type="submit" class = "button-container__dathang__btn" name ="btnDatHang" value ="Đặt Hàng"/>
 					</div>
 					<div class="footer-dathang">
 						<span>Bạn có thể chọn hình thức thanh toán sau khi đặt hàng</span>
@@ -209,6 +209,7 @@ $total_money = 0;
 <?php
 if(!empty($_POST)) {
 	if(isset($_SESSION['id'])){
+        $_SESSION['total_money'] = $total_money;
 		$_SESSION['gender'] = $_POST['gender'];
 		$_SESSION['name'] = $_POST['name'];
 		$_SESSION['telephone'] = $_POST['telephone'];
@@ -217,7 +218,6 @@ if(!empty($_POST)) {
 		$_SESSION['phuongxa'] = $_POST['phuongxa'];
 		$_SESSION['note'] = $_POST['note'];
 		header('Location:../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/create_orders.php');
-		//header('Location:../../../../../test1/test.php');
 	}else{
 		header('Location:../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login');
 	}
