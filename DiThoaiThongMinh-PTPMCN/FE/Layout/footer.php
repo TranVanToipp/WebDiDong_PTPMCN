@@ -18,10 +18,10 @@
                         <h4 class="footer-item-text-footor">Hỗ trợ thanh toán</h4>
                         <div class="footer-item-text-thanhtoan">
                             <div class="footer-item-text-quocte">
-                                <img src="./assets/img/footer/thanhtoan/visa.svg" alt="">
-                                <img src="./assets/img/footer/thanhtoan/tragop.svg" alt="">
-                                <img src="./assets/img/footer/thanhtoan/money.svg" alt="">
-                                <img src="./assets/img/footer/thanhtoan/master_card.svg" alt="">
+                                <img src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/thanhtoan/visa.svg" alt="">
+                                <img src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/thanhtoan/tragop.svg" alt="">
+                                <img src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/thanhtoan/money.svg" alt="">
+                                <img src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/thanhtoan/master_card.svg" alt="">
                             </div>
                             <div class="footer-item-text-trongnuoc">
                                 <img src="./assets/img/footer/thanhtoan/jbc.svg" alt="">
@@ -30,8 +30,8 @@
                         </div>
 
                         <div class="footer-item-text-tuanthu">
-                            <img class="footer-item-text-tuanthu-img-congthuong" src="./assets/img/footer/thanhtoan/bct.svg" alt="">
-                            <img class="footer-item-text-tuanthu-img" src="./assets/img/footer/thanhtoan/_dmca_premi_badge_4.png" alt="">
+                            <img class="footer-item-text-tuanthu-img-congthuong" src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/thanhtoan/bct.svg" alt="">
+                            <img class="footer-item-text-tuanthu-img" src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/thanhtoan/_dmca_premi_badge_4.png" alt="">
                         </div>
                     </li>
                     <li class="col l-3 m-4 c-6">
@@ -85,8 +85,8 @@
                         </p>
                         <div class="footer-item-text-ketnoi">
                             <h4>Kết nối với chúng tôi</h4>
-                            <img src="./assets/img/footer/ketnoi/ketnoi.svg" alt="" class="footer-item-text-ketnoi-img">
-                            <img src="./assets/img/footer/ketnoi/ytb.svg" alt="" class="footer-item-text-ketnoi-img">
+                            <img src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/ketnoi/ketnoi.svg" alt="" class="footer-item-text-ketnoi-img">
+                            <img src="../../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/footer/ketnoi/ytb.svg" alt="" class="footer-item-text-ketnoi-img">
                         </div>
                     </li>
                 </ul>

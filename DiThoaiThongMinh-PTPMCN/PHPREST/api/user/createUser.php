@@ -11,6 +11,22 @@ include_once('../../core/initialize.php');
 
 $user = new user($db);
 
+function rdMaUser($length = 7) {
+	$contentMa = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+	$contentLength = strlen($contentMa);
+	$randomMaUser = '';
+	for($i = 0; i < $length; $i++) {
+		$randomMaUser .= $contentMa[rand(0,$$contentLength-1)];
+	}
+	return $randomMaUser;
+}
+
+function layMaUser() {
+	$url="http://localhost/webDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/select_order_id.php";
+	$json = file_get_contents($url);
+	$data = json_decode($json);
+}
+
 $fullname = $_SESSION['fullname'];
 $email = $_SESSION['email'];
 $userName = $_SESSION['userName'];
@@ -26,5 +42,7 @@ $user->password = $password;
 if($user->create()){
 	header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
 }
-else {echo 'error';}
+else {
+	echo 'error';
+}
 ?>

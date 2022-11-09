@@ -60,9 +60,9 @@
             $pass= md5($_POST['password']);
             foreach($data->data as $user){
               if($username == $user->userName && $pass == $user->password){
+                    $_SESSION['role_id'] = $user->role_id;
                     $_SESSION['fullname'] = $user->fullname;
                     $_SESSION['id'] = $user->id;
-
                     header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN');
                 }
             }

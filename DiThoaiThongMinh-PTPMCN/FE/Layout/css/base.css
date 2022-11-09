@@ -74,7 +74,7 @@ html {
     /* background-color: #ccc; */
     position: relative;
     padding: 20px 15px;
-    border: 1px solid #ccc;
+   
 }
 
 .home-product-item:hover {
@@ -96,17 +96,17 @@ html {
 
 .home-product-item-name {
     font-size: 1.4rem;
-    color: #333;
     font-weight: 400;
-    padding: 15px 10px;
-    margin: 0;
-    /* line-height: 1.8;
+    margin: 10px 10px 6px;
+    line-height: 1.8rem;
+    color: #333;
     height: 3.6rem;
     overflow: hidden;
     display: block;
+    /* Trường hợp có nhiều dòng */
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; */
+    -webkit-line-clamp: 2;
 }
 
 .home-product-item-price {

@@ -90,16 +90,19 @@
                                 <span>Gần bạn</span>
                             </div>
                         </a> -->
-                        <a href="./cart/index.php" class="header__navbar-menu-link header__navbar-item-cart header__navbar-item-hover header__navbar-item-click">
+                        <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/cart/index.php" class="header__navbar-menu-link header__navbar-item-cart header__navbar-item-hover header__navbar-item-click">
                             <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/cart.svg" alt="" class="header__navbar-menu-img">
                             <div class="header__navbar-menu-right header__navbar-cart-basket ">
                                 <span>Giỏ hàng</span>
                                 <span class="header__navbar-number-cart">
                                     <?php
-                                        // Số lượng trong giỏ hàng
-                                    
+                                    if(isset($_SESSION['cart'])){
+                                        $sum = count($_SESSION['cart']) ;
+                                        echo $sum;
+                                    }else{
+                                            echo 0;
+                                        }
                                     ?>
-                                    0
                                 </span>
                             </div>
 
@@ -107,10 +110,12 @@
                             <ul class="header__navbar-cart-list">
                                 <h4>Sản phẩm mới thêm</h4>
                                 <?php
+                                $total_money=0;
+                                if (isset($_SESSION['cart'])) {
                                     if (count($_SESSION['cart'])>0){
-                                        if (isset($_SESSION['cart'])) {
                                             $i = 0;
                                             foreach ($_SESSION['cart'] as $sanpham) {
+                                                $total_money = $total_money + ($sanpham[2]-$sanpham[2]*$sanpham[3]);
                                                 echo '
                                                     <li class="header__navbar-cart-item">
                                                         <div class="header__navbar-cart-img">
@@ -126,10 +131,12 @@
                                                     </li>
                                                 ';
                                                 $i++;
-                                            }}}
+                                            }
+                                        }
+                                    }
                                 ?>
                                 <span class="header__navbar-cart-list-span">
-                                    Tổng tiền: 0
+                                    Tổng tiền: <?php echo $total_money;?>
                                 </span>
                                 <sup>đ</sup>
                             </ul>
@@ -145,8 +152,14 @@
                                         <div class="header__navbar-item-box-user">
                                             <ul class="header__navbar-item-box-user-list">
                                                 <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
-                                                <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Đổi mật khẩu</a></li>
-                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'authen/logout/index.php" >Đăng xuất</a></li>
+                                                <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php">Đổi mật khẩu</a></li>
+                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'authen/logout/index.php" >Đăng xuất</a></li>';
+                                                if(isset($_SESSION['role_id'])){
+                                                    if($_SESSION['role_id'] == 1){
+                                                        echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'admin/" >Admin</a></li>';
+                                                    }
+                                                }
+                                                echo '
                                             </ul>
                                         </div>
                                     ';
@@ -217,48 +230,8 @@
      <!-- Phần footer Web -->
  <script src = "./Javascript/index.js"></script>       
     </div>
-        <!-- MODAL MENU -->
-    <div class="grid wide">
-        <div class="modal ">
-            <div class="form-active">
-                <div class="form-active-div">
-                    <i class="form-active-close fa-solid fa-xmark"></i>
-                </div>
-                <h3>Product điện thoại</h3>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px;">ID</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-ID" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">Image</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-IMAGE" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">Name</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-NAME" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">Price</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-PRICE" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">PriceOld</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-Price_OLD" id="">
-                </div>
-                <div class="form-active-div">
-                    <h5 class="form-active-lable" style="font-size: 1.3rem; margin-right: 10px; ">percent</h5>
-                    <input type="text" style="width: 400px; height: 30px;" name="form-input-PERCENT" id=""> 
-                </div>
-
-                <div class="form-active-div">
-                    <button type="submit" class="form-active-div-delete">Create</button>
-                    <button type="submit" class="form-active-div-update">Update</button>
-                    <button type="submit">Thêm</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="over-lay"></div>
+       
+    
     <!-- Modal Mobile -->
     <nav class="nav-mobile">
         <div class="nav-mobile-header">

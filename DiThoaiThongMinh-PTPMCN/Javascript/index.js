@@ -15,7 +15,6 @@ window.onscroll = () => {
 const btnclodeModel = document.querySelector('.close-model-chitiet');
 const btnHienModel = document.querySelector('.tinhtrang-button__chitiet-link');
 const model = document.querySelector('.modal-chitiet');
-console.log(model,btnHienModel);
 function showModelChiTiet() {
     event.preventDefault();
     model.classList.add('open')
@@ -27,3 +26,6 @@ function closeModelChiTiet() {
 
 btnHienModel.addEventListener('click',showModelChiTiet);
 btnclodeModel.addEventListener('click',closeModelChiTiet);
+
+
+

@@ -170,6 +170,189 @@
     <div class="grid wide">
         <div class="timkiem-nhieu">
             <div class="timkiem-3loai">
+                <div class="timkiem-field__loc field_filter filterAll open">
+                    <button class="dropdown-field__btn">
+                        <img src="../assets/img/filter.svg" alt="" class="dropdown-field__btn--img">
+                        Bộ lọc
+                    </button>
+                    <div class="open-drowdown-loc dropdown-menu__loc">
+                        <button class="close-all-btn">
+                            x
+                        </button>
+                        <div class="filter_content">
+                            <div class="filter-exist">
+                                <p class="filter-exist__title">
+                                    Đã chọn
+                                </p>
+                                <div class="SPChon list-filter-exist">
+                                    
+                                </div>
+                            </div>
+                            <div class="filter-origin__danhmuc">
+                                <p class="filter-origin__danhmuc--title">
+                                    Danh mục
+                                </p>
+                                
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/iphone-1_1643084305.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                
+                                
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/iphone-1_1643084305.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                
+                                
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/oppo_1656947519.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                
+                                
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/realme_1656947387.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                
+                                
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/samsung_1656946754.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/vsmart_1656947633.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                
+                                
+                                    <lable class="checkbox-danhmuc">
+                                        <input type="checkbox" onchange = "chonDanhHieu()" name="" id="">
+                                        <span class="checkmark--danhmuc thuonghieu">
+                                            <img src="../assets/img/xiaomi_1656947081.svg" alt="" class="checkmark--danhmuc__img">
+                                        </span>
+                                    </lable>
+                                
+                            </div>
+                            <!--  -->
+                            <div class="filter-detail__contenSP">
+                                <div class="item-filter">
+                                    <p class="title-gia">Giá</p>
+                                    <ul class="ul_item">
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Dưới 2 triệu</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Dưới 2 triệu</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Từ 2 đến 4 triệu</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Từ 4 đến 7 triệu</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Từ 7 đến 13 triệu</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Từ 13 đến 20 triệu</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark giaban">Trên 20 triệu</span>
+                                        </lable>
+                                    </ul>
+                                </div>
+                                <div class="item-filter">
+                                    <p class="title-gia">RAM</p>
+                                    <ul class="ul_item">
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">2 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">3 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">4 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">6 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">8 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">12 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">16 GB</span>
+                                        </lable>
+                                    </ul>
+                                </div>
+                                <div class="item-filter">
+                                    <p class="title-gia">Bộ nhớ trong</p>
+                                    <ul class="ul_item">
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">8 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">16 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">32 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">64 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">128 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">256 GB</span>
+                                        </lable>
+                                        <lable class="check-box">
+                                            <input type="checkbox" name="" id="">
+                                            <span class="checkmark">512 GB</span>
+                                        </lable>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <p class="sort-total">
                     Tìm thấy
                     <b>10</b>
@@ -273,7 +456,44 @@
    
 
 ?>
+<script>
+    function chonDanhHieu() {
+        var thuonghieu = document.querySelector('.thuonghieu');
+        var thuonghieuchon_arr = [];
+        for(i = 0; i < thuonghieuchon_arr.length; i++) {
+            if (thuonghieuchon_arr[i] == true){
+                thuonghieuchon_arr.push(thuonghieu[i].value);
+            }
+        }
 
+        var giaSanPham = document.querySelector('.giaban');
+        var giaban_arr = [];
+        for(i = 0; i < giaban_arr.length; i++) {
+            if (giaban_arr[i] == true) {
+                giaban_arr.push(giaSanPham[i].value);
+            }
+        }
+    }
+
+
+    function hienDT(thuonghieuchon_arr = [], giaban_arr = []){
+        var SPChon = document.querySelector('.SPChon');
+        console.log(SPChon)
+        SPChon.innerHTML = '';
+        if (thuonghieuchon_arr.length > 0) {
+            for (i = 0; i< thuonghieuchon_arr.length; i++) {
+                SPChon.innerHTML += `
+                    <span id = "sanphamChon" class="a_exist">
+                        ${thuonghieuchon_arr[i]}
+                    </span>
+                `;
+            }
+        }
+    }
+    hienDT();
+    
+     
+</script>
 <script>
 
     var checkG = document.querySelector('.checkGiam')
