@@ -33,7 +33,11 @@ if($num >0){
 		);
 		array_push($user_arr['data'],$user_item);
 	}
+
 	$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
 	echo $json;
+}
+else{
+	echo json_encode(array('message' => 'No product found.'));
 }
 ?>

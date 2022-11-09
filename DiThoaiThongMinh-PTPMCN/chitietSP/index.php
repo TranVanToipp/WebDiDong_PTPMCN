@@ -46,15 +46,11 @@
 					}
 					foreach($data->data as $item){
 						$name = $item->title;
-						// $_SESSION['product_id'] = $item->id;
-						// $_SESSION['title'] = $item->title;
-						// $_SESSION['thumnail'] = $item->thumnail;
-						// $_SESSION['price'] = $item->price;
+
 						echo '<div class="header-chitiet-content">
 									<h3>
 										'.$item->title.'
 									</h3>
-									
 								</div> 
 								<div class="chitiet-container l-12 m-12 c-12">
 									<div class="chitiet-container-img-content l-4">
@@ -104,6 +100,53 @@
 								</div>
 							</div>
 						<div class="chitiet-container-embrace l-5">
+
+							<div class="chitiet-container-price">
+										';
+									if($_GET['sale'] == 1){
+										// echo 'Giảm giá:';
+										$url_sale = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/sale/select_single.php?id='.$id;
+										$json_sale = file_get_contents($url_sale);
+										$data_sale = json_decode($json_sale);
+										foreach($data_sale->data as $item_sale){
+											echo '
+												<div class = "flashsale">
+													<div class = "top_sale">
+															<img src = "../assets/img/magiamgia/flash.svg">
+														<div class = "right_sale">
+															<img src = "../assets/img/magiamgia/clock.svg">
+															<p class = "coun_down">
+																"Kết thúc trong"
+																<span class = "time_coundown">
+																	<span class = "number_">30</span>
+																	<span class = "number_">20</span>
+																	<span class = "number_">10</span>
+																	<span class = "number_">5</span>
+																</span>
+															</p>
+														</div>
+													</div>
+													<div class="mid_sale">
+														<span class = "price_now">'.($item_sale->price - $item_sale->price * $item_sale->discount_product_sale/100).'</span><sup class = "sub-chitiet">đ</sup>
+														<span class = "_price">'.$item_sale->price.'đ</span>
+														<span class = "discount_sale">'.$item_sale->discount_product_sale.'%</span>
+													</div>
+												</div>
+											';
+										}
+									}else{
+										echo '
+									<h3>Giá: </h3>
+										<div class="gia-chitiet">
+											<h4 class = "gia-chitiet__1">'.($item->price-$item->price*$item->discount).'</h4><sup class = "sub-chitiet">đ</sup>
+											<h4 class = "gia-chitiet__2">'.$item->price.'</h4><sup>đ</sup>
+										</div>';
+									}
+								echo '
+									</div>
+									<div class="chitiet-container-nhandat">
+										<span>Nhận đặt trước</span>
+									</div>
 										<div class="chitiet-container-price">
 											<h3>Giá: </h3>
 											<div class="gia-chitiet">
@@ -114,7 +157,6 @@
 										<div class="chitiet-container-nhandat">
 											<span>Nhận đặt trước</span>
 										</div>
-							
 										
 											<div class="chitiet-container-chitiet-khuyenmai">
 												<h4>Khuyến Mãi</h4>
@@ -231,7 +273,9 @@
 														</div>
 													</div>
 												</div>';	
-														}	
+												</div>';	
+												</div>';
+													}	
 														
 													}
 												}		
@@ -742,6 +786,7 @@
 															<input type="radio" id="star1" name="rating" value="1" />
 															<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 														</div>
+														</div>
 													</div>
 													<div class="comment-form__form-content">
 														<div class="l-6">
@@ -764,8 +809,6 @@
 										</form>
 										<!-- Code comment tại đây -->
 										<div class="comment_chitiet--hienthi" id="showComments"></div>
-
-										
 										<script src = "../Javascript/comment.js"></script>
 									</div>
 									<!-- Tin tức -->
@@ -774,7 +817,6 @@
 									</div>
 								</div>
 							</div>
-
 <!-- Model chi tiết sản phẩm -->
 
 
@@ -841,6 +883,12 @@
 					<tr>
 						<td class="group_field">Pin & Sạc</td>
 					</tr>
+
+					</tr>
+					<tr>
+						<td class="group_field">Pin & Sạc</td>
+					</tr>
+
 					<tr >
 						<td class="model-content-detail__title">Pin</td>
 						<td class="model-content-detail__charactestic">'.$conf->pin.'</td>

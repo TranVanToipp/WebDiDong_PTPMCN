@@ -26,10 +26,16 @@
 		//page
 		public $page;
 		public $max_page;
+
+		
+
 		//hàm tạo với kết nối db
 		public function __construct($db){
 			$this->comn=$db;
 		}
+
+		
+
 		//select loại sản phẩm
 		public function read_type(){
 			//create query
@@ -176,6 +182,7 @@
 				$this->created_at = $row['created_at'];
 			}
 		}
+
 		public function img_desct(){
 			$table = 'img_desct';
 			$query = 'SELECT 

@@ -4,6 +4,8 @@
 --
 -- Host: 127.0.0.1:3306
 -- Generation Time: Nov 02, 2022 at 05:06 PM
+-- Generation Time: Nov 02, 2022 at 09:47 AM
+-- Generation Time: Oct 26, 2022 at 07:39 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -79,6 +81,7 @@ CREATE TABLE IF NOT EXISTS `comment` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+
 --
 -- Dumping data for table `comment`
 --
@@ -100,6 +103,12 @@ INSERT INTO `comment` (`id`, `parent_id`, `user_id`, `product_id`, `content_comm
 (37, 36, 5, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 23:54:15'),
 (38, 0, 2, 6, 'chụp ảnh xấu', 1, '2022-11-02 23:59:48'),
 (39, 38, 5, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 23:59:48');
+
+(14, 0, 1, 1, 'giá tốt, mẫu mã đẹp', 5, '2022-11-02 16:15:36'),
+(15, 14, 5, 1, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 16:15:36'),
+(16, 0, 1, 1, 'điện thoại hơi lag', 2, '2022-11-02 16:16:23'),
+(17, 16, 5, 1, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 16:16:23');
+
 
 -- --------------------------------------------------------
 
@@ -11682,6 +11691,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
 INSERT INTO `orders` (`id`, `user_id`, `user_name`, `gender`, `phone_number`, `tinh_tp`, `quan_huyen`, `xa_phuong`, `product`, `num`, `money`, `note`, `created_at`, `status`) VALUES
 (1, 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '6', 1, 110.7, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', 'Đợi Kiểm duyệt'),
 (2, 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '1', 1, 120.6, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', 'Đợi Kiểm duyệt');
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -11849,7 +11859,6 @@ INSERT INTO `tienich` (`id`, `product_id`, `baomatnangcao`, `ghiam`) VALUES
 (2, 2, 'Mở khoá khuôn mặtMở khoá vân tay cạnh viền', 'Có'),
 (3, 3, 'Mở khoá khuôn mặt Face ID', 'Có (microphone chuyên dụng chống ồn)'),
 (4, 4, 'Mở khoá vân tay dưới màn hình', 'Có'),
-(5, 5, 'Mở khoá vân tay dưới màn hình', 'Có');
 
 -- --------------------------------------------------------
 
@@ -11882,6 +11891,7 @@ INSERT INTO `user` (`id`, `fullname`, `email`, `phone_number`, `address`, `userN
 (3, 'nguyenvana', 'vantoicntt06@gmail.com', '', '', 'nguyen', '34d7691392bb5f0e825bb5d5bec3557b', 2, '2022-10-12 23:33:05'),
 (4, 'Tới Trần', 'vantoicntt06@gmail.com', '', '', 'nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-12 23:37:12'),
 (5, 'Shop Điện Thoại', 'admin123@gmail.com', '012345679', 'Shop Điện Thoại', 'admin', '0192023a7bbd73250516f069df18b500', 1, '2022-11-02 16:04:36');
+
 
 --
 -- Constraints for dumped tables
