@@ -16,5 +16,8 @@
 	require_once(CORE_PATH.DS."xa_phuong.php");
 	require_once(CORE_PATH.DS."orders.php");
 	require_once(CORE_PATH.DS."comment.php");
+<<<<<<< HEAD
 	require_once(CORE_PATH.DS."product_sale.php");
+=======
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 ?>

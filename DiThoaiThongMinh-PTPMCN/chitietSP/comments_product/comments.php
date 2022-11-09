@@ -10,7 +10,11 @@ if(!empty($_POST["comment"]) && !empty($_POST["fullname"])){
     $user_id		= $_SESSION['id'];
     $product_id		= $_SESSION['product_id_comments'];
     $content_comment=  $_POST['comment'];
+<<<<<<< HEAD
 	$number_stars	= $_POST['rating']; // lay so sao o day	
+=======
+	$number_stars	= 2; // lay so sao o day	
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 	
 	$comment->parent_id		= $parent_id;
 	$comment->user_id		= $user_id;

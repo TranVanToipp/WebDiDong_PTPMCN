@@ -24,6 +24,7 @@ btndongComment.onclick = function () {
     dongdanhgia.style.display = 'none';
 }
 
+<<<<<<< HEAD
 var btnTraLoiAdmin = document.querySelector('.comment_item-traloi');
 var btndongtraloi = document.querySelector('.comment_item-dongtraloi');
 var commentformAdmin = document.querySelector('.comment-form__admin');
@@ -42,6 +43,21 @@ btndongtraloi.onclick = function () {
     btnTraLoiAdmin.style.display = 'block';
     btndongtraloi.style.display = 'none';
 }
+=======
+var imgSao = document.querySelectorAll('.img-sao__danhgia');
+console.log(imgSao);
+    // var srcSao = imgSao.getAttribute('src');
+    srcSao = '../assets/img/Comment/star-fill.png';
+    var arr = [];
+for (var i = 0; i < imgSao.length; i++) {
+    imgSao[i].onclick = function(item, index) {
+        console.log(item, index);
+        
+    }
+}
+
+
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 
 
 

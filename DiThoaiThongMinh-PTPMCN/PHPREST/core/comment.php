@@ -86,6 +86,7 @@
         public function deleteComment() {
             $id = $this->id;
             $query = 'DELETE FROM '.$this->table.' WHERE id = '.$id;
+<<<<<<< HEAD
 			$query_reply = 'DELETE FROM '.$this->table.' WHERE parent_id = '.$id;
             $stmt = $this->comn->prepare($query);
 			$stmt2 = $this->comn->prepare($query_reply);
@@ -93,6 +94,12 @@
 
             $stmt->execute();
 			$stmt2->execute();
+=======
+            $stmt = $this->comn->prepare($query);
+            $stmt-> bindParam(1,$this->id);
+
+            $stmt->execute();
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
         }
     }
 ?>

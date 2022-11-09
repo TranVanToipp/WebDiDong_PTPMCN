@@ -32,6 +32,13 @@
 					}
 					foreach($data->data as $item){
 						$name = $item->title;
+<<<<<<< HEAD
+=======
+						// $_SESSION['product_id'] = $item->id;
+						// $_SESSION['title'] = $item->title;
+						// $_SESSION['thumnail'] = $item->thumnail;
+						// $_SESSION['price'] = $item->price;
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 						echo '<div class="header-chitiet-content">
 									<h3>
 										'.$item->title.'
@@ -85,6 +92,7 @@
 								</div>
 							</div>
 						<div class="chitiet-container-embrace l-5">
+<<<<<<< HEAD
 							<div class="chitiet-container-price">
 										';
 									if($_GET['sale'] == 1){
@@ -131,6 +139,18 @@
 									<div class="chitiet-container-nhandat">
 										<span>Nhận đặt trước</span>
 									</div>
+=======
+										<div class="chitiet-container-price">
+											<h3>Giá: </h3>
+											<div class="gia-chitiet">
+												<h4 class = "gia-chitiet__1">'.($item->price-$item->price*$item->discount).'</h4><sup class = "sub-chitiet">đ</sup>
+												<h4 class = "gia-chitiet__2">'.$item->price.'</h4><sup>đ</sup>
+											</div>
+										</div>
+										<div class="chitiet-container-nhandat">
+											<span>Nhận đặt trước</span>
+										</div>
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 							
 										
 											<div class="chitiet-container-chitiet-khuyenmai">
@@ -247,7 +267,12 @@
 															</div>
 														</div>
 													</div>
+<<<<<<< HEAD
 												</div>';	
+=======
+												</div>';
+															
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 														}	
 														
 													}
@@ -535,6 +560,7 @@
 																Đánh giá của bạn về sản phẩm:
 															</div>
 														</div>
+<<<<<<< HEAD
 														<div id="rating">
 															<input type="radio" id="star5" name="rating" value="5" />
 															<label class = "full" for="star5" title="Awesome - 5 stars"></label>
@@ -552,6 +578,9 @@
 															<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 														</div>
 														<!-- <div class="comment-form__sao">
+=======
+														<div class="comment-form__sao">
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 															<div class="comment-form__rating-value">
 																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
 																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
@@ -559,7 +588,11 @@
 																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
 																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
 															</div>
+<<<<<<< HEAD
 														</div> -->
+=======
+														</div>
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 													</div>
 													<div class="comment-form__form-content">
 														<div class="l-6">
@@ -580,6 +613,7 @@
 											</div>
 										<input type="hidden" name="commentId" id="commentId" value="0" />
 										</form>
+<<<<<<< HEAD
 										<!-- Code comment tại đây -->
 										<div class="comment_chitiet--hienthi" id="showComments"></div>
 
@@ -655,6 +689,8 @@
 										</div>
 
 										
+=======
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 										<script src = "../Javascript/comment.js"></script>
 									</div>
 									<!-- Tin tức -->
@@ -663,6 +699,10 @@
 									</div>
 								</div>
 							</div>
+<<<<<<< HEAD
+=======
+							<div class="Model-Comment" id="showComments"></div>
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 
 <!-- Model chi tiết sản phẩm -->
 
@@ -726,10 +766,17 @@
 					<tr >
 						<td class="model-content-detail__title">Sim</td>
 						<td class="model-content-detail__charactestic">'.$conf->sim.'</td>
+<<<<<<< HEAD
 					</tr>
 					<tr>
 						<td class="group_field">Pin & Sạc</td>
 					</tr>
+=======
+					</tr>
+					<tr>
+						<td class="group_field">Pin & Sạc</td>
+					</tr>
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 					<tr >
 						<td class="model-content-detail__title">Pin</td>
 						<td class="model-content-detail__charactestic">'.$conf->pin.'</td>

@@ -1,5 +1,5 @@
 # WebDiDong_PTPMCN
-Nhóm 7: Trần Văn Tới: 4251050041
+Nhóm 7: Trần Văn Tới: 4251050041(nhóm trưởng)
 	Lương Nguyễn: 4251050051
 	Nguyễn Văn Hiệu
 	       

@@ -18,7 +18,11 @@ if($num >0){
 	while($row = $result->fetch(PDO::FETCH_ASSOC)){
 		extract($row);
 		$user_item = array(
+<<<<<<< HEAD
 			'id' 	=>$id,
+=======
+			'id' 	=>$id
+>>>>>>> f244013d6e4042eeb4c9d07e12d8a8506f8e955f
 		);
 		array_push($users_arr['data'],$user_item);
 	}
