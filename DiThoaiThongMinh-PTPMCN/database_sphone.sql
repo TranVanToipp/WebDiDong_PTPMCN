@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Oct 26, 2022 at 07:39 PM
+-- Generation Time: Nov 02, 2022 at 05:06 PM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -20,22 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `database_sphone`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `assess`
---
-
-DROP TABLE IF EXISTS `assess`;
-CREATE TABLE IF NOT EXISTS `assess` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `number_stars` int(11) NOT NULL,
-  `time_cmd` datetime NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -86,12 +70,36 @@ CREATE TABLE IF NOT EXISTS `color` (
 DROP TABLE IF EXISTS `comment`;
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `content_comment` text COLLATE utf8_unicode_ci NOT NULL,
+  `number_stars` int(11) NOT NULL,
   `time_comment` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`id`, `parent_id`, `user_id`, `product_id`, `content_comment`, `number_stars`, `time_comment`) VALUES
+(22, 0, 1, 1, 'tốt giá đẹp, dễ sử dụng', 5, '2022-11-02 22:03:45'),
+(23, 22, 5, 1, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 22:03:45'),
+(24, 0, 1, 1, 'máy hơi đơ', 2, '2022-11-02 22:04:06'),
+(25, 24, 5, 1, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 22:04:06'),
+(26, 24, 5, 1, 'bạn có thể nói chi tiết về tình trạng hiện tại không ạ', 0, '2022-11-02 22:21:50'),
+(28, 22, 5, 1, 'cảm ơn ạ', 0, '2022-11-02 22:26:16'),
+(30, 26, 1, 1, 'chạy đa nhiệm bị đơ', 0, '2022-11-02 22:40:25'),
+(31, 30, 5, 1, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 22:40:25'),
+(32, 0, 2, 6, 'đẹp', 5, '2022-11-02 23:47:02'),
+(33, 32, 5, 6, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 23:47:02'),
+(34, 0, 2, 6, 'tạm ổn', 4, '2022-11-02 23:52:35'),
+(35, 34, 5, 6, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 23:52:35'),
+(36, 0, 2, 6, 'hơi nóng máy', 2, '2022-11-02 23:54:15'),
+(37, 36, 5, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 23:54:15'),
+(38, 0, 2, 6, 'chụp ảnh xấu', 1, '2022-11-02 23:59:48'),
+(39, 38, 5, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 23:59:48');
 
 -- --------------------------------------------------------
 
@@ -11665,7 +11673,15 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `user_id`, `user_name`, `gender`, `phone_number`, `tinh_tp`, `quan_huyen`, `xa_phuong`, `product`, `num`, `money`, `note`, `created_at`, `status`) VALUES
+(1, 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '6', 1, 110.7, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', 'Đợi Kiểm duyệt'),
+(2, 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '1', 1, 120.6, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', 'Đợi Kiểm duyệt');
 
 -- --------------------------------------------------------
 
@@ -11694,11 +11710,11 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `product_type`, `title`, `price`, `discount`, `num`, `thumnail`, `description`, `description2`, `created_at`) VALUES
-(1, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 134, 0.1, 1, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
-(3, 2, 'Samsung Galaxy A03 3GB/32GB Chính Hãng', 1234, 0.2, 0, 'maycu22.jpg', 'qewr', 'qwe', '2022-09-15 22:32:25'),
-(4, 2, 'Samsung Galaxy A52 8GB/128GB Chính Hãng', 1234, 0.5, 0, 'maycu13.jpg', '124', '24', '2022-09-22 20:38:15'),
-(5, 2, 'Oppo Reno6 Z 5G 8GB/128GB chính hãng', 124, 0.2, 0, 'oppo12.jpg', '213', '124', '2022-09-22 20:38:15'),
-(6, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 123, 0.1, 0, 'maycu13.jpg', 'ád', 'ád', '2022-09-25 19:15:31');
+(1, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 134, 0.1, 9998, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
+(3, 2, 'Samsung Galaxy A03 3GB/32GB Chính Hãng', 1234, 0.2, 99999, 'maycu22.jpg', 'qewr', 'qwe', '2022-09-15 22:32:25'),
+(4, 2, 'Samsung Galaxy A52 8GB/128GB Chính Hãng', 1234, 0.5, 99999, 'maycu13.jpg', '124', '24', '2022-09-22 20:38:15'),
+(5, 2, 'Oppo Reno6 Z 5G 8GB/128GB chính hãng', 124, 0.2, 9999, 'oppo12.jpg', '213', '124', '2022-09-22 20:38:15'),
+(6, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 123, 0.1, 9998, 'maycu13.jpg', 'ád', 'ád', '2022-09-25 19:15:31');
 
 -- --------------------------------------------------------
 
@@ -11854,7 +11870,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `pk_user_role` (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `user`
@@ -11864,7 +11880,8 @@ INSERT INTO `user` (`id`, `fullname`, `email`, `phone_number`, `address`, `userN
 (1, 'test123', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt123', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 15:26:13'),
 (2, 'test1234', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt1234', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 22:44:03'),
 (3, 'nguyenvana', 'vantoicntt06@gmail.com', '', '', 'nguyen', '34d7691392bb5f0e825bb5d5bec3557b', 2, '2022-10-12 23:33:05'),
-(4, 'Tới Trần', 'vantoicntt06@gmail.com', '', '', 'nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-12 23:37:12');
+(4, 'Tới Trần', 'vantoicntt06@gmail.com', '', '', 'nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-12 23:37:12'),
+(5, 'Shop Điện Thoại', 'admin123@gmail.com', '012345679', 'Shop Điện Thoại', 'admin', '0192023a7bbd73250516f069df18b500', 1, '2022-11-02 16:04:36');
 
 --
 -- Constraints for dumped tables

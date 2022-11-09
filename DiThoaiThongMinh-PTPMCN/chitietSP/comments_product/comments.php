@@ -10,7 +10,12 @@ if(!empty($_POST["comment"]) && !empty($_POST["fullname"])){
     $user_id		= $_SESSION['id'];
     $product_id		= $_SESSION['product_id_comments'];
     $content_comment=  $_POST['comment'];
-	$number_stars	= 2; // lay so sao o day	
+	if(isset($_POST['rating'])){
+		$number_stars	= $_POST['rating'];
+	}
+	else{
+		$number_stars	= 0;
+	}
 	
 	$comment->parent_id		= $parent_id;
 	$comment->user_id		= $user_id;
@@ -36,8 +41,11 @@ if(!empty($_POST["comment"]) && !empty($_POST["fullname"])){
 				$comment_reply->content_comment = "Cảm ơn bạn đã ủng hộ shop";
 				$comment_reply->number_stars 	= 0;
 				
-				
-				$comment_reply->insertComment();
+				if($user_id == $user_id_admin){
+				}
+				else{
+					$comment_reply->insertComment();
+				}
 			}
 		}else{
 			foreach($data->data as $item){
@@ -47,8 +55,11 @@ if(!empty($_POST["comment"]) && !empty($_POST["fullname"])){
 				$comment_reply->content_comment = "Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp";
 				$comment_reply->number_stars 	= 0;
 				
-				
-				$comment_reply->insertComment();
+				if($user_id == $user_id_admin){
+				}
+				else{
+					$comment_reply->insertComment();
+				}
 			}
 		}
 	}

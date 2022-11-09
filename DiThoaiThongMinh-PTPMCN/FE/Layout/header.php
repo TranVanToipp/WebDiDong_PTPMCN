@@ -1,7 +1,7 @@
 <?php
     ob_start();
     session_start();
-    $baseURL = '';
+    $baseURL = '../../../../../';
 ?>
 
 <!DOCTYPE html>
@@ -151,12 +151,12 @@
                                         <a href="#" class="header__navbar-item-fullName-link">'.$_SESSION['fullname'].'</a>
                                         <div class="header__navbar-item-box-user">
                                             <ul class="header__navbar-item-box-user-list">
-                                                <li class="header__navbar-item-box-user-item"><a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
-                                                <li class="header__navbar-item-box-user-item"> <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php">Đổi mật khẩu</a></li>
-                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'authen/logout/index.php" >Đăng xuất</a></li>';
+                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
+                                                <li class="header__navbar-item-box-user-item"> <a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php">Đổi mật khẩu</a></li>
+                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/logout/index.php" >Đăng xuất</a></li>';
                                                 if(isset($_SESSION['role_id'])){
                                                     if($_SESSION['role_id'] == 1){
-                                                        echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'admin/" >Admin</a></li>';
+                                                        echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/admin/" >Admin</a></li>';
                                                     }
                                                 }
                                                 echo '

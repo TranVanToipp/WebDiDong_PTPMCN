@@ -26,3 +26,6 @@ function closeModelChiTiet() {
 
 btnHienModel.addEventListener('click',showModelChiTiet);
 btnclodeModel.addEventListener('click',closeModelChiTiet);
+
+
+

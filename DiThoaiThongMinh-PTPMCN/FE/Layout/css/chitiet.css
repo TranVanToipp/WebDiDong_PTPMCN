@@ -751,6 +751,210 @@ tbody {
     color: #20863d;
 }
 
+/* Comment sản phẩm */
+
+.comment_chitiet--hienthi {
+    margin-top: 20px;
+    padding: 10px 15px 30px 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+.comment_item--hienthi {
+    padding: 10px 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.comment_item-content {
+    
+}
+
+.comment_item--info {
+    display: flex;
+}
+
+.comment_item--name {
+    font-weight: 600;
+}
+
+.comment_item--name-text {
+    color: #333;
+    margin-right: 20px;
+    font-size: 1.4rem;
+}
+
+.comment_item--sao_hienthi {
+    margin-right: 20px;
+    
+}
+
+.comment_item--thoigian {
+    color: #999;
+    font-size: 1.3rem;
+}
+
+.comment_content--noidung {
+    padding: 10px 0;
+    font-size: 1.3rem;
+}
+
+.wrapper-admin-rep {
+    padding-left: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    margin-left: 20px;
+}
+
+.wrapper_comment_content {
+
+}
+
+.comment-info__admin {
+    padding-top: 15px;
+}
+
+.comment-info__admin-name {
+
+}
+
+.comment-info__admin-name-text {
+    color: #333;
+    margin-right: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.comment-info__admin-name-title {
+    color: #fff;
+    padding: 6px 7px;
+    background-color: #f60;
+    font-size: 1.4rem;
+}
+
+.comment_content-noidung__admin {
+    padding: 15px 0 10px 0;
+    font-size: 1.4rem;
+}
+
+.comment_item--admin__xoa-text {
+    margin-left: 63%;
+    padding: 15px;
+    border: 2px solid #f60;
+    background: #fff;
+}
+
+.comment_item--admin__group {
+    display: flex;
+}
+
+.comment_item--admin__xoa {
+    margin-left: 83%;
+    padding: 4px 10px;
+    border: 2px solid #f60;
+    background: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #f60;
+}
+
+.comment_item--admin__traloi {
+    margin-left: 10px;
+    padding: 2px 10px;
+    border: 2px solid #f60;
+    background: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #f60;
+}
+
+/* form admin trả lời */
+.comment-form__admin {
+    border: solid 1px #ccc;
+    display: flex;
+    display: none;
+}
+
+.form-control-2 {
+    height: 70px;
+    width: 100%;
+    padding: 8px 0 0 15px;
+    border-radius: 0;
+}
+
+.row-l-6__content-admin {
+    display: flex;
+    margin-left: 10px
+}
+
+.row_form-control-2 {
+    margin-left: 20px;
+}
+
+.open-formadmin {
+    display: flex;
+}
+
+.form-control-2 {
+
+}
+
+.row_form-control-2 {
+
+}
+/* CSS ngôi sao */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+/*reset css*/
+div,label{
+    margin:0;
+    padding:0;
+}
+/* body{
+    margin:20px;} */
+h1{
+    font-size:1.5em;
+    margin:10px;
+}
+/****** Style Star Rating Widget *****/
+#rating{
+    border:none;
+    float:left;
+}
+#rating>input{
+    display:none;
+}/*ẩn input radio - vì chúng ta đã có label là GUI*/
+#rating>label:before{
+    margin:5px;
+    font-size:1.25em;
+    font-family:FontAwesome;
+    display:inline-block;
+    content:"\f005";
+}/*1 ngôi sao*/
+#rating>.half:before{
+    content:"\f089";
+    position:absolute;
+}/*0.5 ngôi sao*/
+#rating>label{
+    color:#ddd;
+    float:right;
+}/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+/*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+#rating>input:checked~label,
+#rating:not(:checked)>label:hover, 
+#rating:not(:checked)>label:hover~label{
+    color:#FFD700;
+    cursor: pointer;
+}
+/* Hover vào các sao phía trước ngôi sao đã chọn*/
+#rating>input:checked+label:hover,
+#rating>input:checked~label:hover,
+#rating>label:hover~input:checked~label,
+#rating>input:checked~label:hover~label{
+    color:#FFED85;
+    
+}
+
+
 
 
 

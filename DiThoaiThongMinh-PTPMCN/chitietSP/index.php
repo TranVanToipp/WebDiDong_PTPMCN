@@ -6,10 +6,24 @@
 	include_once ($baseUrl.'FE/Layout/header.php');
     $fullname = "";
     $id_user = "";
+	$id = $_GET['id'];
     if(isset($_SESSION['fullname']) && isset($_SESSION['id'])){
         $fullname = $_SESSION['fullname'];
         $id_user = $_SESSION['id'];
     }
+	$url1 = 'http://localhost/webDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/comment/selectComment.php?product_id='.$id;
+	$json1 = file_get_contents($url1);
+	$data1 = json_decode($json1);
+	$length=0;
+	$sum_stars=0;
+	$sum = 0;
+	if(isset($data1->data)){
+		foreach($data1->data as $item){
+			$sum_stars += $item->number_stars;
+			$length+=1;
+		}
+	$sum = $sum_stars/$length;
+	}
 ?>
 
 <link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/chitiet.css">
@@ -216,8 +230,7 @@
 															</div>
 														</div>
 													</div>
-												</div>';
-															
+												</div>';	
 														}	
 														
 													}
@@ -247,14 +260,14 @@
 												<div class="row l-3">
 													<div class="row_cmt--1">
 														<p class="row_cmt--col">
-															4.9
+															<?php echo round($sum,1);?>
 															<span>
 																/5
 															</span>
 														</p>
 														<div class="comment_1--start">
 															<img src="../assets/img/Comment/star-fill.png" alt="">
-																&nbsp;
+															&nbsp;
 															<img src="../assets/img/Comment/star-fill.png" alt="">
 															&nbsp;
 															<img src="../assets/img/Comment/star-fill.png" alt="">
@@ -264,13 +277,61 @@
 															<img src="../assets/img/Comment/star-fill.png" alt="">
 														</div>
 														<p class="cmt_count">
-															(22 đánh giá )
+															(<?php echo $length;?> đánh giá )
 														</p>
 													</div>
 												</div>
 												<div class="l-6">
 													<div class="row_cmt--2">
 														<div class="row_cmt--rating">
+														<?php
+														if(isset($data1->data)){
+															$sum_5s=0;
+															$sum_4s=0;
+															$sum_3s=0;
+															$sum_2s=0;
+															$sum_1s=0;
+															$i=0;
+																foreach($data1->data as $item){
+																	if($item->number_stars == 5){
+																		$sum_5s +=1;
+																	}
+																	if($item->number_stars == 4){
+																		$sum_4s +=1;
+																	}
+																	if($item->number_stars == 3){
+																		$sum_3s +=1;
+																	}
+																	if($item->number_stars == 2){
+																		$sum_2s +=1;
+																	}
+																	if($item->number_stars == 1){
+																		$sum_1s +=1;
+																	}
+																	
+																}
+																for($i;$i<5;$i++){
+																	echo '
+																	<div class="phantram_sao">
+																		<div class="phantram_sao--p">
+																			<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
+																		</div>
+																	</div>';
+																}
+																$pt = ($sum_5s/$length)*100;
+																echo '<div class="row_cmt--progess1">
+																	<div class="progress">
+																		<div class="progress-bar" style="width:'.round($pt,1).'%">
+
+																		</div>
+																	</div>
+																</div>
+																<p class="phantram-text">
+																'.round($pt,1).'%
+																</p>';
+														}
+														else {
+															echo '
 															<div class="phantram_sao">
 																<div class="phantram_sao--p">
 																	<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
@@ -298,18 +359,56 @@
 															</div>
 															<div class="row_cmt--progess1">
 																<div class="progress">
-																	<div class="progress-bar" style="width:86%">
+																	<div class="progress-bar" style="width:0%">
 
 																	</div>
 																</div>
 															</div>
 															<p class="phantram-text">
-															86%
+															0%
 															</p>
+															';
+														}
+														?>
 														</div>
 
 														<!-- 2 -->
 														<div class="row_cmt--rating">
+														<?php
+														if(isset($data1->data)){
+															$i=0;
+															for($i;$i<4;$i++){
+																echo '
+																<div class="phantram_sao">
+																	<div class="phantram_sao--p">
+																		<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
+																	</div>
+																</div>
+																';
+															}
+															echo '
+															<div class="phantram_sao">
+																<div class="phantram_sao--p">
+																	<img src="../assets/img/Comment/star-empty.png" alt="" class="lazy-loaded">
+																</div>
+															</div>
+															';
+															$pt = ($sum_4s/$length)*100;
+															echo '
+															<div class="row_cmt--progess1">
+																<div class="progress">
+																	<div class="progress-bar" style="width:'.round($pt,1).'%">
+
+																	</div>
+																</div>
+															</div>
+															<p class="phantram-text">
+															'.round($pt,1).'%
+															</p>
+															';
+														}
+														else{
+															echo '
 															<div class="phantram_sao">
 																<div class="phantram_sao--p">
 																	<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
@@ -337,17 +436,57 @@
 															</div>
 															<div class="row_cmt--progess1">
 																<div class="progress">
-																	<div class="progress-bar" style="width:86%">
+																	<div class="progress-bar" style="width:0%">
 
 																	</div>
 																</div>
 															</div>
 															<p class="phantram-text">
-															86%
+															0%
 															</p>
+															';
+														}
+														?>
 														</div>
 
 														<div class="row_cmt--rating">
+														<?php
+														if(isset($data1->data)){
+															$i=0;
+															$j=0;
+															for($i;$i<3;$i++){
+																echo '
+																<div class="phantram_sao">
+																	<div class="phantram_sao--p">
+																		<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
+																	</div>
+																</div>
+																';
+															}
+															for($j;$j<2;$j++){
+																echo '
+																<div class="phantram_sao">
+																<div class="phantram_sao--p">
+																	<img src="../assets/img/Comment/star-empty.png" alt="" class="lazy-loaded">
+																</div>
+															</div>
+																';
+															}
+															$pt = ($sum_3s/$length)*100;
+															echo '
+															<div class="row_cmt--progess1">
+																<div class="progress">
+																	<div class="progress-bar" style="width:'.round($pt,1).'%">
+
+																	</div>
+																</div>
+															</div>
+															<p class="phantram-text">
+															'.round($pt,1).'%
+															</p>
+															';
+														}else{
+															echo '
 															<div class="phantram_sao">
 																<div class="phantram_sao--p">
 																	<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
@@ -375,17 +514,57 @@
 															</div>
 															<div class="row_cmt--progess1">
 																<div class="progress">
-																	<div class="progress-bar" style="width:86%">
+																	<div class="progress-bar" style="width:0%">
 
 																	</div>
 																</div>
 															</div>
 															<p class="phantram-text">
-															86%
+															0%
 															</p>
+															';
+														}
+														?>
 														</div>
 
 														<div class="row_cmt--rating">
+														<?php
+														if(isset($data1->data)){
+															$i=0;
+															$j=0;
+															for($i;$i<2;$i++){
+																echo '
+																<div class="phantram_sao">
+																	<div class="phantram_sao--p">
+																		<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
+																	</div>
+																</div>
+																';
+															}
+															for($j;$j<3;$j++){
+																echo '
+																<div class="phantram_sao">
+																<div class="phantram_sao--p">
+																	<img src="../assets/img/Comment/star-empty.png" alt="" class="lazy-loaded">
+																</div>
+															</div>
+																';
+															}
+															$pt = ($sum_2s/$length)*100;
+															echo '
+															<div class="row_cmt--progess1">
+																<div class="progress">
+																	<div class="progress-bar" style="width:'.round($pt,1).'%">
+
+																	</div>
+																</div>
+															</div>
+															<p class="phantram-text">
+															'.round($pt,1).'%
+															</p>
+															';
+														}else {
+															echo '
 															<div class="phantram_sao">
 																<div class="phantram_sao--p">
 																	<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
@@ -413,17 +592,57 @@
 															</div>
 															<div class="row_cmt--progess1">
 																<div class="progress">
-																	<div class="progress-bar" style="width:86%">
+																	<div class="progress-bar" style="width:0%">
 
 																	</div>
 																</div>
 															</div>
 															<p class="phantram-text">
-															86%
+															0%
 															</p>
+															';
+														}
+														?>
 														</div>
 
 														<div class="row_cmt--rating">
+														<?php
+														if(isset($data1->data)){
+															$i=0;
+															$j=0;
+															for($i;$i<1;$i++){
+																echo '
+																<div class="phantram_sao">
+																	<div class="phantram_sao--p">
+																		<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
+																	</div>
+																</div>
+																';
+															}
+															for($j;$j<4;$j++){
+																echo '
+																<div class="phantram_sao">
+																<div class="phantram_sao--p">
+																	<img src="../assets/img/Comment/star-empty.png" alt="" class="lazy-loaded">
+																</div>
+															</div>
+																';
+															}
+															$pt = ($sum_1s/$length)*100;
+															echo '
+															<div class="row_cmt--progess1">
+																<div class="progress">
+																	<div class="progress-bar" style="width:'.round($pt,1).'%">
+
+																	</div>
+																</div>
+															</div>
+															<p class="phantram-text">
+															'.round($pt,1).'%
+															</p>
+															';
+														}else{
+															echo '
 															<div class="phantram_sao">
 																<div class="phantram_sao--p">
 																	<img src="../assets/img/Comment/star-fill.png" alt="" class="lazy-loaded">
@@ -451,14 +670,17 @@
 															</div>
 															<div class="row_cmt--progess1">
 																<div class="progress">
-																	<div class="progress-bar" style="width:86%">
+																	<div class="progress-bar" style="width:0%">
 
 																	</div>
 																</div>
 															</div>
 															<p class="phantram-text">
-															86%
+															0%
 															</p>
+															';
+														}
+														?>
 														</div>
 													</div>
 												</div>
@@ -494,7 +716,6 @@
 												</div>';
 												}
 												?>
-												
 										</div>
 										<form method="POST" class="comment-form" id="commentForm">
 											<div class="comments-content__container">
@@ -505,14 +726,21 @@
 																Đánh giá của bạn về sản phẩm:
 															</div>
 														</div>
-														<div class="comment-form__sao">
-															<div class="comment-form__rating-value">
-																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
-																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
-																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
-																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
-																<img src="../assets/img/Comment/star-empty.png" class = "img-sao__danhgia" alt="">
-															</div>
+														<div id="rating">
+															<input type="radio" id="star5" name="rating" value="5" />
+															<label class = "full" for="star5" title="Awesome - 5 stars"></label>
+														
+															<input type="radio" id="star4" name="rating" value="4" />
+															<label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+														
+															<input type="radio" id="star3" name="rating" value="3" />
+															<label class = "full" for="star3" title="Meh - 3 stars"></label>
+														
+															<input type="radio" id="star2" name="rating" value="2" />
+															<label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+														
+															<input type="radio" id="star1" name="rating" value="1" />
+															<label class = "full" for="star1" title="Sucks big time - 1 star"></label>
 														</div>
 													</div>
 													<div class="comment-form__form-content">
@@ -534,6 +762,10 @@
 											</div>
 										<input type="hidden" name="commentId" id="commentId" value="0" />
 										</form>
+										<!-- Code comment tại đây -->
+										<div class="comment_chitiet--hienthi" id="showComments"></div>
+
+										
 										<script src = "../Javascript/comment.js"></script>
 									</div>
 									<!-- Tin tức -->
@@ -542,7 +774,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="Model-Comment" id="showComments"></div>
 
 <!-- Model chi tiết sản phẩm -->
 
@@ -694,60 +925,11 @@ if(isset($_POST['add_cart']) && $_POST['add_cart']) {
 	}
 ?>
 
-
-<!-- <ul class="chitiet-container-list">
-	<li class="chitiet-container-type-item">
-		<img src="/WebDiiThongMinh-PTPMCN/assets/img/iphone22.jpg" alt="" class="chitiet-container-type-item-img">
-		<div class="chitiet-container-type-item-blow">
-			<span class="chitiet-container-type-item-tyle">Đen</span>
-			<span class="chitiet-container-type-item-price">
-				40.990.000
-			<sup>đ</sup>
-		</span>
-		</div>
-	</li>
-	<li class="chitiet-container-type-item">
-		<img src="PTPMCN/ass alt="" class="chitiet-container-type-item-img">
-		<div class="chitiet-container-type-item-blow">
-			<span class="chitiet-container-type-item-tyle">Đen</span>
-			<span class="chitiet-container-type-item-price">
-				40.990.000
-			<sup>đ</sup>
-		</span>
-		</div>
-	</li>
-	<li class="chitiet-container-type-item">
-		<img src="/WeThongMins/img/iphone22.jpg" alt="" class="chitiet-container-type-item-img">
-		<div class="chitiet-container-type-item-blow">
-			<span class="chitiet-container-type-item-tyle">Đen</span>
-			<span class="chitiet-container-type-item-price">
-				40.990.000
-			<sup>đ</sup>
-		</span>
-		</div>
-		</li>
-	</ul> -->
-<!-- ICON CHUYỂN HÌNH ẢNH  -->
-	<!-- <div class="chitiet-icon-nav">
-		<div class="chitiet-icon-nav-left">
-			<i class="fa-solid fa-angle-left fa-angle-left-color"></i>
-		</div>
-		<div class="chitiet-icon-nav-right">
-			<i class="fa-solid fa-angle-right"></i>
-		</div>
-	</div> -->
-
 <script>
 	var element = document.querySelector('.chitiet-container-below');
 	element.onclick = function (e) {
 		var elementItem = e.target.closest('.chitiet-container-below-img-con');
 		var elementConCammara = document.querySelector('.chitiet-container-below-img-concon');
-		// if (elementConCammara) {
-		// 	var elementsrc = elementConCammara.getAttribute('src');
-		// 	var cartLon = document.querySelector('.chitiet-container-above-img');
-		// 	var url = '../assets/img/anh-chup-tu-iphone-14-pro-max-tim-4_1664272756_1.webp';
-		// 	cartLon.src = url;
-		// } else 
 		if (elementItem) {
 			var cartbackImg = elementItem.getAttribute('src');
 			console.log(cartbackImg);

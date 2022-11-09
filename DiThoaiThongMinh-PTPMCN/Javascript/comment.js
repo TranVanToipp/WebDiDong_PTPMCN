@@ -24,19 +24,5 @@ btndongComment.onclick = function () {
     dongdanhgia.style.display = 'none';
 }
 
-var imgSao = document.querySelectorAll('.img-sao__danhgia');
-console.log(imgSao);
-    // var srcSao = imgSao.getAttribute('src');
-    srcSao = '../assets/img/Comment/star-fill.png';
-    var arr = [];
-for (var i = 0; i < imgSao.length; i++) {
-    imgSao[i].onclick = function(item, index) {
-        console.log(item, index);
-        
-    }
-}
-
-
-
 
 
