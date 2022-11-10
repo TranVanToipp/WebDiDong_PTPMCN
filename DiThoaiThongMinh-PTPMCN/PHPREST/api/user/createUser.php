@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //headers
 header('Access-Control-Allow-Origin:*');//cho phép yêu cầu HTTP
 header('Content-Type: application/json');
@@ -21,16 +21,14 @@ function rdMaUser($length = 7) {
 	return $randomMaUser;
 }
 
-function layMaUser() {
-	$url="http://localhost/webDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/select_order_id.php";
-	$json = file_get_contents($url);
-	$data = json_decode($json);
-}
+
 
 $fullname = $_SESSION['fullname'];
 $email = $_SESSION['email'];
 $userName = $_SESSION['userName'];
 $password = $_SESSION['password'];
+$phone_number = '';
+$address = '';
 
 $user->fullname = $fullname;
 $user->email = $email;

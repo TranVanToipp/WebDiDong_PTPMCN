@@ -26,16 +26,10 @@
 		//page
 		public $page;
 		public $max_page;
-
-		
-
 		//hàm tạo với kết nối db
 		public function __construct($db){
 			$this->comn=$db;
 		}
-
-		
-
 		//select loại sản phẩm
 		public function read_type(){
 			//create query
@@ -117,6 +111,30 @@
 			return $stmt;
 		}
 
+		public function selectAll(){
+			//create query
+			$query = 'SELECT 
+				p.id,
+				c.name as product_type_name,
+				p.title,
+				p.price,
+				p.discount,
+				p.num,
+				p.thumnail,
+				p.description,
+				p.description2,
+				p.created_at
+				FROM '.$this->table.' p
+				LEFT JOIN 
+					product_type c ON p.product_type = c.id 
+					ORDER BY p.created_at DESC';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
 		//select sản phẩm.
 		public function read($num){
 			//create query
@@ -182,7 +200,6 @@
 				$this->created_at = $row['created_at'];
 			}
 		}
-
 		public function img_desct(){
 			$table = 'img_desct';
 			$query = 'SELECT 

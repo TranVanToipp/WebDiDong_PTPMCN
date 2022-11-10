@@ -955,6 +955,79 @@ h1{
 }
 
 
+/* sale chi tiêt sản phẩm */
+
+.flashsale {
+    padding-bottom: 12px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.top_sale {
+    background-color: #ff6700;
+    padding: 7px 15px 7px 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.top_sale img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.right_sale {
+    display: flex;
+    align-items: center;
+}
+
+.coun_down {
+    margin: 0;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.time_coundown {
+    margin-left: 10px;
+}
+
+.number_ {
+    padding: 2px 4px;
+    background-color: #20863d;
+    border-radius: 3px;
+}
+
+.mid_sale {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price_now {
+    color: #777;
+    text-decoration: line-through;
+}
+
+._price {
+    font-size: 18px;
+    line-height: 21px;
+    margin: 0 15px;
+    color: #ff6700;
+}
+
+.discount_sale {
+    padding: 4px 10px;
+    color: #fff;
+    background-color: #ff6700;
+    border-radius: 3px;
+    font-size: 1.3rem;
+}
+
 
 
 

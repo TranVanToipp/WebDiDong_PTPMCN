@@ -23,7 +23,7 @@ $data_type = json_decode($json_type);
                 <div class="grid-row">';
         foreach($data_product->data as $product_item){
             echo '
-				<a href ="../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id='.$product_item->id.'&sale=0" class="chitiet-item__product col l-2-4 m-4 c-6" style="text-decoration: none;">
+				<a href ="../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id='.$product_item->id.'&sale=0" class="chitiet-item__product col l-2 m-4 c-6" style="text-decoration: none;">
                     <div class="home-product-item">
                             <div class="home-product-item-img" style="background-image:url(./assets/photos/'.$product_item->thumnail.'");"></div>
                             <h4 class="home-product-item-name">'.$product_item->title.'</h4>

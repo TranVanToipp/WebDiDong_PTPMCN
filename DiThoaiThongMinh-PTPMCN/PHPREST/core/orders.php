@@ -45,6 +45,15 @@
 			return $stmt;
 		}
 		
+		public function select_orders_All(){
+			$query = 'SELECT * FROM '.$this->table;
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
 		
 		public function create(){
 			//create query

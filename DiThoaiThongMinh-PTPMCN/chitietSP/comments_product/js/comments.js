@@ -23,7 +23,7 @@ $(document).ready(function(){
 	$(document).on('click', '.reply', function(){
 		var commentId = $(this).attr("id");
 		$('#commentId').val(commentId);
-		$('#comment').focus();
+		$('#name').focus();
 	});
 });
 // function to show comments

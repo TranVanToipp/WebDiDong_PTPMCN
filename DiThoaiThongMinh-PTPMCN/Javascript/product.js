@@ -17,6 +17,8 @@ function handleLogin(data) {
     var productItem = document.querySelector('.grid-row');
     data.data.forEach( function (item) {
         console.log(item);
+        // var APIType = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/read.php?product_type=".item.product_type;
+        // console.log(APIType);
         var array = Object.entries(item);
         var html  = array.map(function (item) {
              return `

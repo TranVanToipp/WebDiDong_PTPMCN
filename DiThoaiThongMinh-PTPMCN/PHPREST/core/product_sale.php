@@ -40,7 +40,7 @@ class sale{
             $stmt->execute();
             
             return $stmt;
-        }
+    }
 
 }
 

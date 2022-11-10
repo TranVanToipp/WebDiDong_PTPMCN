@@ -7,7 +7,6 @@
 		
 		//user properties
 		public $id;
-		public $maUser;
 		public $fullname;
 		public $email;
 		public $phone_number;
@@ -26,7 +25,6 @@
 
 		public function updateUser() {
 			$id = $this->id;
-			$maUser = $this->maUser;
 			$fullname = $this->fullname;
 			$email = $this->email;
 			$phone_number = $this->phone_number;
@@ -35,7 +33,7 @@
 			$password = $this->password;
 			$role_id = $this->role_id;
 			$query = 'UPDATE '.$this->table.' SET  
-			fullname = '.$fullname.' maUser = '.$maUser.'
+			fullname = '.$fullname.' 
 			email = '.$email.' 
 			phone_number = '.$phone_number.' address = '.$address.' 
 			userName = '.$userName.' password = '.$password.' 
@@ -43,7 +41,6 @@
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
 			$stmt->bindParam(1,$this->id);
-			$stmt->bindParam(2,$this->maUser);
 			$stmt->bindParam(2,$this->fullname);
 			$stmt->bindParam(2,$this->email);
 			$stmt->bindParam(2,$this->phone_number);
@@ -93,15 +90,12 @@
 			}
 			return false;
 		}
-
-		
-		
 		public function create(){
 			//create query
-			$query = 'INSERT INTO '.$this->table.
-			'SET fullname = :fullname, maUser = :maUser, email = :email,
-			phone_number = :phone_number, address = :address,
-			userName = :userName, password = md5(:password),
+			$query = 'INSERT INTO '.$this->table. 
+			'SET fullname = :fullname, email = :email, 
+			phone_number = :phone_number, address = :address, 
+			userName = :userName, password = md5(:password), 
 			role_id = 2';
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
@@ -116,7 +110,6 @@
 			$this->password = htmlspecialchars(strip_tags($this->password));
 			
 			//ràng buộc các tham số
-			$stmt->bindParam(':maUser',$this->maUser);
 			$stmt->bindParam(':fullname',$this->fullname);
 			$stmt->bindParam(':email',$this->email);
 			$stmt->bindParam(':phone_number',$this->phone_number);

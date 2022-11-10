@@ -42,7 +42,28 @@
 					<th style="width: 50px;">Tùy chỉnh</th>
 					<th style="width: 50px;">Tùy chỉnh</th>
                 </tr>
-
+<?php
+$url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/select_order_All.php';
+$json = file_get_contents($url);
+$data = json_decode($json);
+$index = 0;
+if(isset($data->data)){
+	foreach($data->data as $item){
+		echo 
+		'<tr>
+			<td>'.($index++).'</td>
+			<td>'.$item->maHD.'</td>
+			<td>'.$item->id_product.'</td>
+			<td>abc</td>
+			<td>'.$item->user_id.'</td>
+			<td>'.$item->num.'</td>
+			<td>'.$item->status.'</td>
+			<td>'.$item->created_at.'</td>
+			<td>'.$item->money.'</td>
+		</tr>';
+	}
+}
+?>
             </table>
         </div>
     </div>

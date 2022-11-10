@@ -20,20 +20,47 @@
             <table class = "table table-bordered table-hover">
                 <tr>
                     <th>STT</th>
-                    <th>Mã SP</th>
+					<th>id</th>
                     <th>Tên SP</th>
                     <th>Giá nhập vào</th>
                     <th>Giá bán ra</th>
 					<th>Giảm Giá</th>
 					<th>Số lương</th>
-					<th>Đơn Vị Tính</th>
                     <th>Thông tin SP</th>
-					<th>Hãng SP</th>
+					<th>Loại SP</th>
                     <th>Hình sản phẩm</th>
                     <th style="width: 50px;">Tùy chỉnh</th>
 					<th style="width: 50px;">Tùy chỉnh</th>
                 </tr>
-
+<?php
+$url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/selectAll.php';
+$json = file_get_contents($url);
+$data = json_decode($json);
+$index = 0;
+if(isset($data->data)){
+	foreach($data->data as $item){
+		echo 
+		'<tr>
+			<td>'.($index++).'</td>
+			<td>'.$item->id.'</td>
+			<td>'.$item->title.'</td>
+			<td>'.$item->price.'</td>
+			<td>'.($item->price-$item->price*$item->discount).'</td>
+			<td>'.($item->discount*100).'%</td>
+			<td>'.$item->num.'</td>
+			<td>'.$item->description.'</td>
+			<td>'.$item->product_type_name.'</td>
+			<td><img src="image/'.$item->thumnail.'" style="height: 120px; width: 100px;"></td>
+			<th style="width: 40px; height:40px;" >
+				<button class="btn btn-warning">Edit</button></a>
+			</th>
+			<th style="width: 50px;" >
+				<button class="btn btn-danger">Xóa</button>
+			</th>
+		</tr>';
+	}
+}
+?>
             </table>
         </div>
     </div>
