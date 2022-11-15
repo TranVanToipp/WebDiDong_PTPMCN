@@ -14,16 +14,13 @@
             <table class="table table-bordered table-hover" style="margin-top: 15px;">
                 <!-- <thead> -->
                     <tr>
-                        <th>Mã Khách hàng</th>
-						<!-- <th>Tên đăng nhập</th> -->
+                        <th>ID</th>
                         <th>Tên khách hàng</th>
-						<!-- <th>Ngày sinh</th> -->
-                        <th>Giới tính</th>
                         <th>Địa chỉ</th>
                         <th>Số điện thoại</th>
                         <th>Email</th>
-                        <th>role_id</th>
-
+                        <th>Vai Trò</th>
+						<th>Ngày tạo tài khoản</th>
 						<th style="width: 50px;">Tùy chỉnh</th>
 						<th style="width: 50px;">Tùy chỉnh</th>
                     </tr>
@@ -36,13 +33,13 @@
 
     foreach($data -> data as $item) {
         echo '<tr>
-                <td>Mã khách hàng</td>
+                <td>'.$item->id.'</td>
                 <td>'.$item->fullname.'</td>
-                <td>Giới tính</td>
                 <td>'.$item->address.'</td>
                 <td>'.$item->phone_number.'</td>
                 <td>'.$item->email.'</td>
-                <td>'.$item->role_id.'</td>
+                <td>'.$item->role.'</td>
+				<td>'.$item->created_at.'</td>
                 <th style="width: 40px; height:40px;" >
                     <button class="btn btn-warning">Edit</button></a>
                 </th>
@@ -64,7 +61,10 @@
                 }
                 $.post('../../PHPREST/api/user/delete_user.php', {
                     'ID': ID
-                })
+                }, function(data) {
+					alert(data)
+					location.reload()
+				})
             }
 	</script>
 <?php

@@ -1,7 +1,7 @@
 <?php
 //headers
 header('Access-Control-Allow-Origin:*');//cho phép yêu cầu HTTP
-
+header('Content-Type: application/json; charset=utf8');
 
 
 include_once('../../core/initialize.php');
@@ -25,19 +25,16 @@ if($num >0){
 			'fullname' =>$fullname,
 			'email' =>$email,
 			'phone_number' =>$phone_number,
+			'userName'=>$userName,
+			'password'=>$password,
 			'address' =>$address,
-			'userName' =>$userName,
-			'password' =>$password,
+			'role' =>$name,
 			'role_id' =>$role_id,
 			'created_at' =>$created_at
 		);
 		array_push($user_arr['data'],$user_item);
 	}
-
 	$json = json_encode($user_arr,JSON_UNESCAPED_UNICODE);
 	echo $json;
-}
-else{
-	echo json_encode(array('message' => 'No product found.'));
 }
 ?>

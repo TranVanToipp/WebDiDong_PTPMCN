@@ -1,10 +1,6 @@
 
-
 <?php
 session_start();
-if(!isset($msg)){
-	$msg = '';
-}
 
 ?>
 
@@ -23,7 +19,6 @@ if(!isset($msg)){
 
         <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST" class="form" id="form-1">
           <h3 class="heading">Đăng kí tài khoản</h3>
-			<div style="color: red;text-align:center;"><?=$msg?></div>
           <div class="spacer"></div>
       
           <div class="form-group">
@@ -74,7 +69,7 @@ if(!isset($msg)){
 						$_SESSION['email'] = $_POST['email'];
 						$_SESSION['userName'] = $_POST['userName'];
 						$_SESSION['password'] = $_POST['password'];
-						header('Location:/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+						header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 					}else
 						$msg = 'Mật Khẩu Không Khớp, vui lòng kiểm tra lại thông tin'; 
 				}else{
@@ -88,7 +83,7 @@ if(!isset($msg)){
 					$_SESSION['email'] = $_POST['email'];
 					$_SESSION['userName'] = $_POST['userName'];
 					$_SESSION['password'] = $_POST['password'];
-					header('Location:./WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+					header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
 				}
 				
 			}

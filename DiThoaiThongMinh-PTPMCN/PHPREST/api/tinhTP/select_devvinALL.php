@@ -19,7 +19,7 @@
             extract($row);
             $devvn_item = array(
                 'matp' 	=>$matp,
-                'name'=>$name,
+                'name'=>$nameTP,
                 'type'=>$type,
                 'slug'=>$slug,
             );

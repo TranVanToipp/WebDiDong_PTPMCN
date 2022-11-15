@@ -1,6 +1,4 @@
 
-
-
 var URLSale = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/sale/select_sale.php';
 
 function start() {
@@ -19,12 +17,13 @@ function getProductSale (callback) {
 function handleProductSale(data) {
     var i = 0;
     var elementProduct = document.querySelector('.box-sale-products-content');
-    // console.log(data);
+    
     var html = data.data.map(function (item) {
         i++;
         var noW1 = new Date().getTime();
-        var timestart = new Date(item.time_sale).getTime();
-            if(noW1>=timestart){
+        var timeStart = new Date(item.time_sale).getTime();
+		var timeStop = new Date(item.time_salestop).getTime();//xem lấy time từ server..
+            if(noW1>=timeStart && noW1 <= timeStop){
                 (function(i) {
                     setInterval(function () {
                         var noW = new Date().getTime();
@@ -46,7 +45,7 @@ function handleProductSale(data) {
                     },1000);
                 })(i);
                 return`
-                    <a href ="../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id=${item.id_product_sale}&sale=1" class="col l-2-4 m-4 c-6 box-sale-products-item__box">
+                    <a href ="../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id=${item.id_product_sale}&sale=1" class="col l-2-4 m-4 c-6 box-sale-products-item__box" style="text-decoration: none;">
                         
                         <div class="home-product-item">
                             <div class="home-product-item-img" style="background-image:url(./assets/photos/${item.thumnail});">
@@ -58,7 +57,7 @@ function handleProductSale(data) {
                                     </span>
                                 </div>
                                 <div class="price_sale--product">
-                                ${item.price}đ
+                                ${Math.round((item.price-item.price*item.discount_product_sale/100)*100)/100}đ
                                 </div>
                             </div>
                             <div class="view_product--sold">
@@ -71,8 +70,8 @@ function handleProductSale(data) {
                         </div>
                             <h4 class="home-product-item-name">${item.title}</h4>
                             <div class="home-product-item-price">
-                                <span class="home-product-item__price-current">${item.description}Đ</span>
-                                <span class="home-product-item__price-old">${item.description}Đ</span>
+                                <span class="home-product-item__price-current">${Math.round((item.price-item.price*item.discount_product_sale/100)*100)/100}Đ</span>
+                                <span class="home-product-item__price-old">${item.price}Đ</span>
                             </div>
                             <div class="sale-time-product">
                                 <div class="sale_time-down">

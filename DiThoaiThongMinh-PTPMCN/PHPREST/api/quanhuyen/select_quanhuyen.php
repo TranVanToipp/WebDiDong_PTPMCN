@@ -19,7 +19,7 @@
             extract($row);
             $devvn_item = array(
                 'maqh' 	=>$maqh,
-                'name'=>$name,
+                'name'=>$nameQH,
                 'type'=>$type,
                 'matp'=>$matp
             );

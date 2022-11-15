@@ -19,7 +19,7 @@
             extract($row);
             $devvn_item = array(
                 'xaid' 	=>$xaid,
-                'name'=>$name,
+                'name'=>$nameXa,
                 'type'=>$type,
                 'maqh'=>$maqh
             );

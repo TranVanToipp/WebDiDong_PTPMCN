@@ -146,7 +146,7 @@
                         </div>
                         <div class="header__navbar-item-lore-shared header__navbar-item-lore-shared-hover">
                             <?php 
-                                if(isset($_SESSION['fullname']) && isset($_SESSION['id'])) {
+                                if(isset($_SESSION['fullname']) && isset($_SESSION['id']) && isset($_SESSION['role_id'])){
                                     echo '
                                         <a href="#" class="header__navbar-item-fullName-link">'.$_SESSION['fullname'].'</a>
                                         <div class="header__navbar-item-box-user">
@@ -154,11 +154,9 @@
                                                 <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
                                                 <li class="header__navbar-item-box-user-item"> <a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php">Đổi mật khẩu</a></li>
                                                 <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/logout/index.php" >Đăng xuất</a></li>';
-                                                if(isset($_SESSION['role_id'])){
-                                                    if($_SESSION['role_id'] == 1){
-                                                        echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/admin/" >Admin</a></li>';
-                                                    }
-                                                }
+												if($_SESSION['role_id'] == 1){
+													echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/admin/" >Admin</a></li>';
+												}
                                                 echo '
                                             </ul>
                                         </div>

@@ -46,7 +46,7 @@ function layMaHD(){
 	}
 }
 $maHD = layMaHD();
-$_SESSION['maHD'] = $maHD;
+
 
 $orders->user_id = $_SESSION['id'];
 $orders->user_name = $_SESSION['name'];
@@ -57,7 +57,7 @@ $orders->tinh_tp = $_SESSION['matp'];
 $orders->quan_huyen = $_SESSION['maqh'];
 $orders->xa_phuong = $_SESSION['phuongxa'];
 $orders->note = $_SESSION['note'];
-$orders->status = "Đợi Kiểm duyệt";
+$orders->status = 1;
 foreach ($_SESSION['cart'] as $sanpham){
 	$product->id = $sanpham[4];
 	$product_update->id = $sanpham[4];

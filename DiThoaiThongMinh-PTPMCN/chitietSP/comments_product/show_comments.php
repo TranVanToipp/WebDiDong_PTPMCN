@@ -63,13 +63,6 @@ foreach($data->data as $item){
 echo $commentHTML;
 
 function getCommentReply($product_id,$parentId = 0, $marginLeft = 0) {
-	$url_id = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/select_user_id.php';
-	$json_id = file_get_contents($url_id);
-	$data_id = json_decode($json_id);
-	$user_id_admin = 0;
-	foreach($data_id->data as $admin){
-		$user_id_admin = $admin->id;
-	}
 	$url_reply = 'http://localhost/webDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/comment/selectCommentReply.php?product_id='.$product_id.'&parent_id='.$parentId;
 	$json_reply = file_get_contents($url_reply);
 	$data_reply = json_decode($json_reply);
@@ -92,14 +85,10 @@ function getCommentReply($product_id,$parentId = 0, $marginLeft = 0) {
 							<div class="comment-info__admin-name">
 								<span class="comment-info__admin-name-text">
 									'.$reply->fullname.'
-								</span>';
-								if($reply->user_id == $user_id_admin){
-									$commentHTML .='
+								</span>
 								<span class="comment-info__admin-name-title">
 									QTV
-								</span>';
-								}
-								$commentHTML .='
+								</span>
 							</div>
 							<div class = "comment_item--admin__group">';
 							if($role_id == 1){

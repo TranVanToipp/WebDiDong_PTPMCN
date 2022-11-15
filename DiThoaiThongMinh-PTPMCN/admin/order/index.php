@@ -28,27 +28,177 @@
 			<a><button name="xem" type="submit" class="btn btn-success" style="margin-top: -2px;margin-left: 10px;">Xem Hóa Đơn</button></a>
 			</form>
             <table class = "table table-bordered table-hover">
-                <tr>
-                    <th>STT</th>
-                    <th>Mã HĐ</th>
-                    <th>Mã SP</th>
-					<th>Tên SP</th>
-                    <th>Mã KH</th>
-                    <th>Số Lượng</th>
-                    <th>Trạng Thái</th>
-					<th>Ngày HĐ</th>
-                    <th>Thành Tiền</th>
-                    <th style="width: 50px;">Tùy chỉnh</th>
-					<th style="width: 50px;">Tùy chỉnh</th>
-					<th style="width: 50px;">Tùy chỉnh</th>
-                </tr>
-
+<?php
+if (isset($_POST['xem'])){
+	$hd=$_POST['hoadon'];
+	if($hd=="1"){
+		view();
+	}
+	else
+		if($hd=="2"){
+			$tt="1";
+			view1($tt);
+		}
+	else
+		if($hd=="3"){
+			$tt="2";
+			view1($tt);
+		}
+	else{
+		$tt="3";
+		view1($tt);
+	}
+}
+else {
+	view();
+}
+?>
             </table>
         </div>
     </div>
 	
 </body>
 </html>
+
+<?php
+function view(){
+	$url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/select_order_All.php';
+	$json = file_get_contents($url);
+	$data = json_decode($json);
+	$index = 1;
+	if(isset($data->data)){
+		echo '
+			<tr>
+				<th>STT</th>
+				<th>Mã HĐ</th>
+				<th>Tên SP</th>
+				<th>Tên khách hàng</th>
+				<th>Số Lượng</th>
+				<th>Thành Tiền</th>
+				<th>Địa chỉ</th>
+				<th>Trạng Thái</th>
+				<th>Ngày đặt hàng</th>
+				<th style="width: 50px;">Tùy chỉnh</th>
+				<th style="width: 50px;">Tùy chỉnh</th>
+				<th style="width: 50px;">Tùy chỉnh</th>
+			</tr>';
+		foreach($data->data as $item){
+			echo 
+			'<tr>
+				<td>'.($index++).'</td>
+				<td>'.$item->maHD.'</td>
+				<td>'.$item->name_product.'</td>
+				<td>'.$item->user_name.'</td>
+				<td>'.$item->num.'</td>
+				<td>'.$item->money.'</td>
+				<td>'.$item->tinh_tp.'-'.$item->quan_huyen.'-'.$item->xa_phuong.'-'.$item->note.'</td>
+				<td>'.$item->status.'</td>
+				<td>'.$item->created_at.'</td>
+				<th style="width: 40px; height:40px;" >
+					<button class="btn btn-warning" onclick="approveOrder('.$item->id.')">Duyệt Đơn</button></a>
+				</th>
+				<th style="width: 50px;" >
+					<button class="btn btn-danger" onclick="cancelOrder('.$item->id.')">Hủy Đơn</button>
+				</th>
+				<th style="width: 50px;" >
+					<button name="delete" class="btn btn-danger" onclick="deleteOrder('.$item->id.')">Xóa Đơn</button>
+				</th>
+			</tr>';
+		}
+	}
+	else
+		echo '<tr>Hiện Tại không có hóa đơn nào</tr>';
+}
+function view1($tt){
+	$url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/select_order_All_TT.php?status='.$tt;
+	$json = file_get_contents($url);
+	$data = json_decode($json);
+	$index = 1;
+	if(isset($data->data)){
+		echo '
+			<tr>
+				<th>STT</th>
+				<th>Mã HĐ</th>
+				<th>Tên SP</th>
+				<th>Tên khách hàng</th>
+				<th>Số Lượng</th>
+				<th>Thành Tiền</th>
+				<th>Địa chỉ</th>
+				<th>Trạng Thái</th>
+				<th>Ngày đặt hàng</th>
+				<th style="width: 50px;">Tùy chỉnh</th>
+				<th style="width: 50px;">Tùy chỉnh</th>
+				<th style="width: 50px;">Tùy chỉnh</th>
+			</tr>';
+		foreach($data->data as $item){
+			echo 
+			'<tr>
+				<td>'.($index++).'</td>
+				<td>'.$item->maHD.'</td>
+				<td>'.$item->name_product.'</td>
+				<td>'.$item->user_name.'</td>
+				<td>'.$item->num.'</td>
+				<td>'.$item->money.'</td>
+				<td>'.$item->tinh_tp.'-'.$item->quan_huyen.'-'.$item->xa_phuong.'-'.$item->note.'</td>
+				<td>'.$item->status.'</td>
+				<td>'.$item->created_at.'</td>
+				<th style="width: 40px; height:40px;" >
+					<button class="btn btn-warning" onclick="approveOrder('.$item->id.')">Duyệt Đơn</button></a>
+				</th>
+				<th style="width: 50px;" >
+					<button class="btn btn-danger" onclick="cancelOrder('.$item->id.')">Hủy Đơn</button>
+				</th>
+				<th style="width: 50px;" >
+					<button name="delete" class="btn btn-danger" onclick="deleteOrder('.$item->id.')">Xóa Đơn</button>
+				</th>
+			</tr>';
+		}
+	}else
+		echo '<tr>Hiện Tại không có hóa đơn nào</tr>';
+}
+
+?>
+
+
+<script>
+		function deleteOrder(ID) {
+			option = confirm('Bạn có muốn xoá Hóa Đơn này không');
+			if(!option) {
+				return;
+			}
+			$.post('process_delete.php', {
+				'ID': ID
+			}, function(data) {
+				alert(data)
+				location.reload()
+			})
+		}
+		function approveOrder(ID) {
+			option = confirm('Bạn có muốn Duyệt Hóa Đơn này không');
+			if(!option) {
+				return;
+			}
+			$.post('process_approve.php', {
+				'ID': ID
+			}, function(data) {
+				alert(data)
+				location.reload()
+			})
+		}
+		function cancelOrder(ID) {
+			option = confirm('Bạn có muốn xoá Hóa Đơn này không');
+			if(!option) {
+				return;
+			}
+			$.post('process_cancel.php', {
+				'ID': ID
+			}, function(data) {
+				alert(data)
+				location.reload()
+			})
+		}
+	</script>
+
 <?php
 	
     require_once($baseUrl.'layouts/footer.php');

@@ -24,7 +24,19 @@
 		public function __construct($db){
 			$this->comn=$db;
 		}
-
+		
+		public function get_orders_status(){
+			$query = 'SELECT status FROM '.$this->table.' 
+			WHERE id =?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+		
 		public function select_orders_id(){
 			$query = 'SELECT maHD FROM '.$this->table;
 			//prepare statement
@@ -45,10 +57,42 @@
 			return $stmt;
 		}
 		
+		public function select_orders_All(){
+			$query = 'SELECT o.id, o.maHD, p.title, o.user_name, o.gender, o.phone_number, o.note, tp.nameTP, qh.nameQH, xp.nameXa, o.num, o.money, o.created_at, s.name_status 
+			FROM '.$this->table.' o LEFT JOIN devvn_tinhthanhpho tp ON  o.tinh_tp = tp.matp 
+			LEFT JOIN devvn_quanhuyen qh ON  o.quan_huyen = qh.maqh 
+			LEFT JOIN devvn_xaphuongthitran xp ON  o.xa_phuong = xp.xaid  
+			LEFT JOIN product p ON o.product = p.id 
+			LEFT JOIN status_orders s ON o.status = s.id';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+		
+		public function select_orders_All_TT(){
+			$query = 'SELECT o.id, o.maHD, p.title, o.user_name, o.gender, o.phone_number, o.note, tp.nameTP, qh.nameQH, xp.nameXa, o.num, o.money, o.created_at, s.name_status 
+			FROM '.$this->table.' o LEFT JOIN devvn_tinhthanhpho tp ON  o.tinh_tp = tp.matp 
+			LEFT JOIN devvn_quanhuyen qh ON  o.quan_huyen = qh.maqh 
+			LEFT JOIN devvn_xaphuongthitran xp ON  o.xa_phuong = xp.xaid  
+			LEFT JOIN product p ON o.product = p.id 
+			LEFT JOIN status_orders s ON o.status = s.id 
+			WHERE status =?';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->status);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
 		
 		public function create(){
 			//create query
-			$query = 'INSERT INTO '.$this->table.' SET user_id = :user_id, maHD = :maHD, user_name = :user_name, gender = :gender, phone_number = :phone_number, tinh_tp = :tinh_tp, 
+			$query = 'INSERT INTO '.$this->table.' 
+			SET user_id = :user_id, maHD = :maHD, user_name = :user_name, gender = :gender, phone_number = :phone_number, tinh_tp = :tinh_tp, 
 					quan_huyen = :quan_huyen, xa_phuong = :xa_phuong, product = :product, num = :num, money = :money, note = :note, status = :status';
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
@@ -90,22 +134,33 @@
 			}
 			return false;
 		}
-		
+		public function delete_order(){
+			$query = 'DELETE FROM '.$this->table.' WHERE id = ?';
+			
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->id);
+			
+			if($stmt->execute()){
+				return true;
+			}
+			return false;
+		}
 		public function update(){
+			$id = $this->id;
+			$status = $this->status;
 			//update query
-			$query = 'UPDATE '.$this->table.' SET status = :status WHERE maHD =:maHD';
+			$query = 'UPDATE '.$this->table.' SET status = '.$status.' WHERE id  = '.$id;
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
 			//clead data
 			/* vì thông tin sẻ được lưu vào csdl của chúng ta đến từ các yêu cầu của người dùng,
 			loại bỏ các vấn đề không mong muốn */
-			$this->maHD = htmlspecialchars(strip_tags($this->maHD));
 			$this->status = htmlspecialchars(strip_tags($this->status));
 			
 			
 			//ràng buộc các tham số
-			$stmt->bindParam(':maHD',$this->maHD);
-			$stmt->bindParam(':status',$this->status);
+			$stmt->bindParam(1,$this->id);
+			$stmt->bindParam(2,$this->status);
 			
 			//execute query
 			if($stmt->execute()){
