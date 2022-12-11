@@ -1,4 +1,7 @@
 <?php
+	include_once ("check_adm.php");
+?>
+<?php
 	$title = 'Quản lý chung';
 	$baseUrl = '';
 	require_once($baseUrl.'layouts/header.php');

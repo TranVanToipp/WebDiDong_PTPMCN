@@ -1,4 +1,7 @@
 <?php
+	include_once ("../check_adm.php");
+?>
+<?php
 	$title = 'Quản lý Hóa Đơn';
 	$baseUrl = '../';
 	require_once($baseUrl.'layouts/header.php');
@@ -80,7 +83,6 @@ function view(){
 				<th>Ngày đặt hàng</th>
 				<th style="width: 50px;">Tùy chỉnh</th>
 				<th style="width: 50px;">Tùy chỉnh</th>
-				<th style="width: 50px;">Tùy chỉnh</th>
 			</tr>';
 		foreach($data->data as $item){
 			echo 
@@ -99,10 +101,7 @@ function view(){
 				</th>
 				<th style="width: 50px;" >
 					<button class="btn btn-danger" onclick="cancelOrder('.$item->id.')">Hủy Đơn</button>
-				</th>
-				<th style="width: 50px;" >
-					<button name="delete" class="btn btn-danger" onclick="deleteOrder('.$item->id.')">Xóa Đơn</button>
-				</th>
+				</th>>
 			</tr>';
 		}
 	}
@@ -128,7 +127,6 @@ function view1($tt){
 				<th>Ngày đặt hàng</th>
 				<th style="width: 50px;">Tùy chỉnh</th>
 				<th style="width: 50px;">Tùy chỉnh</th>
-				<th style="width: 50px;">Tùy chỉnh</th>
 			</tr>';
 		foreach($data->data as $item){
 			echo 
@@ -148,9 +146,6 @@ function view1($tt){
 				<th style="width: 50px;" >
 					<button class="btn btn-danger" onclick="cancelOrder('.$item->id.')">Hủy Đơn</button>
 				</th>
-				<th style="width: 50px;" >
-					<button name="delete" class="btn btn-danger" onclick="deleteOrder('.$item->id.')">Xóa Đơn</button>
-				</th>
 			</tr>';
 		}
 	}else
@@ -161,43 +156,43 @@ function view1($tt){
 
 
 <script>
-		function deleteOrder(ID) {
-			option = confirm('Bạn có muốn xoá Hóa Đơn này không');
-			if(!option) {
-				return;
-			}
-			$.post('process_delete.php', {
-				'ID': ID
-			}, function(data) {
-				alert(data)
-				location.reload()
-			})
+	function deleteOrder(ID) {
+		option = confirm('Bạn có muốn xoá Hóa Đơn này không');
+		if(!option) {
+			return;
 		}
-		function approveOrder(ID) {
-			option = confirm('Bạn có muốn Duyệt Hóa Đơn này không');
-			if(!option) {
-				return;
-			}
-			$.post('process_approve.php', {
-				'ID': ID
-			}, function(data) {
-				alert(data)
-				location.reload()
-			})
+		$.post('process_delete.php', {
+			'ID': ID
+		}, function(data) {
+			alert(data)
+			location.reload()
+		})
+	}
+	function approveOrder(ID) {
+		option = confirm('Bạn có muốn Duyệt Hóa Đơn này không');
+		if(!option) {
+			return;
 		}
-		function cancelOrder(ID) {
-			option = confirm('Bạn có muốn xoá Hóa Đơn này không');
-			if(!option) {
-				return;
-			}
-			$.post('process_cancel.php', {
-				'ID': ID
-			}, function(data) {
-				alert(data)
-				location.reload()
-			})
+		$.post('process_approve.php', {
+			'ID': ID
+		}, function(data) {
+			alert(data)
+			location.reload()
+		})
+	}
+	function cancelOrder(ID) {
+		option = confirm('Bạn có muốn xoá Hóa Đơn này không');
+		if(!option) {
+			return;
 		}
-	</script>
+		$.post('process_cancel.php', {
+			'ID': ID
+		}, function(data) {
+			alert(data)
+			location.reload()
+		})
+	}
+</script>
 
 <?php
 	

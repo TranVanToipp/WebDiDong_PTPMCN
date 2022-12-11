@@ -1,4 +1,7 @@
 <?php
+	include_once ("../check_adm.php");
+?>
+<?php
 	$title = 'Quản lý sản phẩm';
 	$baseUrl = '../';
 	require_once($baseUrl.'layouts/header.php');
@@ -30,7 +33,6 @@
 					<th>Loại SP</th>
                     <th>Hình sản phẩm</th>
                     <th style="width: 50px;">Tùy chỉnh</th>
-					<th style="width: 50px;">Tùy chỉnh</th>
                 </tr>
 <?php
 $url = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/product/selectAll.php';
@@ -45,17 +47,14 @@ if(isset($data->data)){
 			<td>'.$item->id.'</td>
 			<td>'.$item->title.'</td>
 			<td>'.$item->price.'</td>
-			<td>'.($item->price-$item->price*$item->discount).'</td>
-			<td>'.($item->discount*100).'%</td>
+			<td>'.($item->price-$item->price*$item->discount/100).'</td>
+			<td>'.($item->discount).'%</td>
 			<td>'.$item->num.'</td>
 			<td>'.$item->description.'</td>
 			<td>'.$item->product_type_name.'</td>
 			<td><img src="image/'.$item->thumnail.'" style="height: 120px; width: 100px;"></td>
 			<th style="width: 40px; height:40px;" >
-				<button class="btn btn-warning">Edit</button></a>
-			</th>
-			<th style="width: 50px;" >
-				<button class="btn btn-danger" onclick="deleteProduct('.$item->id.')">Xóa</button>
+				<button class="btn btn-warning" onclick=\'window.open("editor.php?id='.$item->id.'","_self")\'>Edit</button></a>
 			</th>
 		</tr>';
 	}

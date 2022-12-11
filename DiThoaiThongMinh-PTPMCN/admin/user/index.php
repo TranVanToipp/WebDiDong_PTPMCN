@@ -1,4 +1,7 @@
 <?php
+	include_once ("../check_adm.php");
+?>
+<?php
     $title = 'Quản lý người dùng';
     $baseUrl = '../';
     require_once($baseUrl.'layouts/header.php');
@@ -41,7 +44,7 @@
                 <td>'.$item->role.'</td>
 				<td>'.$item->created_at.'</td>
                 <th style="width: 40px; height:40px;" >
-                    <button class="btn btn-warning">Edit</button></a>
+                    <button class="btn btn-warning" onclick=\'window.open("editor.php?id='.$item->id.'","_self")\'>Edit</button></a>
                 </th>
                 <th style="width: 50px;" >
                         <button class="btn btn-danger" onclick="deleteUser('.$item->id.')" >Xóa</button>
