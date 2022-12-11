@@ -70,7 +70,7 @@
                     </div>
 					<div class="form-group">
                         <label for="" style="font-weight: bold;">Email:</label>
-                        <input type="text" required="true" class="form-control" name="email" placeholder="Nhập email" value="<?=$d_email?>">
+                        <input type="email" required="true" class="form-control" name="email" placeholder="Nhập email" value="<?=$d_email?>">
                     </div>
 					<div class="form-group">
                         <label for="" style="font-weight: bold;">Địa chỉ:</label>
