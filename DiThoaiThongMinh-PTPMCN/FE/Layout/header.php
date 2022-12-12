@@ -141,22 +141,144 @@
                                 <sup>đ</sup>
                             </ul>
                         </a>
-                        <div class="header__navbar-cart-menu">
+                        <label for="nav-mobile-input" class="header__navbar-cart-menu">
                             <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsive/menu_mb.svg" alt="menu responsive mobile tablet" class="header__navbar-cart-menu-img">
-                        </div>
+                        </label>
+                        
+                        <input type="checkbox" hidden name="" class = "nav-input-check" id="nav-mobile-input">
+                        <!-- nav overlay responsive -->
+                        <label for="nav-mobile-input" class="nav__overlay">
+
+                        </label>
+
+                        <!-- nav mobile -->
+                        <nav class = "nav__mobile">
+                            <div class="head-menu-mobile">
+                                <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsivemobi/lg_1648528949.svg" alt="" class="img-responsive">
+                                <label for="nav-mobile-input" class="moby-close">
+                                    <span class="moby-close-icon">
+                                    <i class="fa-regular fa-circle-xmark"></i>
+                                    </span>
+                                </label>
+                            </div>
+                            <ul class="nav__mobile-list">
+                            <?php 
+                                if(isset($_SESSION['fullname']) && isset($_SESSION['id'])) {
+                                    echo '
+                                        <li>
+                                            <a class="nav__mobile-link nav__mobile-link__account" href="#">
+                                                <i class="fa-solid fa-user"></i>
+                                                <span class="nav__mobile-link-login">
+                                                    '.$_SESSION['fullname'].'
+                                                </span>
+                                            </a>
+                                        </li> 
+
+                                        <li> 
+                                            <a class="nav__mobile-link nav__mobile-link__account" href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/buyingorder">
+                                                <i class="fa-solid fa-user"></i>
+                                                <span class="nav__mobile-link-login">Đơn hàng đã mua</span>
+                                            </a>
+                                        </li>
+                                        <li> 
+                                            <a class="nav__mobile-link nav__mobile-link__account" href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php">
+                                                <i class="fa-solid fa-user"></i>
+                                                <span class="nav__mobile-link-login">Đổi mật khẩu</span>
+                                            </a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a class="nav__mobile-link nav__mobile-link__account" href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/logout/index.php" >
+                                                <i class="fa-solid fa-user"></i>
+                                                <span class="nav__mobile-link-login">Đăng xuất</span>
+                                            </a>
+                                        </li>';
+                                        if(isset($_SESSION['role_id'])){
+                                            if($_SESSION['role_id'] == 1){
+                                                echo '<li>
+                                                            <a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/admin/" class="nav__mobile-link nav__mobile-link__account" >
+                                                                <span class="nav__mobile-link-login">
+                                                                    Admin
+                                                                </span>
+                                                            </a>
+                                                        </li>';
+                                            }
+                                        }
+                                        echo '
+                                           
+                                    ';
+                                 } 
+                                 else {
+                                    echo '
+                                    <li class = "nav__mobile-item-acount">
+                                        <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login/index.php" class="nav__mobile-link">
+                                            <i class="fa-solid fa-user"></i>
+                                            <span class="nav__mobile-link-login">Đăng nhập</span>
+                                        </a>
+                                        <a href="../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/register/index.php" class="nav__mobile-link nav__mobile-link-res">
+                                            <i class="fa-solid fa-user"></i>
+                                            <span class="nav__mobile-link-login">Đăng ký</span>
+                                        </a>
+                                    </li>
+                                   
+                                    ';
+                                }
+                            ?>
+                                
+                                <li>
+                                    <a href="" class="nav__mobile-link-acount">
+                                        <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsivemobi/icon_home.svg" alt="" class="img-responsive">
+                                        Trang chủ
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" class="nav__mobile-link-acountnav__mobile-link">
+                                    <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsivemobi/icon_dt.svg" alt="" class="img-responsive">
+                                        Điện thoại
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" class="nav__mobile-link-acount">
+                                    <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsivemobi/icon_pk.svg" alt="" class="img-responsive">
+                                        Phụ kiện
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="" class="nav__mobile-link-carticon">
+                                    <img src="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/responsivemobi/carticon_mobi.svg" alt="icon logo cart" class="img-responsive">
+                                        <span class = "textgiohang">Giỏ hàng</span>
+                                        <span class="nbc">
+                                        <?php
+                                            if(isset($_SESSION['cart'])){
+                                                $sum = count($_SESSION['cart']) ;
+                                                echo $sum;
+                                            }else{
+                                                    echo 0;
+                                                }
+                                        ?>
+                                        </span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </nav>
                         <div class="header__navbar-item-lore-shared header__navbar-item-lore-shared-hover">
                             <?php 
-                                if(isset($_SESSION['fullname']) && isset($_SESSION['id']) && isset($_SESSION['role_id'])){
+                                if(isset($_SESSION['fullname']) && isset($_SESSION['id'])) {
                                     echo '
                                         <a href="#" class="header__navbar-item-fullName-link">'.$_SESSION['fullname'].'</a>
                                         <div class="header__navbar-item-box-user">
                                             <ul class="header__navbar-item-box-user-list">
-                                                <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php" >Thông tin tài khoản</a></li>
                                                 <li class="header__navbar-item-box-user-item"> <a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/forget/index.php">Đổi mật khẩu</a></li>
+                                                <li class="header__navbar-item-box-user-item"> <a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/buyingorder">Đơn hàng đã mua</a></li>
                                                 <li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/logout/index.php" >Đăng xuất</a></li>';
-												if($_SESSION['role_id'] == 1){
-													echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/admin/" >Admin</a></li>';
-												}
+                                                if(isset($_SESSION['role_id'])){
+                                                    if($_SESSION['role_id'] == 1){
+                                                        echo '<li class="header__navbar-item-box-user-item"><a href="'.$baseURL.'WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/admin/" >Admin</a></li>';
+                                                    }
+                                                }
                                                 echo '
                                             </ul>
                                         </div>

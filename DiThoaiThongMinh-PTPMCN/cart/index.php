@@ -18,7 +18,7 @@ $total_money = 0;
 </head>
 <form action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 <div class="grid wide ">
-    <div class="cart-box__content l-8">
+    <div class="cart-box__content l-8 c-12">
         <div class="cart-heading__text">
             <a href="../" class="cart-heading__text-link">
             <i class="fa-solid fa-angle-left fa-angle-left-color"></i>
@@ -27,19 +27,19 @@ $total_money = 0;
             <span>Giỏ hàng của bạn</span>
         </div>
         <div class="cart-container">
-            <ul class="cart-container__list">
+            <ul class="cart-container__list c-12">
             <?php
 				if (isset($_SESSION['cart'])) {
 					if (count($_SESSION['cart'])>0){
                         $i = 0;
                         foreach ($_SESSION['cart'] as $sanpham) {
-							$total_money = $total_money + ($sanpham[2]-$sanpham[2]*$sanpham[3]);
+							$total_money = $total_money + ($sanpham[2]-$sanpham[2]*$sanpham[3]/100);
                             echo '
-                                <li class="cart-container__item">
+                                <li class="cart-container__item c-12">
                                 <div class="cart-container__item-check">
                                     <input type="checkbox" name="" id="" class = "cart-container__item">
                                 </div>
-                                <div class="cart-container__item-box ">
+                                <div class="cart-container__item-box c-3">
                                     <a href="" class="cart-container__box-img-link">
                                         <img src="'.$sanpham[0].'" alt="Đây là sản phẩm">
                                     </a>
@@ -50,7 +50,7 @@ $total_money = 0;
                                     </a>
                                     </div>
                                 </div>
-                                <div class="cart-container__item-content ">
+                                <div class="cart-container__item-content c-4">
                                     <div class="cart-container__item-title">
                                         '.$sanpham[1].'
                                     </div>
@@ -64,10 +64,10 @@ $total_money = 0;
                                     </div>
                                     <span class= "cart-container__textmausp" >Màu: xanh</span>
                                 </div>
-                                <div class="cart-container__item-price-content ">
+                                <div class="cart-container__item-price-content c-4">
                                     <div class="cart-container__item-price-tren">
                                         <div class="cart-container__item-price">
-                                            '.($sanpham[2]-$sanpham[2]*$sanpham[3]).'
+                                            '.($sanpham[2]-$sanpham[2]*$sanpham[3]/100).'
                                         </div>
                                         <div class="cart-container__item-oulprice">
                                         '.$sanpham[2].'
@@ -113,12 +113,12 @@ $total_money = 0;
                         <span>Chị</span>
                     </label>
                 </div>
-                <div class="form-input__muahang">
-                    <div class="form-input__hoten">
+                <div class="form-input__muahang l-12 c-12">
+                    <div class="form-input__hoten l-6 c-12">
                         <input type="text" name="name" id="name" placeholder="Họ tên">
                         <br>
                     </div>
-                    <div class="form-input__sdt">
+                    <div class="form-input__sdt l-6 c-12">
                         <input type="text" name="telephone" id="telephone" placeholder="Số điện thoại">
                         <br>
                     </div>
@@ -143,8 +143,8 @@ $total_money = 0;
                         <p class="tab-title">
                             Chọn địa chỉ để biết thời gian và phí vận chuyển (nếu có) 
                         </p>
-                        <div class="row-giohang__tab">
-                            <div class="l-6 select_giohang-group">
+                        <div class="row-giohang__tab l-12 c-12">
+                            <div class="l-6 c-12 select_giohang-group">
                                 <select name="matp" class="select_giohang-tinh" id="matp">
                                     <option value="#" class="option-giohang__tinh1">
                                     Tỉnh/Thành phố    
@@ -156,7 +156,7 @@ $total_money = 0;
 									?>
                                 </select>
                             </div>
-                            <div class="l-6 select_giohang-group">
+                            <div class="l-6 c-12 select_giohang-group">
                                 <select class="select_giohang-quan" name="maqh" id="maqh">
                                     <option value="#" class="option_giohang-quan">
                                         Quận/Huyện
@@ -164,15 +164,15 @@ $total_money = 0;
                                 </select>
                             </div>
                         </div>
-                        <div class="row-giohang__tab-Phuong">
-                            <div class="l-6 select_giohang-group">
+                        <div class="row-giohang__tab-Phuong l-12 c-12">
+                            <div class="l-6 c-12 select_giohang-group">
                                 <select name="phuongxa" id="phuongxa" class="select-giohang__phuong">
                                     <option value="#" class="option-giohang__phuong">
                                         Phường/Xã
                                     </option>
                                 </select>
                             </div>
-                            <div class="l-6 select_giohang-group">
+                            <div class="l-6 c-12 select_giohang-group">
                                     <input name ="note" class="option-giohang__sonha" placeholder = "Số nhà tên đường">
                                     </input>
                                     <!-- Chỗ này nhập -->

@@ -18,4 +18,5 @@
 	require_once(CORE_PATH.DS."comment.php");
 	require_once(CORE_PATH.DS."product_sale.php");
 	require_once(CORE_PATH.DS."product_type.php");
+	require_once(CORE_PATH.DS."discount_sale.php");
 ?>

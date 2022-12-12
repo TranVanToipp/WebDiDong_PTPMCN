@@ -9,8 +9,11 @@ include_once('../../core/initialize.php');
 
 //khởi tạo product
 $orders = new orders($db);
+
+$orders->year = isset($_GET['year']) ? $_GET['year'] : die();
+
 //product query
-$result = $orders->select_orders_id();
+$result = $orders->statistical_MONTH();
 
 //lấy số hàng
 $num = $result->rowCount();
@@ -21,7 +24,8 @@ if($num >0){
 	while($row = $result->fetch(PDO::FETCH_ASSOC)){
 		extract($row);
 		$orders_item = array(
-			'maHD' 	=>$maHD
+			'thang' =>$thang,
+			'tongTien' => $tongTien
 		);
 		array_push($orders_arr['data'],$orders_item);
 	}

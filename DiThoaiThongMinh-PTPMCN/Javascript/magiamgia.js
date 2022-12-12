@@ -1,8 +1,10 @@
 
-var URLSale = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/sale/select_sale.php';
+var baseURL = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api'
+var URLSale = baseURL+'/sale/select_sale.php';
 
 function start() {
     getProductSale(handleProductSale);
+	Window.location.load(false);
 }
 start();
 
@@ -23,7 +25,7 @@ function handleProductSale(data) {
         var noW1 = new Date().getTime();
         var timeStart = new Date(item.time_sale).getTime();
 		var timeStop = new Date(item.time_salestop).getTime();//xem lấy time từ server..
-            if(noW1>=timeStart && noW1 <= timeStop){
+            if(noW1>=timeStart && noW1 <= timeStop && item.status_sale != 0){
                 (function(i) {
                     setInterval(function () {
                         var noW = new Date().getTime();
@@ -48,7 +50,7 @@ function handleProductSale(data) {
                     <a href ="../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id=${item.id_product_sale}&sale=1" class="col l-2-4 m-4 c-6 box-sale-products-item__box" style="text-decoration: none;">
                         
                         <div class="home-product-item">
-                            <div class="home-product-item-img" style="background-image:url(./assets/photos/${item.thumnail});">
+                            <div class="home-product-item-img" style="background-image:url(./admin/product/image/${item.thumnail});">
                             <div class="box-price-product">
                                 <div class="discount_box__product">
                                     <img src="./assets/img/magiamgia/icon_flash.svg" alt="">
@@ -63,7 +65,7 @@ function handleProductSale(data) {
                             <div class="view_product--sold">
                                 <div class="cout_total">
                                     <div class="text_sale">
-                                        Đã bán 0/${item.number_sale}
+                                        Đã bán ${item.num_buy}/${item.number_sale}
                                     </div>
                                 </div>
                             </div>

@@ -46,7 +46,7 @@ function layMaHD(){
 	}
 }
 $maHD = layMaHD();
-
+$_SESSION['maHD'] = $maHD;
 
 $orders->user_id = $_SESSION['id'];
 $orders->user_name = $_SESSION['name'];
@@ -67,7 +67,7 @@ foreach ($_SESSION['cart'] as $sanpham){
 		if($product_update->update_num_product()){
 			$orders->product = $sanpham[4];
 			$orders->num = $sanpham[5];
-			$orders->money = $sanpham[2]-$sanpham[2]*$sanpham[3];
+			$orders->money = $sanpham[2]-($sanpham[2]*$sanpham[3]/100);
 			$orders->create();
 		}
 	}else {

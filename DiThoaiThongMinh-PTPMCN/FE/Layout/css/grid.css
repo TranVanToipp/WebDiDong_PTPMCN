@@ -277,9 +277,10 @@
 
 /* PC medium resolution > */
 @media (min-width: 1113px) {
+    /* sửa layout trang home */
     .row {
-        margin-left: -12px;
-        margin-right: -12px;
+        margin-left: -5px;
+        margin-right: -5px;
     }
 
     .row.sm-gutter {
@@ -287,9 +288,10 @@
         margin-right: -5px;
     }
 
+    /* sửa layout trang home */
     .col {
-        padding-left: 12px;
-        padding-right: 12px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     .row.sm-gutter .col {

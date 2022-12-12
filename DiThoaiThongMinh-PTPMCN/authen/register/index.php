@@ -10,6 +10,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src= "../../Javascript/Toast_mes.js"></script>
     <link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/style.css">
     <title>Đăng kí</title>
     
@@ -55,7 +56,17 @@ session_start();
     </div>
           <button class="form-submit" type="submit">Đăng ký</button>
         </form>
-      
+      <script>
+            function showErrorToast() {
+                toast({
+                    title: "Thất bại!",
+                    message: "Đăng kí không thành công. Vui lòng kiểm tra lại!",
+                    type: "error",
+                    duration: 5000
+                });
+            }
+        </script>
+		<script src= "../../Javascript/Toast_mes.js"></script>
       </div>
 
        <?php
@@ -79,11 +90,15 @@ session_start();
 							die();
 						}
 					}
-					$_SESSION['fullname'] = $_POST['fullname'];
-					$_SESSION['email'] = $_POST['email'];
-					$_SESSION['userName'] = $_POST['userName'];
-					$_SESSION['password'] = $_POST['password'];
-					header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+					if($_POST['password'] == $_POST['password_confirmation']){
+						$_SESSION['fullname'] = $_POST['fullname'];
+						$_SESSION['email'] = $_POST['email'];
+						$_SESSION['userName'] = $_POST['userName'];
+						$_SESSION['password'] = $_POST['password'];
+						header('Location:../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/user/createUser.php');
+					}else{
+						echo '<script>showErrorToast();</script>';
+					}
 				}
 				
 			}

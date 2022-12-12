@@ -8,10 +8,10 @@ header('Content-Type: application/json; charset=utf8');
 include_once('../../core/initialize.php');
 
 //khởi tạo product
-$sale = new sale($db);
-
+$discount_sale = new discount_sale($db);
+$discount_sale->id_product_sale = isset($_GET['id']) ? $_GET['id'] : die();
 //product query
-$result = $sale->read_sale();
+$result = $discount_sale->select_single();
 
 //lấy số hàng
 $num = $result->rowCount();
@@ -24,14 +24,10 @@ if($num >0){
 		$sale_item = array(
 			'id' 	=>$id,
 			'id_product_sale'=>$id_product_sale,
-			'title' =>$title,
-            'description'=>$description,
-            'price'=>$price,
-            'discount_product_sale'=>$discount_product_sale,
-            'number_sale' => $number_sale,
-			'num_buy'=>$num_buy,
-            'thumnail' =>$thumnail,
-            'status_sale' => $status_sale,
+			'discount_product_sale' =>$discount_product_sale,
+            'number_sale'=>$number_sale,
+            'num_buy'=>$num_buy,
+            'status_sale'=>$status_sale,
             'time_sale' => $time_sale,
             'time_salestop' => $time_salestop,
 		);

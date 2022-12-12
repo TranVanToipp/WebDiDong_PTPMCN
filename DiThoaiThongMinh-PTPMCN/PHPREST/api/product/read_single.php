@@ -116,8 +116,9 @@ if($num > 0){
 if(isset($product->created_at)){
 	$product = array (
 		'id' 	=>$product->id,
+		'product_type' => $product->product_type,
 		'product_type_name' =>$product->product_type_name,
-		'title' =>$product->title,
+		'title' =>html_entity_decode($product->title),
 		'price' =>$product->price,
 		'discount' =>$product->discount,
 		'num' =>$product->num,

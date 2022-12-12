@@ -68,13 +68,16 @@ html {
 /* Home product */
 .home-product {
     margin-top: 10px;
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .home-product-item {
     /* background-color: #ccc; */
     position: relative;
     padding: 20px 15px;
-   
+    border-radius: 10px;
 }
 
 .home-product-item:hover {
@@ -87,6 +90,10 @@ html {
     transform: translateY(-2px);
 }
 
+.home-product-item:hover .home-product-item-name {
+    color: var(--privary-key);
+}
+
 .home-product-item-img {
     padding-top: 100%;
     background-size: contain;
@@ -97,7 +104,7 @@ html {
 .home-product-item-name {
     font-size: 1.4rem;
     font-weight: 400;
-    margin: 10px 10px 6px;
+    margin: 10px 10px 15px;
     line-height: 1.8rem;
     color: #333;
     height: 3.6rem;
@@ -118,10 +125,12 @@ html {
 
 .home-product-item__price-current {
     color: var(--privary-key);
+    font-weight: 700;
 }
 
 .home-product-item__price-old {
-
+    color: #777;
+    text-decoration: line-through;
 }
 
 .home-product-item__sale-off {
@@ -150,6 +159,42 @@ html {
     font-size: 1.3rem;
     margin: auto;
     color: var(--while-color);
+}
+/* 
+.star-rating {
+    --percent: calc(var(--rating) / 5 * 100%);
+    font: normal normal normal 16px/1 FontAwesome;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.star-rating::before {
+    content: "\f005\f005\f005\f005\f005";
+    background: linear-gradient(90deg,#F9920F var(--percent),#999 var(--percent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}*/
+
+.rate-like__start {
+    cursor: pointer;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+} 
+
+.btn-like__starthome {
+    display: flex;
+    align-items: center;
+    color: #444;
+    font-size: 14px;
+    grid-gap: 5px;
+}
+
+.lazy-loaded__starthome {
+    width: 15px;
+    height: 14px;
 }
 
 .header__nav-tab {

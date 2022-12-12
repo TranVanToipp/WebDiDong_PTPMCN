@@ -31,7 +31,7 @@
         public function selectAllComment() {
             $query = 'SELECT c.id, c.parent_id, c.user_id, u.fullname, c.product_id, 
 			c.content_comment, c.number_stars, c.time_comment FROM '.$this->table.' c 
-			LEFT JOIN user u ON c.user_id = u.id 
+			LEFT JOIN user u ON c.user_id = u.id  
 			WHERE c.product_id = ? AND c.parent_id = 0 
 			ORDER BY c.time_comment DESC';
 

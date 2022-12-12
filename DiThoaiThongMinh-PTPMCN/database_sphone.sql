@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Nov 02, 2022 at 05:06 PM
--- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- Máy chủ: 127.0.0.1:3306
+-- Thời gian đã tạo: Th10 22, 2022 lúc 10:42 AM
+-- Phiên bản máy phục vụ: 5.7.31
+-- Phiên bản PHP: 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `database_sphone`
+-- Cơ sở dữ liệu: `database_sphone`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 DROP TABLE IF EXISTS `cart`;
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `cart` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cart`
+-- Đang đổ dữ liệu cho bảng `cart`
 --
 
 INSERT INTO `cart` (`id`, `user_id`, `user_name`, `product_id`, `price`, `num`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `cart` (`id`, `user_id`, `user_name`, `product_id`, `price`, `num`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `color`
+-- Cấu trúc bảng cho bảng `color`
 --
 
 DROP TABLE IF EXISTS `color`;
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `color` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `comment`
+-- Cấu trúc bảng cho bảng `comment`
 --
 
 DROP TABLE IF EXISTS `comment`;
@@ -77,34 +77,36 @@ CREATE TABLE IF NOT EXISTS `comment` (
   `number_stars` int(11) NOT NULL,
   `time_comment` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `comment`
+-- Đang đổ dữ liệu cho bảng `comment`
 --
 
 INSERT INTO `comment` (`id`, `parent_id`, `user_id`, `product_id`, `content_comment`, `number_stars`, `time_comment`) VALUES
-(22, 0, 1, 1, 'tốt giá đẹp, dễ sử dụng', 5, '2022-11-02 22:03:45'),
-(23, 22, 5, 1, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 22:03:45'),
-(24, 0, 1, 1, 'máy hơi đơ', 2, '2022-11-02 22:04:06'),
-(25, 24, 5, 1, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 22:04:06'),
-(26, 24, 5, 1, 'bạn có thể nói chi tiết về tình trạng hiện tại không ạ', 0, '2022-11-02 22:21:50'),
-(28, 22, 5, 1, 'cảm ơn ạ', 0, '2022-11-02 22:26:16'),
-(30, 26, 1, 1, 'chạy đa nhiệm bị đơ', 0, '2022-11-02 22:40:25'),
-(31, 30, 5, 1, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 22:40:25'),
-(32, 0, 2, 6, 'đẹp', 5, '2022-11-02 23:47:02'),
-(33, 32, 5, 6, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 23:47:02'),
-(34, 0, 2, 6, 'tạm ổn', 4, '2022-11-02 23:52:35'),
-(35, 34, 5, 6, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-02 23:52:35'),
-(36, 0, 2, 6, 'hơi nóng máy', 2, '2022-11-02 23:54:15'),
-(37, 36, 5, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 23:54:15'),
-(38, 0, 2, 6, 'chụp ảnh xấu', 1, '2022-11-02 23:59:48'),
-(39, 38, 5, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-02 23:59:48');
+(38, 0, 2, 1, 'đẹp, giá rẻ', 5, '2022-11-09 21:37:21'),
+(39, 38, 1, 1, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-09 21:37:21'),
+(42, 0, 2, 6, 'xấu', 2, '2022-11-09 21:46:02'),
+(43, 42, 1, 6, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-09 21:46:02'),
+(44, 0, 2, 3, 'sale vip', 5, '2022-11-10 07:39:09'),
+(45, 44, 1, 3, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-10 07:39:09'),
+(46, 0, 2, 7, 'Quá khủng', 0, '2022-11-10 07:40:17'),
+(47, 46, 1, 7, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-10 07:40:17'),
+(48, 0, 2, 9, 'free', 5, '2022-11-10 08:06:46'),
+(49, 48, 1, 9, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-10 08:06:46'),
+(51, 0, 2, 1, 'xau', 1, '2022-11-10 08:26:31'),
+(52, 51, 1, 1, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-10 08:26:31'),
+(53, 0, 2, 1, 'ok', 5, '2022-11-10 08:26:40'),
+(54, 53, 1, 1, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-10 08:26:40'),
+(55, 0, 5, 4, 'nguyễn văn a', 3, '2022-11-16 23:18:13'),
+(56, 55, 1, 4, 'Nếu Bạn có chỗ nào không hài lòng về sản phẩm của chúng tôi, Vui lòng liên hệ số điện thoại: 0123456789 của chúng tôi để được tư vấn trực tiếp', 0, '2022-11-16 23:18:13'),
+(57, 0, 5, 4, 'Hàng có sẵn', 5, '2022-11-20 20:35:39'),
+(58, 57, 1, 4, 'Cảm ơn bạn đã ủng hộ shop', 0, '2022-11-20 20:35:39');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `configuration`
+-- Cấu trúc bảng cho bảng `configuration`
 --
 
 DROP TABLE IF EXISTS `configuration`;
@@ -123,7 +125,7 @@ CREATE TABLE IF NOT EXISTS `configuration` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `configuration`
+-- Đang đổ dữ liệu cho bảng `configuration`
 --
 
 INSERT INTO `configuration` (`id`, `product_id`, `screen`, `operating_system`, `front_camera`, `rear_camera`, `chip`, `ram`, `sim`, `pin`) VALUES
@@ -137,23 +139,23 @@ INSERT INTO `configuration` (`id`, `product_id`, `screen`, `operating_system`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `devvn_quanhuyen`
+-- Cấu trúc bảng cho bảng `devvn_quanhuyen`
 --
 
 DROP TABLE IF EXISTS `devvn_quanhuyen`;
 CREATE TABLE IF NOT EXISTS `devvn_quanhuyen` (
   `maqh` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `nameQH` varchar(100) CHARACTER SET utf8 NOT NULL,
   `type` varchar(30) CHARACTER SET utf8 NOT NULL,
   `matp` varchar(5) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`maqh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `devvn_quanhuyen`
+-- Đang đổ dữ liệu cho bảng `devvn_quanhuyen`
 --
 
-INSERT INTO `devvn_quanhuyen` (`maqh`, `name`, `type`, `matp`) VALUES
+INSERT INTO `devvn_quanhuyen` (`maqh`, `nameQH`, `type`, `matp`) VALUES
 ('001', 'Quận Ba Đình', 'Quận', '01'),
 ('002', 'Quận Hoàn Kiếm', 'Quận', '01'),
 ('003', 'Quận Tây Hồ', 'Quận', '01'),
@@ -863,23 +865,23 @@ INSERT INTO `devvn_quanhuyen` (`maqh`, `name`, `type`, `matp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `devvn_tinhthanhpho`
+-- Cấu trúc bảng cho bảng `devvn_tinhthanhpho`
 --
 
 DROP TABLE IF EXISTS `devvn_tinhthanhpho`;
 CREATE TABLE IF NOT EXISTS `devvn_tinhthanhpho` (
   `matp` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `nameTP` varchar(100) CHARACTER SET utf8 NOT NULL,
   `type` varchar(30) CHARACTER SET utf8 NOT NULL,
   `slug` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`matp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `devvn_tinhthanhpho`
+-- Đang đổ dữ liệu cho bảng `devvn_tinhthanhpho`
 --
 
-INSERT INTO `devvn_tinhthanhpho` (`matp`, `name`, `type`, `slug`) VALUES
+INSERT INTO `devvn_tinhthanhpho` (`matp`, `nameTP`, `type`, `slug`) VALUES
 ('01', 'Thành phố Hà Nội', 'Thành phố Trung ương', 'HANOI'),
 ('02', 'Tỉnh Hà Giang', 'Tỉnh', 'HAGIANG'),
 ('04', 'Tỉnh Cao Bằng', 'Tỉnh', 'CAOBANG'),
@@ -947,23 +949,23 @@ INSERT INTO `devvn_tinhthanhpho` (`matp`, `name`, `type`, `slug`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `devvn_xaphuongthitran`
+-- Cấu trúc bảng cho bảng `devvn_xaphuongthitran`
 --
 
 DROP TABLE IF EXISTS `devvn_xaphuongthitran`;
 CREATE TABLE IF NOT EXISTS `devvn_xaphuongthitran` (
   `xaid` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `nameXa` varchar(100) CHARACTER SET utf8 NOT NULL,
   `type` varchar(30) CHARACTER SET utf8 NOT NULL,
   `maqh` varchar(5) CHARACTER SET utf8 NOT NULL,
   PRIMARY KEY (`xaid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `devvn_xaphuongthitran`
+-- Đang đổ dữ liệu cho bảng `devvn_xaphuongthitran`
 --
 
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
 ('00001', 'Phường Phúc Xá', 'Phường', '001'),
 ('00004', 'Phường Trúc Bạch', 'Phường', '001'),
 ('00006', 'Phường Vĩnh Phúc', 'Phường', '001'),
@@ -2229,7 +2231,7 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('03766', 'Xã Chiềng Bôm', 'Xã', '119'),
 ('03769', 'Xã Thôm Mòn', 'Xã', '119'),
 ('03772', 'Xã Tông Lạnh', 'Xã', '119');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
 ('03775', 'Xã Tông Cọ', 'Xã', '119'),
 ('03778', 'Xã Bó Mười', 'Xã', '119'),
 ('03781', 'Xã Co Mạ', 'Xã', '119'),
@@ -3510,7 +3512,7 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('07957', 'Xã Văn Lung', 'Xã', '228'),
 ('07960', 'Xã Thanh Minh', 'Xã', '228'),
 ('07963', 'Xã Hà Thạch', 'Xã', '228');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
 ('07966', 'Phường Thanh Vinh', 'Phường', '228'),
 ('07969', 'Thị trấn Đoan Hùng', 'Thị trấn', '230'),
 ('07975', 'Xã Hùng Xuyên', 'Xã', '230'),
@@ -4784,7 +4786,7 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('12004', 'Xã Đình Dù', 'Xã', '325'),
 ('12007', 'Xã Minh Hải', 'Xã', '325'),
 ('12010', 'Xã Lương Tài', 'Xã', '325');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
 ('12013', 'Xã Trưng Trắc', 'Xã', '325'),
 ('12016', 'Xã Lạc Hồng', 'Xã', '325'),
 ('12019', 'Thị trấn Văn Giang', 'Thị trấn', '326'),
@@ -6069,7 +6071,7 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('16141', 'Xã Nga Thành', 'Xã', '401'),
 ('16144', 'Xã Nga An', 'Xã', '401'),
 ('16147', 'Xã Nga Phú', 'Xã', '401');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
 ('16150', 'Xã Nga Điền', 'Xã', '401'),
 ('16153', 'Xã Nga Tân', 'Xã', '401'),
 ('16156', 'Xã Nga Thủy', 'Xã', '401'),
@@ -7340,9 +7342,9 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('20233', 'Phường Thạch Thang', 'Phường', '492'),
 ('20236', 'Phường Hải Châu  I', 'Phường', '492'),
 ('20239', 'Phường Hải Châu II', 'Phường', '492'),
-('20242', 'Phường Phước Ninh', 'Phường', '492'),
-('20245', 'Phường Hòa Thuận Tây', 'Phường', '492');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+('20242', 'Phường Phước Ninh', 'Phường', '492');
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
+('20245', 'Phường Hòa Thuận Tây', 'Phường', '492'),
 ('20246', 'Phường Hòa Thuận Đông', 'Phường', '492'),
 ('20248', 'Phường Nam Dương', 'Phường', '492'),
 ('20251', 'Phường Bình Hiên', 'Phường', '492'),
@@ -8610,9 +8612,9 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('23857', 'Thị trấn Chư Ty', 'Thị trấn', '631'),
 ('23860', 'Xã Ia Dơk', 'Xã', '631'),
 ('23863', 'Xã Ia Krêl', 'Xã', '631'),
-('23866', 'Xã Ia Din', 'Xã', '631'),
-('23869', 'Xã Ia Kla', 'Xã', '631');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+('23866', 'Xã Ia Din', 'Xã', '631');
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
+('23869', 'Xã Ia Kla', 'Xã', '631'),
 ('23872', 'Xã Ia Dom', 'Xã', '631'),
 ('23875', 'Xã Ia Lang', 'Xã', '631'),
 ('23878', 'Xã Ia Kriêng', 'Xã', '631'),
@@ -9873,9 +9875,9 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('27391', 'Phường 02', 'Phường', '776'),
 ('27394', 'Phường 01', 'Phường', '776'),
 ('27397', 'Phường 03', 'Phường', '776'),
-('27400', 'Phường 11', 'Phường', '776'),
-('27403', 'Phường 09', 'Phường', '776');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+('27400', 'Phường 11', 'Phường', '776');
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
+('27403', 'Phường 09', 'Phường', '776'),
 ('27406', 'Phường 10', 'Phường', '776'),
 ('27409', 'Phường 04', 'Phường', '776'),
 ('27412', 'Phường 13', 'Phường', '776'),
@@ -11139,9 +11141,9 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 ('31102', 'Xã Bãi Thơm', 'Xã', '911'),
 ('31105', 'Xã Thổ Châu', 'Xã', '911'),
 ('31108', 'Xã Hòn Tre', 'Xã', '912'),
-('31111', 'Xã Lại Sơn', 'Xã', '912'),
-('31114', 'Xã An Sơn', 'Xã', '912');
-INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
+('31111', 'Xã Lại Sơn', 'Xã', '912');
+INSERT INTO `devvn_xaphuongthitran` (`xaid`, `nameXa`, `type`, `maqh`) VALUES
+('31114', 'Xã An Sơn', 'Xã', '912'),
 ('31115', 'Xã Nam Du', 'Xã', '912'),
 ('31117', 'Phường Cái Khế', 'Phường', '916'),
 ('31120', 'Phường An Hòa', 'Phường', '916'),
@@ -11579,7 +11581,7 @@ INSERT INTO `devvn_xaphuongthitran` (`xaid`, `name`, `type`, `maqh`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `discount`
+-- Cấu trúc bảng cho bảng `discount`
 --
 
 DROP TABLE IF EXISTS `discount`;
@@ -11591,7 +11593,7 @@ CREATE TABLE IF NOT EXISTS `discount` (
 ) ENGINE=MyISAM AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `discount`
+-- Đang đổ dữ liệu cho bảng `discount`
 --
 
 INSERT INTO `discount` (`id`, `product_id`, `discount_text`) VALUES
@@ -11616,7 +11618,42 @@ INSERT INTO `discount` (`id`, `product_id`, `discount_text`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `img_desct`
+-- Cấu trúc bảng cho bảng `discount_sale`
+--
+
+DROP TABLE IF EXISTS `discount_sale`;
+CREATE TABLE IF NOT EXISTS `discount_sale` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_product_sale` int(11) NOT NULL,
+  `discount_product_sale` int(11) NOT NULL,
+  `number_sale` int(11) NOT NULL,
+  `num_buy` int(11) NOT NULL,
+  `status_sale` tinyint(1) NOT NULL,
+  `time_sale` datetime NOT NULL,
+  `time_salestop` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `discount_sale`
+--
+
+INSERT INTO `discount_sale` (`id`, `id_product_sale`, `discount_product_sale`, `number_sale`, `num_buy`, `status_sale`, `time_sale`, `time_salestop`) VALUES
+(1, 1, 30, 2, 0, 1, '2022-11-09 14:30:33', '2022-11-24 23:44:33'),
+(4, 3, 99, 2, 0, 1, '2022-11-09 15:44:33', '2022-11-29 23:44:33'),
+(5, 4, 30, 2, 0, 1, '2022-11-09 15:48:41', '2022-11-29 15:48:41'),
+(6, 5, 99, 9, 0, 1, '2022-11-09 15:50:51', '2022-11-29 15:50:51'),
+(7, 6, 22, 2, 0, 1, '2022-11-09 15:50:51', '2022-11-29 15:50:51'),
+(8, 7, 100, 1, 0, 1, '2022-11-09 15:50:51', '2022-11-29 15:50:51'),
+(9, 8, 11, 11, 0, 1, '2022-11-09 15:50:51', '2022-11-30 15:50:51'),
+(10, 9, 11, 1, 0, 1, '2022-11-09 15:50:51', '2022-11-29 15:50:51'),
+(20, 11, 40, 5, 0, 1, '2022-11-23 00:58:00', '2022-11-30 00:58:00'),
+(21, 9, 40, 5, 0, 1, '2022-11-23 00:58:00', '2022-11-30 00:58:00');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `img_desct`
 --
 
 DROP TABLE IF EXISTS `img_desct`;
@@ -11629,16 +11666,12 @@ CREATE TABLE IF NOT EXISTS `img_desct` (
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `img_desct`
+-- Đang đổ dữ liệu cho bảng `img_desct`
 --
 
 INSERT INTO `img_desct` (`id`, `product_id`, `img_desct`) VALUES
 (1, 1, 'samsung34.jpg'),
 (2, 1, 'samsung42.jpg'),
-(3, 6, 'Đen iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
-(4, 6, 'Đỏ iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
-(5, 6, 'Hồng iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
-(6, 6, 'Trắng iPhone 8 Plus Cũ Đẹp 64Gb.webp'),
 (7, 5, 'DenOppoA16K 3GB32GB.webp'),
 (8, 5, 'XanhOppoA16K 3GB32GB.webp'),
 (9, 5, 'XanhRealme9 Pro5G8GB128GB.jpeg'),
@@ -11653,19 +11686,20 @@ INSERT INTO `img_desct` (`id`, `product_id`, `img_desct`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Cấu trúc bảng cho bảng `orders`
 --
 
 DROP TABLE IF EXISTS `orders`;
 CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `maHD` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
   `user_name` text COLLATE utf8_unicode_ci NOT NULL,
   `gender` text COLLATE utf8_unicode_ci NOT NULL,
   `phone_number` text COLLATE utf8_unicode_ci NOT NULL,
-  `tinh_tp` text COLLATE utf8_unicode_ci NOT NULL,
-  `quan_huyen` text COLLATE utf8_unicode_ci NOT NULL,
-  `xa_phuong` text COLLATE utf8_unicode_ci NOT NULL,
+  `tinh_tp` varchar(5) CHARACTER SET utf8 NOT NULL,
+  `quan_huyen` varchar(5) CHARACTER SET utf8 NOT NULL,
+  `xa_phuong` varchar(5) CHARACTER SET utf8 NOT NULL,
   `product` text COLLATE utf8_unicode_ci NOT NULL,
   `num` int(11) NOT NULL,
   `money` double NOT NULL,
@@ -11673,20 +11707,25 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `orders`
+-- Đang đổ dữ liệu cho bảng `orders`
 --
 
-INSERT INTO `orders` (`id`, `user_id`, `user_name`, `gender`, `phone_number`, `tinh_tp`, `quan_huyen`, `xa_phuong`, `product`, `num`, `money`, `note`, `created_at`, `status`) VALUES
-(1, 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '6', 1, 110.7, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', 'Đợi Kiểm duyệt'),
-(2, 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '1', 1, 120.6, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', 'Đợi Kiểm duyệt');
+INSERT INTO `orders` (`id`, `maHD`, `user_id`, `user_name`, `gender`, `phone_number`, `tinh_tp`, `quan_huyen`, `xa_phuong`, `product`, `num`, `money`, `note`, `created_at`, `status`) VALUES
+(1, 'HD_71HDlrm', 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '6', 1, 110.7, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', '3'),
+(2, 'HD_63HDlrR', 1, 'lương nguyễn', 'male', '0123456789', '52', '540', '21592', '3', 1, 120.6, 'Trường đại học quy nhơn', '2022-10-27 02:52:27', '2'),
+(3, 'HD_OtB1Mik', 5, '', 'male', '', '52', '540', '21595', '9', 1, 0, 'Phú trung cát thành', '2022-11-16 21:47:38', '3'),
+(5, 'HD_Wo2Isj7', 5, '', 'male', '', '#', '#', '#', '3', 1, 987.2, '', '2022-11-17 01:22:51', '1'),
+(6, 'HD_Wo2Isj7', 5, '', 'male', '', '#', '#', '#', '4', 1, 617, '', '2022-11-17 01:22:51', '1'),
+(7, 'HD_ELdYpsF', 5, 'Trần Văn Tới', 'male', '0392518760', '27', '258', '09229', '4', 1, -11106, 'Phú trung cát thành', '2022-11-17 08:03:06', '1'),
+(8, 'HD_ELdYpsF', 5, 'Trần Văn Tới', 'male', '0392518760', '27', '258', '09229', '10', 2, -21600000, 'Phú trung cát thành', '2022-11-17 08:03:06', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 DROP TABLE IF EXISTS `product`;
@@ -11703,23 +11742,25 @@ CREATE TABLE IF NOT EXISTS `product` (
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `pk_product_type` (`product_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `product_type`, `title`, `price`, `discount`, `num`, `thumnail`, `description`, `description2`, `created_at`) VALUES
-(1, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 134, 0.1, 9998, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
-(3, 2, 'Samsung Galaxy A03 3GB/32GB Chính Hãng', 1234, 0.2, 99999, 'maycu22.jpg', 'qewr', 'qwe', '2022-09-15 22:32:25'),
-(4, 2, 'Samsung Galaxy A52 8GB/128GB Chính Hãng', 1234, 0.5, 99999, 'maycu13.jpg', '124', '24', '2022-09-22 20:38:15'),
+(1, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 134, 0.1, 9995, 'samsung4.jpg', '124', '1234', '2022-09-15 22:23:13'),
+(3, 2, 'Samsung Galaxy A03 3GB/32GB Chính Hãng', 1234, 0.2, 99998, 'maycu22.jpg', 'qewr', 'qwe', '2022-09-15 22:32:25'),
+(4, 2, 'Samsung Galaxy A52 8GB/128GB Chính Hãng', 1234, 10, 99997, 'iphone22.jpg', '124\r\n', '', '2022-09-22 20:38:15'),
 (5, 2, 'Oppo Reno6 Z 5G 8GB/128GB chính hãng', 124, 0.2, 9999, 'oppo12.jpg', '213', '124', '2022-09-22 20:38:15'),
-(6, 1, 'iPhone 14 Pro Max 256GB Chính hãng VN/A', 123, 0.1, 9998, 'maycu13.jpg', 'ád', 'ád', '2022-09-25 19:15:31');
+(9, 2, 'ĐIện thoại mới ra', 120000, 1, 0, 'samsung3.jpg', 'Gia tri', 'Không   có', '2022-11-07 13:52:16'),
+(10, 1, 'Điện thoại thông minh', 1200000, 10, 98, 'samsung1.jpg', 'Điện thoại mới ra mắt\r\n', '', '2022-11-17 00:10:25'),
+(11, 2, 'test', 123, 1, 1000, 'Hồng Samsung Galaxy S22 Ultra 8GB128GB.webp', 'test\r\n', '', '2022-11-17 07:23:01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product_type`
+-- Cấu trúc bảng cho bảng `product_type`
 --
 
 DROP TABLE IF EXISTS `product_type`;
@@ -11730,7 +11771,7 @@ CREATE TABLE IF NOT EXISTS `product_type` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `product_type`
+-- Đang đổ dữ liệu cho bảng `product_type`
 --
 
 INSERT INTO `product_type` (`id`, `name`) VALUES
@@ -11740,7 +11781,7 @@ INSERT INTO `product_type` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role`
+-- Cấu trúc bảng cho bảng `role`
 --
 
 DROP TABLE IF EXISTS `role`;
@@ -11751,7 +11792,7 @@ CREATE TABLE IF NOT EXISTS `role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `role`
+-- Đang đổ dữ liệu cho bảng `role`
 --
 
 INSERT INTO `role` (`id`, `name`) VALUES
@@ -11761,7 +11802,7 @@ INSERT INTO `role` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rom`
+-- Cấu trúc bảng cho bảng `rom`
 --
 
 DROP TABLE IF EXISTS `rom`;
@@ -11776,7 +11817,29 @@ CREATE TABLE IF NOT EXISTS `rom` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thongtinchung`
+-- Cấu trúc bảng cho bảng `status_orders`
+--
+
+DROP TABLE IF EXISTS `status_orders`;
+CREATE TABLE IF NOT EXISTS `status_orders` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_status` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Đang đổ dữ liệu cho bảng `status_orders`
+--
+
+INSERT INTO `status_orders` (`id`, `name_status`) VALUES
+(1, 'Đợi kiểm duyệt'),
+(2, 'Thành công'),
+(3, 'Đơn hàng bị hủy');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `thongtinchung`
 --
 
 DROP TABLE IF EXISTS `thongtinchung`;
@@ -11788,7 +11851,7 @@ CREATE TABLE IF NOT EXISTS `thongtinchung` (
 ) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `thongtinchung`
+-- Đang đổ dữ liệu cho bảng `thongtinchung`
 --
 
 INSERT INTO `thongtinchung` (`id`, `product_id`, `thoidiemramat`) VALUES
@@ -11803,7 +11866,7 @@ INSERT INTO `thongtinchung` (`id`, `product_id`, `thoidiemramat`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `thongtinsp`
+-- Cấu trúc bảng cho bảng `thongtinsp`
 --
 
 DROP TABLE IF EXISTS `thongtinsp`;
@@ -11815,7 +11878,7 @@ CREATE TABLE IF NOT EXISTS `thongtinsp` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `thongtinsp`
+-- Đang đổ dữ liệu cho bảng `thongtinsp`
 --
 
 INSERT INTO `thongtinsp` (`id`, `product_id`, `thuonghieu`) VALUES
@@ -11828,7 +11891,7 @@ INSERT INTO `thongtinsp` (`id`, `product_id`, `thuonghieu`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tienich`
+-- Cấu trúc bảng cho bảng `tienich`
 --
 
 DROP TABLE IF EXISTS `tienich`;
@@ -11841,7 +11904,7 @@ CREATE TABLE IF NOT EXISTS `tienich` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tienich`
+-- Đang đổ dữ liệu cho bảng `tienich`
 --
 
 INSERT INTO `tienich` (`id`, `product_id`, `baomatnangcao`, `ghiam`) VALUES
@@ -11854,7 +11917,7 @@ INSERT INTO `tienich` (`id`, `product_id`, `baomatnangcao`, `ghiam`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 DROP TABLE IF EXISTS `user`;
@@ -11873,46 +11936,46 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
 INSERT INTO `user` (`id`, `fullname`, `email`, `phone_number`, `address`, `userName`, `password`, `role_id`, `created_at`) VALUES
-(1, 'test123', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt123', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 15:26:13'),
-(2, 'test1234', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt1234', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-11 22:44:03'),
-(3, 'nguyenvana', 'vantoicntt06@gmail.com', '', '', 'nguyen', '34d7691392bb5f0e825bb5d5bec3557b', 2, '2022-10-12 23:33:05'),
-(4, 'Tới Trần', 'vantoicntt06@gmail.com', '', '', 'nguyenvana', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-10-12 23:37:12'),
-(5, 'Shop Điện Thoại', 'admin123@gmail.com', '012345679', 'Shop Điện Thoại', 'admin', '0192023a7bbd73250516f069df18b500', 1, '2022-11-02 16:04:36');
+(1, 'Shop dien thoai', 'shopdienthoai@gmail.com', '0123456789', 'Quy Nhơn', 'Admin', 'e64b78fc3bc91bcbc7dc232ba8ec59e0', 1, '2022-11-09 20:35:11'),
+(2, 'lương nguyễn', 'luongnguyen43.2001@gmail.com', '', '', 'nguyencntt', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-11-11 17:55:08'),
+(3, 'nguyenvana', 'vana@gmail.com', '', '', 'Nguyễn Văn A', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-11-16 21:34:57'),
+(4, 'nguyenvanb', 'vanb@gmail.com', '', '', 'Nguyễn Văn B', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-11-16 21:36:29'),
+(5, 'tvToiIT', 'vantoi@gmail.com', '', '', 'VanToiIT', 'e10adc3949ba59abbe56e057f20f883e', 2, '2022-11-16 21:38:33');
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `color`
+-- Các ràng buộc cho bảng `color`
 --
 ALTER TABLE `color`
   ADD CONSTRAINT `pk_product_color` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `img_desct`
+-- Các ràng buộc cho bảng `img_desct`
 --
 ALTER TABLE `img_desct`
   ADD CONSTRAINT `pk_img_desct` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `pk_product_type` FOREIGN KEY (`product_type`) REFERENCES `product_type` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rom`
+-- Các ràng buộc cho bảng `rom`
 --
 ALTER TABLE `rom`
   ADD CONSTRAINT `pk_rom_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user`
+-- Các ràng buộc cho bảng `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `pk_roleID` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);

@@ -9,8 +9,10 @@ include_once('../../core/initialize.php');
 
 //khởi tạo product
 $orders = new orders($db);
+
+$orders->user_id = isset($_GET['user']) ? $_GET['user'] : die();
 //product query
-$result = $orders->select_orders_id();
+$result = $orders->select_order_buying();
 
 //lấy số hàng
 $num = $result->rowCount();
@@ -21,7 +23,21 @@ if($num >0){
 	while($row = $result->fetch(PDO::FETCH_ASSOC)){
 		extract($row);
 		$orders_item = array(
-			'maHD' 	=>$maHD
+			'id' 			=>$id,
+			'maHD' 			=> $maHD,
+			'name_product' 	=>$title,
+			'thumnail'		=>$thumnail,
+			'user_name' 	=>$user_name,
+			'gender' 		=>$gender,
+			'phone_number'	=>$phone_number,
+			'note' 			=>$note,
+			'tinh_tp'		=>$nameTP,
+			'quan_huyen'	=>$nameQH,
+			'xa_phuong'		=>$nameXa,
+			'num' 			=> $num,
+			'money'			=>$money,
+			'created_at' 	=> $created_at,
+			'status'		=>$name_status
 		);
 		array_push($orders_arr['data'],$orders_item);
 	}

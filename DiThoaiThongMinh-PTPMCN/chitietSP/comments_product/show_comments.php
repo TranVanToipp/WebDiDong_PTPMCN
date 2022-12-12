@@ -63,7 +63,7 @@ foreach($data->data as $item){
 echo $commentHTML;
 
 function getCommentReply($product_id,$parentId = 0, $marginLeft = 0) {
-	$url_reply = 'http://localhost/webDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/comment/selectCommentReply.php?product_id='.$product_id.'&parent_id='.$parentId;
+	$url_reply = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/comment/selectCommentReply.php?product_id='.$product_id.'&parent_id='.$parentId;
 	$json_reply = file_get_contents($url_reply);
 	$data_reply = json_decode($json_reply);
 	$path ="../../../../../";

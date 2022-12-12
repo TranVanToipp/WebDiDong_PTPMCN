@@ -16,13 +16,10 @@ btnMoComment.onclick = function () {
 }
 
 var btndongComment = document.querySelector('.cmt_row--text-2');
-console.log(btndongComment);
 btndongComment.onclick = function () {
     event.preventDefault();
     formComment.classList.remove('open-comment');
     vietdanhgia.style.display = 'block';
     dongdanhgia.style.display = 'none';
 }
-
-
 

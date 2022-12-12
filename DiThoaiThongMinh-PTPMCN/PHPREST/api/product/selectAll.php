@@ -23,6 +23,7 @@ if($num >0){
 		extract($row);
 		$product_item = array(
 			'id' 	=>$id,
+			'product_type' => $product_type,
 			'product_type_name' =>$product_type_name,
 			'title' =>$title,
 			'price' =>$price,

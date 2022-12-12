@@ -25,12 +25,12 @@
 		
 		$user = new user($db);
 		
-		$user->id 	= $s_id;
-		$user->fullname			= $d_nameofuser;
-		$user->email			= $d_email;
-		$user->phone_number		= $d_sdt;
+		$user->id 			= $s_id;
+		$user->fullname		= $d_nameofuser;
+		$user->email		= $d_email;
+		$user->phone_number	= $d_sdt;
 		$user->address		= $d_address;
-		$user->role_id	= $role;
+		$user->role_id		= $role;
 		$user->update();
 		header("location:index.php");
 	}

@@ -7,6 +7,7 @@
     include_once ($baseUrl.'FE/Layout/header.php');
 ?>
 <link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/cart.css">
+
 <div class="grid wide ">
     <div class="container-cart__order">
     <div class="l-3 left-cart">
@@ -73,3 +74,7 @@
     </div>
     </div>
 </div>
+
+<?php 
+    require_once("../FE/Layout/footer.php");
+?>

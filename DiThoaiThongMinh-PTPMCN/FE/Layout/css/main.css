@@ -18,6 +18,7 @@
 
 .header__navbar-cart-menu {
     display: none;
+    
 }
 
 .header__navbar-item {
@@ -67,7 +68,7 @@
 
 .header__search {
     height: 42px;
-    width: 256px;
+    width: 300px;
     border-radius: 2px;
     margin: 0 10px;
     display: flex;
@@ -563,6 +564,7 @@
     font-size: 1.8rem;
     position: relative;
     font-weight: 500;
+    display: flex;
 }
 
 /* .footer-item-text-heading::before {
@@ -917,6 +919,8 @@
 .sort-select {
     position: relative;
     margin-bottom: 5px;
+	width: 160px;
+    float: right;
 }
 
 .sort-select .click-sort {
@@ -927,6 +931,12 @@
     line-height: 12px;
     padding: 6px 15px 6px 8px;
 }
+
+
+.sort-select:hover .sort-select-main{
+	display: block;
+}
+
 
 /* Icon */
 .sort-select .sort-show::before {
@@ -945,13 +955,13 @@
     background-color: #fff;
     border-radius: 4px;
     box-shadow: 0 4px 6px rgb(0 0 0 / 20%);
-    /* display: none; */
     position: absolute;
     padding: 0 7px;
     top: 30px;
     right: 0;
     width: 160px;
     z-index: 2;
+	display: none;
 }
 
 .sort-select-main a {
@@ -1031,7 +1041,8 @@
 }
 
 .open-drowdown-loc {
-    /* position: ; */
+    /* position: relative; */
+    
 }
 
 .dropdown-menu__loc:before {
@@ -1042,6 +1053,21 @@
     border-right: 12px solid transparent;
     left: 20px;
     top: 38px;
+    
+}
+
+.close-all-btn {
+    float: right;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    background: #f9920f;
+    padding: 0;
+    box-shadow: 0 0 0 5px rgb(0 0 0 / 30%);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: translateX(10px);
 }
 
 .filter-exist {
@@ -1051,16 +1077,18 @@
 .filter-exist__title {
     display: inline-block;
     margin-right: 12px;
+    font-size: 1.7rem;
 }
 
 .filter-origin__danhmuc {
     padding: 20px;
     border-bottom: 1px solid #ccc;
     line-height: 1.7;
+    
 }
 
 .filter-origin__danhmuc--title {
-    font-weight: 600;
+    font-weight: 550;
     font-size: 16px;
 }
 
@@ -1223,6 +1251,159 @@
     color: #444;
     cursor: pointer;
 }
+
+/* overlay responsive*/
+
+.nav__overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.3);
+    display: none;
+    animation: faceIn linear 0.2s;
+}
+
+.nav__mobile {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 320px;
+    max-width: 100%;
+    background: var(--while-color);
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+    z-index: 1000;
+}
+
+.nav__mobile-list {
+
+}
+
+.nav__mobile-link {
+
+}
+
+.head-menu-mobile {
+    display: flex;
+    background: #ff6700;
+    justify-content: space-between;
+    position: relative;
+}
+
+.head-menu-mobile img {
+    align-self: center;
+    max-width: 50%;
+    padding: 0 10px;
+    margin: 0!important;
+    height: auto!important;
+}
+
+.moby-close {
+    background: 0 0;
+    padding: 14px 0;
+    color: #fff;
+
+    cursor: pointer;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: 300;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.moby-close-icon {
+    margin-right: 7px;
+}
+
+.nav__mobile-item-acount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav__mobile-link {
+    width: 50%;
+}
+
+.nav__mobile-link i {
+    font-size: 18px;
+    margin-right: 8px;
+    color: #ff6700;
+}
+
+.nav__mobile-link-login {
+    color: #20863d;
+} 
+
+.nav__mobile-link-res {
+    width: 50%;
+    justify-content: end;
+}
+
+/* Chung */
+.nav__mobile .nav__mobile-list .nav__mobile-item-acount  a {
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.nav__mobile-list li a {
+    color: #333;
+    padding: 10px 0;
+    border-bottom: 1px solid #d8d8d8;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    text-decoration: none;
+    /* text-align: left; */
+}
+
+.nav__mobile-link-acount img {
+    margin-right: 8px;
+    max-width: 25px;
+}
+
+.nav-input-check:checked ~ .nav__overlay {
+    display: block;
+}
+
+.nav-input-check:checked ~ .nav__mobile {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+@keyframes faceIn {
+    from {
+        opacity: 0;
+    } 
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* footer responsive */
+
+.menubot i {
+    display: none;
+} 
+
+
+
+
+
+
+
+
+
 
 
 

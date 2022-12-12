@@ -30,6 +30,81 @@
 		public function __construct($db){
 			$this->comn=$db;
 		}
+		
+		public function create(){
+			$query = 'INSERT INTO '.$this->table.' SET product_type = :product_type, 
+				title = :title, price = :price, discount = :discount, num = :num, 
+				thumnail = :thumnail, description = :description, description2 = :description2';
+			
+			
+			$stmt = $this->comn->prepare($query);
+			
+			$this->product_type = htmlspecialchars(strip_tags($this->product_type));
+			$this->title = htmlspecialchars(strip_tags($this->title));
+			$this->price = htmlspecialchars(strip_tags($this->price));
+			$this->discount = htmlspecialchars(strip_tags($this->discount));
+			$this->thumnail = htmlspecialchars(strip_tags($this->thumnail));
+			$this->description = htmlspecialchars(strip_tags($this->description));
+			$this->description2 = htmlspecialchars(strip_tags($this->description2));
+			$this->num = htmlspecialchars(strip_tags($this->num));
+			
+			//ràng buộc các tham số
+			$stmt->bindParam(':product_type',$this->product_type);
+			$stmt->bindParam(':title',$this->title);
+			$stmt->bindParam(':price',$this->price);
+			$stmt->bindParam(':discount',$this->discount);
+			$stmt->bindParam(':thumnail',$this->thumnail);
+			$stmt->bindParam(':description',$this->description);
+			$stmt->bindParam(':description2',$this->description2);
+			$stmt->bindParam(':num',$this->num);
+			
+			//execute query
+			if($stmt->execute()){
+				return true;
+			}
+			return false;
+			
+		}
+		
+		public function update(){
+			$query = 'UPDATE '.$this->table.'
+			 SET product_type = :product_type, title = :title, 
+			 price = :price, discount = :discount, num = :num, thumnail = :thumnail, 
+			 description = :description, description2 = :description2 WHERE id = :id';
+			
+			
+			$stmt = $this->comn->prepare($query);
+			
+			$this->product_type = htmlspecialchars(strip_tags($this->product_type));
+			$this->title = htmlspecialchars(strip_tags($this->title));
+			$this->price = htmlspecialchars(strip_tags($this->price));
+			$this->discount = htmlspecialchars(strip_tags($this->discount));
+			$this->thumnail = htmlspecialchars(strip_tags($this->thumnail));
+			$this->description = htmlspecialchars(strip_tags($this->description));
+			$this->description2 = htmlspecialchars(strip_tags($this->description2));
+			$this->num = htmlspecialchars(strip_tags($this->num));
+			$this->id = htmlspecialchars(strip_tags($this->id));
+			
+			//ràng buộc các tham số
+			$stmt->bindParam(':product_type',$this->product_type);
+			$stmt->bindParam(':title',$this->title);
+			$stmt->bindParam(':price',$this->price);
+			$stmt->bindParam(':discount',$this->discount);
+			$stmt->bindParam(':thumnail',$this->thumnail);
+			$stmt->bindParam(':description',$this->description);
+			$stmt->bindParam(':description2',$this->description2);
+			$stmt->bindParam(':num',$this->num);
+			$stmt->bindParam(':id',$this->id);
+			
+			//execute query
+			if($stmt->execute()){
+				return true;
+			}
+			return false;
+			
+		}
+		
+
 		//select loại sản phẩm
 		public function read_type(){
 			//create query
@@ -115,6 +190,7 @@
 			//create query
 			$query = 'SELECT 
 				p.id,
+				p.product_type, 
 				c.name as product_type_name,
 				p.title,
 				p.price,
@@ -151,8 +227,8 @@
 				p.created_at
 				FROM '.$this->table.' p
 				LEFT JOIN 
-					product_type c ON p.product_type = c.id 
-					WHERE p.product_type = ?
+				product_type c ON p.product_type = c.id 
+					WHERE p.product_type = ? 
 					ORDER BY p.created_at DESC LIMIT '.$num;
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
@@ -167,6 +243,7 @@
 			//create query
 			$query = 'SELECT 
 				p.id,
+				p.product_type, 
 				c.name as product_type_name,
 				p.title,
 				p.price,
@@ -189,6 +266,7 @@
 			$num = $stmt->rowCount();
 			if($num>0){
 				$row = $stmt->fetch(PDO::FETCH_ASSOC);
+				$this->product_type = $row['product_type'];
 				$this->product_type_name = $row['product_type_name'];
 				$this->title = $row['title'];
 				$this->price = $row['price'];

@@ -24,8 +24,17 @@
 	$sum = $sum_stars/$length;
 	}
 ?>
+<?php 
+include_once('../PHPREST/core/initialize.php');
+?>
+<?php
+$url1 = "http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/tinhTP/select_devvinALL.php";
+$json1 = file_get_contents($url1);
+$data11 = json_decode($json1);
+?>
 
 <link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/chitiet.css">
+<link rel="stylesheet" href="/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/FE/Layout/css/cart.css">
 <script src = " https://code.jquery.com/jquery-3.1.1.min.js "></script>
 <script src="comments_product/js/comments.js"></script>
 <div class="grid wide">
@@ -97,7 +106,7 @@
 									</ul>
 								</div>
 							</div>
-						<div class="chitiet-container-embrace l-5">
+						<div class="chitiet-container-embrace l-5 m-12 c-12">
 							<div class="chitiet-container-price">
 										';
 									if($_GET['sale'] == 1){
@@ -106,6 +115,7 @@
 										$json_sale = file_get_contents($url_sale);
 										$data_sale = json_decode($json_sale);
 										foreach($data_sale->data as $item_sale){
+											$total_money = ($item_sale->price - $item_sale->price * $item_sale->discount_product_sale/100);
 											echo '
 												<div class = "flashsale">
 													<div class = "top_sale">
@@ -115,17 +125,17 @@
 															<p class = "coun_down">
 																"Kết thúc trong"
 																<span class = "time_coundown">
-																	<span class = "number_">30</span>
-																	<span class = "number_">20</span>
-																	<span class = "number_">10</span>
-																	<span class = "number_">5</span>
+																	<span class = "number_ number_day"></span>
+																	<span class = "number_ number_hour"></span>
+																	<span class = "number_ number_mili"></span>
+																	<span class = "number_ number_secon"></span>
 																</span>
 															</p>
 														</div>
 													</div>
 													<div class="mid_sale">
-														<span class = "price_now">'.($item_sale->price - $item_sale->price * $item_sale->discount_product_sale/100).'</span><sup class = "sub-chitiet">đ</sup>
-														<span class = "_price">'.$item_sale->price.'đ</span>
+														<span class = "price_now">'.$item_sale->price.'</span><sup class = "sub-chitiet">đ</sup>
+														<span class = "_price">'.($item_sale->price - $item_sale->price * $item_sale->discount_product_sale/100).'đ</span>
 														<span class = "discount_sale">'.$item_sale->discount_product_sale.'%</span>
 													</div>
 												</div>
@@ -135,7 +145,7 @@
 										echo '
 									<h3>Giá: </h3>
 										<div class="gia-chitiet">
-											<h4 class = "gia-chitiet__1">'.($item->price-$item->price*$item->discount).'</h4><sup class = "sub-chitiet">đ</sup>
+											<h4 class = "gia-chitiet__1">'.($item->price-$item->price*$item->discount/100).'</h4><sup class = "sub-chitiet">đ</sup>
 											<h4 class = "gia-chitiet__2">'.$item->price.'</h4><sup>đ</sup>
 										</div>';
 									}
@@ -165,11 +175,119 @@
 													</div>
 													<form action="#" method ="post">
 														<input type="hidden" name="Hinhanh" value="'.$item->thumnail.'" >
-														<input type="hidden" name="Giasp" value="'.$item->price.'">
-														<input type="hidden" name="Giamsale" value="'.$item->discount.'">
+														<input type="hidden" name="Giasp" value="'.$item->price.'">';
+														if($_GET['sale'] == 0)
+															echo '
+															<input type="hidden" name="Giamsale" value="'.$item->discount.'">';
+														if($_GET['sale'] == 1){
+															foreach($data_sale->data as $item){
+																echo'
+																<input type="hidden" name="Giamsale" value="'.$item->discount_product_sale.'">';
+															}
+														}
+														echo'
 														<input type="hidden" name="Tensp" value="'.$item->title.'">
-														<input type="hidden" name="idSanPham" value="'.$item->id.'">
-														<input class="chitiet-container-type-btn" type="submit" name="add_cart" value="Thêm vào giỏ hàng">
+														<input type="hidden" name="idSanPham" value="'.$item->id.'">';
+														if (isset($_GET['sale'])) {
+															if ($_GET['sale']==1){
+															echo '
+															<h3 class="h3_title_from--giohang">
+																Thông tin mua hàng
+															</h3>
+															<div class="check-box__gioitinh">
+																<label for="" class="gender1">
+																	<input type="radio" value="male" name="gender" id="gender1" checked="checked">
+																	<span>Anh</span>
+																</label>
+																<label for="" class="gender0">
+																	<input type="radio" value="female" name="gender" id="gender0">
+																	<span>Chị</span>
+																</label>
+															</div>
+															<div class="form-input__muahang l-12 c-12">
+																<div class="form-input__hoten l-6 c-12">
+																	<input type="text" name="name" id="name" placeholder="Họ tên">
+																	<br>
+																</div>
+																<div class="form-input__sdt l-6 c-12">
+																	<input type="text" name="telephone" id="telephone" placeholder="Số điện thoại">
+																	<br>
+																</div>
+															</div>
+
+															<div class="giohang_cachthuc--mua">
+																<h3 class="h3-title-cachthuc">Chọn cách thức mua hàng</h3>
+																<div class="typeReceive">
+																	<label class = "typeReceive-giaohangtannoi" for="" title="Giao hàng tận nơi">
+																		<input type="radio" name="receive" id="receive0">
+																		<span>Giao hàng tận nơi</span>
+																	</label>
+																	<label class = "typeReceive-giaohangtannoi" for="receive1">
+																		<input type="radio" name="receive" id="receive1" value="2">
+																		<span>Nhận tại cữa hàng</span>
+																	</label>
+																</div>
+
+															</div>
+															<div class="tabReceive">
+																<div class="mainTab">
+																	<p class="tab-title">
+																		Chọn địa chỉ để biết thời gian và phí vận chuyển (nếu có) 
+																	</p>
+																	<div class="row-giohang__tab l-12 c-12">
+																		<div class="l-6 c-12 select_giohang-group">
+																			<select name="matp" class="select_giohang-tinh" id="matp">
+																				<option value="#" class="option-giohang__tinh1">
+																				Tỉnh/Thành phố    
+																				</option>';
+																					foreach($data11->data as $item){
+																						echo '<option value="'.$item->matp.'"class="option-giohang__tinh2">'.$item->name.'</option>';
+																					}
+																				echo '
+																			</select>
+																		</div>
+																		<div class="l-6 c-12 select_giohang-group">
+																			<select class="select_giohang-quan" name="maqh" id="maqh">
+																				<option value="#" class="option_giohang-quan">
+																					Quận/Huyện
+																				</option>
+																			</select>
+																		</div>
+																	</div>
+																	<div class="row-giohang__tab-Phuong l-12 c-12">
+																		<div class="l-6 c-12 select_giohang-group">
+																			<select name="phuongxa" id="phuongxa" class="select-giohang__phuong">
+																				<option value="#" class="option-giohang__phuong">
+																					Phường/Xã
+																				</option>
+																			</select>
+																		</div>
+																		<div class="l-6 c-12 select_giohang-group">
+																				<input name ="note" class="option-giohang__sonha" placeholder = "Số nhà tên đường">
+																				</input>
+																				<!-- Chỗ này nhập -->
+																		   
+																		</div>
+																	</div>
+																</div>
+															</div>
+															<div class="dathang-content">
+																<div class="header_dathang">
+																	<span class="heading-text">Tổng tiền:</span>
+																	<span class="heading-text__gia">';echo $total_money.'₫';echo '</span>
+																</div>
+															</div>';
+															} 
+														}
+														if($_GET['sale'] == 0){
+															echo 
+																'<input class="chitiet-container-type-btn" type="submit" name="add_cart" value="Thêm vào giỏ hàng">';
+														}
+														if($_GET['sale'] == 1){
+															echo 
+																'<input class="chitiet-container-type-btn" type="submit" name="add_orders" value="Đặt Hàng">';
+														}
+													echo '
 													</form>
 													<div class="chitiet-buton-thanhtoan">
 														<button class="chitiet-container-type-btn-tragop-phantram">
@@ -203,7 +321,7 @@
 														</button>
 													</div>
 												</div>
-												<div class="tinhtrang-content l-3">
+												<div class="tinhtrang-content l-3 m-12 c-12">
 													<div class = "header__nav-type">
 														<img src="../assets/img/thongso.svg" alt="" class="header__nav-tab-img">
 														<div class="header__nav-tab-vac">
@@ -279,7 +397,7 @@
 							<div class="grid wide">
 								<div class="comment_content">
 									<!-- Comment -->
-									<div class="l-9 comment_chitiet_content">
+									<div class="l-9 c-12 comment_chitiet_content">
 									<span id="message"></span>
 										<div class="comment_heading">
 											<div class="comment_heading-name">
@@ -287,7 +405,7 @@
 											</div>
 										</div> 
 										<div class="comment_form_content ">
-												<div class="row l-3">
+												<div class="row l-3 c-3">
 													<div class="row_cmt--1">
 														<p class="row_cmt--col">
 															<?php echo round($sum,1);?>
@@ -311,7 +429,7 @@
 														</p>
 													</div>
 												</div>
-												<div class="l-6">
+												<div class="l-6 c-6">
 													<div class="row_cmt--2">
 														<div class="row_cmt--rating">
 														<?php
@@ -715,7 +833,7 @@
 													</div>
 												</div>
 												<?php if(isset($_SESSION['id'])){
-													echo '<div class="row l-3">
+													echo '<div class="row l-3 c-3">
 													<div class="cmt_row--3">
 														<p class="cmt_row--3-p">
 															<a href="" class = "cmt_row--3-p__link">
@@ -733,7 +851,7 @@
 													</div>
 												</div>';
 												}else{
-													echo '<div class="row l-3">
+													echo '<div class="row l-3 c-3">
 													<div class="cmt_row--3">
 														<p class="cmt_row--3-p">
 															<a href="../../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login" class = "cmt_row--3-p__link">
@@ -774,10 +892,10 @@
 														</div>
 													</div>
 													<div class="comment-form__form-content">
-														<div class="l-6">
+														<div class="l-6 m-6 c-12">
 															<textarea class ="form-control" placeholder="Nội dung đánh giá của bạn" name="comment" id="comment"></textarea>
 														</div>
-														<div class="l-6">
+														<div class="l-6 m-6 c-12">
 															<div class="row-l-6__content">
 																<div class="row_form-control-1">
 																	<input type="text" class ="form-control-1 row_form-control-1__input" name="fullname" id="fullname" placeholder="Họ và tên" value="<?php echo $fullname?>">
@@ -804,10 +922,13 @@
 							</div>
 
 <!-- Model chi tiết sản phẩm -->
+<?php 
+	foreach($data->data	as $item ){
 
+?>
 
-<div class="modal-chitiet">
-	<div class="model-container__chitiet">
+<div class="modal-chitiet m-12 c-12">
+	<div class="model-container__chitiet m-10">
 		<div class="model-heading">
 			<span class="model-heading__text">
 				THÔNG SỐ KỸ THUẬT CHI TIẾT <?php echo $item->title?>
@@ -917,9 +1038,13 @@
 			</table>
 		</div>
 	</div>
-	
+	<?php
+		}
+	?>
 </div>
 <script src = "../Javascript/index.js"></script>
+<script src = "../Javascript/chitietsanpham.js"></script>
+
 <?php
 if(!isset($_SESSION['cart']))$_SESSION['cart'] = array();
 if(isset($_POST['add_cart'])) {
@@ -950,7 +1075,52 @@ if(isset($_POST['add_cart'])) {
 	$sanpham = array($hinh, $tensp, $gia, $sale, $idSP, $soLuong);
 	array_push($_SESSION['cart'], $sanpham);
 	header('location: ../cart/index.php');
+}
+if(isset($_POST['add_orders'])){
+	$u = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/sale/select.php?id='.$_GET['id'];
+	$j = file_get_contents($u);
+	$d = json_decode($j);
+	
+	$discount_sale = new discount_sale($db);
+	
+	$discount_sale->id_product_sale = $_GET['id'];
+	foreach($d->data as $item){
+		$num = $item->num_buy + 1;
+		if($num < $item->number_sale){
+			$discount_sale->num_buy = $num;
+			$discount_sale->status = 1;
+			$discount_sale->update(0);//0 là chỉ update num_buy
+		}else if($num == $item->number_sale){
+			$discount_sale->num_buy = $num;
+			$discount_sale->status = 0;
+			$discount_sale->update(1);//1 là update num_buy and status
+		}
 	}
+	if(!isset($_SESSION['cart']))$_SESSION['cart'] = array();
+	$hinh = "../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/photos/".$_POST['Hinhanh'];
+	$tensp = $_POST['Tensp'];
+	$gia = $_POST['Giasp'];
+	$sale = $_POST['Giamsale'];
+	$idSP = $_POST['idSanPham'];
+	$soLuong = 1;
+	$sanpham = array($hinh, $tensp, $gia, $sale, $idSP, $soLuong);
+	array_push($_SESSION['cart'], $sanpham);
+	if(isset($_SESSION['id'])){
+		if(isset($_POST['gender']) && isset($_POST['name']) && isset($_POST['telephone']) && isset($_POST['matp']) && isset($_POST['maqh']) && isset($_POST['phuongxa']) && isset($_POST['note'])){
+			$_SESSION['total_money'] = $total_money;
+			$_SESSION['gender'] = $_POST['gender'];
+			$_SESSION['name'] = $_POST['name'];
+			$_SESSION['telephone'] = $_POST['telephone'];
+			$_SESSION['matp'] = $_POST['matp'];
+			$_SESSION['maqh'] = $_POST['maqh'];
+			$_SESSION['phuongxa'] = $_POST['phuongxa'];
+			$_SESSION['note'] = $_POST['note'];
+			header('Location:../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/orders/create_orders.php');
+		}
+	}else{
+		header('Location:../../../../../WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/authen/login');
+	}
+}
 ?>
 
 <script>
@@ -971,7 +1141,83 @@ if(isset($_POST['add_cart'])) {
 			console.log(cartLon);
 			cartLon.src = cartbackImg;
 		}
+
+	
 	}
+
+	
+</script>
+
+<script>
+	var elementProductsale = document.querySelector('.time_coundown');
+	var id = "<?php echo $_GET['id'];?>";
+var APIurl_sale = 'http://localhost/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/PHPREST/api/sale/select_single.php?id='+id;
+
+function start() {
+    getProductSale(handleProductSale);
+}
+start();
+
+function getProductSale (callback) {
+    fetch(APIurl_sale)
+        .then(function (respon) {
+            return respon.json();
+        })
+        .then(callback);
+}
+function handleProductSale(data) {
+    var elementProductsale = document.querySelector('.time_coundown');
+    
+    var html = data.data.map(function (item) {
+    var noW1 = new Date().getTime();
+    var timeStart = new Date(item.time_sale).getTime();
+    var timeStop = new Date(item.time_salestop).getTime();//xem lấy time từ server..
+        if(noW1>=timeStart && noW1 <= timeStop){
+            setInterval(function () {
+                var noW = new Date().getTime();
+                var full = new Date(item.time_salestop).getTime();
+                var D = full  -  noW;
+                var Days =  Math.floor(D/(1000*60*60*24));
+                var hours =  Math.floor(D/(1000*60*60));
+                var minutes =  Math.floor(D/(1000*60));
+                var seconds =  Math.floor(D/(1000));
+                hours %=24
+                minutes %=60
+                seconds %= 60
+                
+                document.querySelector(".number_day").innerText = Days
+                document.querySelector(".number_hour").innerText = hours
+                document.querySelector(".number_mili").innerText = minutes
+                document.querySelector(".number_secon").innerText = seconds
+                
+            },1000);
+            
+        }
+    });
+
+}
+</script>
+
+<script>
+//xử lí select địa chỉ
+    $(document).ready(function() {
+        $('#matp').change(function() {
+            var a = $(this).val()
+			var a1='#'
+			$.get("xa_phuong.php",{a_ajax2:a1},function(data) {
+				$("#phuongxa").html(data);
+			})
+            $.get("quan_huyen.php",{a_ajax1:a},function(data) {
+                $("#maqh").html(data);
+                $('#maqh').change(function() {
+					var b = $(this).val()
+					$.get("xa_phuong.php",{a_ajax2:b},function(data) {
+						$("#phuongxa").html(data);
+					})
+				})
+            })
+        })
+    });
 </script>
 <?php require_once("../FE/Layout/footer.php");?>
 

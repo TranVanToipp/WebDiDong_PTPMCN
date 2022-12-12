@@ -20,6 +20,8 @@
 		public $note;
 		public $created_at;
 		public $status;
+		public $month;
+		public $year;
 		//hàm tạo với kết nối db
 		public function __construct($db){
 			$this->comn=$db;
@@ -63,9 +65,51 @@
 			LEFT JOIN devvn_quanhuyen qh ON  o.quan_huyen = qh.maqh 
 			LEFT JOIN devvn_xaphuongthitran xp ON  o.xa_phuong = xp.xaid  
 			LEFT JOIN product p ON o.product = p.id 
-			LEFT JOIN status_orders s ON o.status = s.id';
+			LEFT JOIN status_orders s ON o.status = s.id 
+			ORDER BY o.created_at DESC';
 			//prepare statement
 			$stmt = $this->comn->prepare($query);
+			//execute query
+			$stmt->execute();
+			
+			return $stmt;
+		}
+
+		public function statistical_MONTH(){
+			$year = $this->year;
+			$query = 'SELECT SUM(money) AS tongTien, MONTH(created_at) AS thang FROM '.$this->table.' WHERE YEAR(created_at) = '.$year.' GROUP BY MONTH(created_at)';
+			
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->year);
+			$stmt->execute();
+			return $stmt;
+		}
+		
+		public function statistical_DAY(){
+			$year = $this->year;
+			$month = $this->month;
+			$query = 'SELECT SUM(money) AS tongTien, DAY(created_at) AS ngay FROM '.$this->table.' WHERE YEAR(created_at) = '.$year.' AND MONTH(created_at) = '.$month.' GROUP BY DAY(created_at)';
+			
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->year);
+			$stmt->bindParam(2,$this->month);
+			$stmt->execute();
+			return $stmt;
+		}
+
+		public function select_order_buying() {
+			$query = 'SELECT o.id, o.maHD, p.title, p.thumnail, o.user_name, o.gender, o.phone_number, o.note, o.num, o.money, o.created_at, s.name_status, tp.nameTP, qh.nameQH, xp.nameXa 
+			FROM '.$this->table.' o
+			LEFT JOIN product p ON o.product = p.id 
+			LEFT JOIN devvn_tinhthanhpho tp ON  o.tinh_tp = tp.matp 
+			LEFT JOIN devvn_quanhuyen qh ON  o.quan_huyen = qh.maqh 
+			LEFT JOIN devvn_xaphuongthitran xp ON  o.xa_phuong = xp.xaid  
+			LEFT JOIN status_orders s ON o.status = s.id 
+			WHERE o.user_id = ?
+			ORDER BY o.created_at DESC';
+			//prepare statement
+			$stmt = $this->comn->prepare($query);
+			$stmt->bindParam(1,$this->user_id);
 			//execute query
 			$stmt->execute();
 			

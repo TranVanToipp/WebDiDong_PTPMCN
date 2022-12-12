@@ -1,6 +1,7 @@
-/* .product_box-slide {
-    position: relative;
-} */
+.product_box-slide {
+    /* position: relative; */
+    border-radius: 10px;
+}
 .product_box-slide-heading {
     position: relative;
     /* margin-bottom: 10px; */
@@ -45,6 +46,7 @@
 .box-sale__product__content {
     padding: 0 10px 10px;
     background-color: #f9920f;
+    border-radius: 7px;
 }
 
 .box-sale-products-content {

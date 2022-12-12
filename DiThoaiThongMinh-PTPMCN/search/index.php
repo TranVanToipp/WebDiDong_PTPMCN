@@ -167,8 +167,8 @@
      <!-- Phần footer Web -->
         
     </div>
-    <div class="grid wide">
-        <div class="timkiem-nhieu">
+   <div class="grid wide">
+        <!--<div class="timkiem-nhieu">
             <div class="timkiem-3loai">
                 <div class="timkiem-field__loc field_filter filterAll open">
                     <button class="dropdown-field__btn">
@@ -177,7 +177,9 @@
                     </button>
                     <div class="open-drowdown-loc dropdown-menu__loc">
                         <button class="close-all-btn">
-                            x
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="white"></path>
+                            </svg>
                         </button>
                         <div class="filter_content">
                             <div class="filter-exist">
@@ -247,7 +249,6 @@
                                     </lable>
                                 
                             </div>
-                            <!--  -->
                             <div class="filter-detail__contenSP">
                                 <div class="item-filter">
                                     <p class="title-gia">Giá</p>
@@ -358,7 +359,7 @@
                     <b>10</b>
                     Kết quả
                 </p>
-                <div class="box-checkbox">
+                <!-- <div class="box-checkbox">
                     <a href="" class="c-checkitem activeGiamGia active">
                         <span class = "tick-checkbox"></span>
                         <p>Giảm giá</p>
@@ -372,14 +373,14 @@
                         <p>Độc quyền</p>
                     </a>
                 </div>
-            </div>
+            </div>-->
             
             <div class="sort-select">
-                <p class="click-sort">
+                <p class="click-sort click-sort--click">
                     Xếp theo
                     <span class = "sort-show">Chính xác</span>
                 </p>
-                <div class="sort-select-main sort">
+                <div class="sort-select-main sort"style="margin-top: -4px;">
                     <p>
                         <a href=""  class="check">
                             <i></i>
@@ -406,17 +407,8 @@
                     </p>
                 </div>
             </div>
-        </div>
-    </div>
+		</div>
 
-    <div class = "grid wide">
-        <div class="home-product">
-            <div class="grid-row">
-
-            </div>
-        </div>
-    </div>
-    
 </body>
 </html>
 <?php
@@ -435,22 +427,24 @@
             echo "không tôn tại sản phẩm ".$search;
         }
         else {
+			echo '<div class="grid wide home-product" style="display: flex;margin-top: 50px;">';
             foreach($data_title->data as $title){
                 echo '
-                <a class="chitiet-item__product col l-2 m-4 c-6" >
+                <a class="chitiet-item__product col l-2-4 m-4 c-6" style="text-decoration: none;" >
                     <div class="home-product-item">
-                            <div class="home-product-item-img" style="background-image:url(${item.img});"></div>
+                            <div class="home-product-item-img" style="background-image:url(../admin/product/image/'.$title->thumnail.');"></div>
                             <h4 class="home-product-item-name">'.$title->title.'</h4>
                         <div class="home-product-item-price">
-                            <span class="home-product-item__price-current">'.$title->price.'</span>
-                            <span class="home-product-item__price-old">'.$title->discount.'</span>
+                            <span class="home-product-item__price-current">'.($title->price - $title->price*$title->discount/100).'</span>
+                            <span class="home-product-item__price-old">'.$title->price.'</span>
                         </div>
                         <div class="home-product-item__sale-off">
-                            <span class="home-product-item__sale-off-percent">'.$title->discount.'</span>
+                            <span class="home-product-item__sale-off-percent">'.$title->discount.'%</span>
                         </div>
                     </div>
                 </a>';
             }
+			echo '</div>';
         }
     }
    
