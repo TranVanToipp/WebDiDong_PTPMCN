@@ -1,0 +1,1039 @@
+.chitiet-chitiet  {
+    
+}
+
+.form-active-chitiet {
+    
+}
+
+.form-active-chitiet-close {
+
+}
+
+.chitiet-container {
+    display: flex;
+}
+
+.chitiet-container-img-content {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 4px;
+    position: relative;
+}
+
+.chitiet-container-above {
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.chitiet-container-above-img {
+    width: 90%;
+    margin: auto;
+    
+    
+}
+
+.chitiet-container-below {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    margin: auto;
+}
+
+.chitiet-container-below li {
+    margin-right: 12px;
+}
+
+.chitiet-container-hinhnho {
+    border: 1px solid #ccc;
+}
+
+.chitiet-container-below-img-con {
+    width: 55px;
+    height: 55px;
+    padding: 5px;
+}
+
+.chitiet-container-link {
+    text-decoration: none;
+}
+
+.chitiet-container-tenhinh {
+    color: #444;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    margin: 5px 2px;
+}
+
+/* icon chuyển hình */
+.chitiet-icon-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.chitiet-icon-nav-left i{
+    width: 26px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem; 
+}
+
+.chitiet-icon-nav-right i{
+    width: 26px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem; 
+}
+
+.chitiet-icon-nav-left {
+    width: 26px;
+    height: 43px;
+    background-color: #d6d6d6;
+    left: 0;
+     margin-top: -50%;
+    transform: translateY(-50%);
+}
+
+.chitiet-icon-nav-right {
+    width: 26px;
+    height: 43px;
+    background-color: #d6d6d6;
+    float: right;
+    margin-top: -50%;
+    transform: translateY(-50%);
+}
+
+
+
+/* Ô thứ 2 */
+.chitiet-container-embrace {
+    padding: 0 10px;
+}
+
+.chitiet-container-embrace {
+    margin-left: 15px;
+}
+.chitiet-container-price {
+    font-size: 1.8rem;
+    
+    display: flex;
+}
+
+.chitiet-container-price h3 {
+    color: #333;
+    font-weight: 400;
+}
+
+.chitiet-container-price .gia-chitiet .gia-chitiet__1 {
+    color: var(--privary-key);
+}
+
+.chitiet-container-price .gia-chitiet .gia-chitiet__2 {
+    color: #333;
+    font-weight: 400;
+    text-decoration: line-through; 
+}
+
+.chitiet-container-nhandat span {
+    display: block;
+    color: #d00247;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.chitiet-container-list {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+
+.chitiet-container-type-item {
+    border: 1px solid #ccc;
+    display: flex;
+    margin: 10px 0;
+    border-radius: 2px;
+    width: 137px;
+    height: 52px;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.chitiet-container-type-item:hover {
+    border: 1px solid #ff6700;
+    cursor: pointer;
+}
+
+.chitiet-container-type-item-blow {
+    padding: 5px;
+    font-size: 1.2rem;
+}
+
+.chitiet-container-type-item-img {
+    width: 35px;
+    height: 35px;
+    
+}
+
+.chitiet-container-type-item-tyle {
+    display: block;
+}
+
+.chitiet-container-type-item-price {
+
+}
+
+
+.chitiet-container-type-btn {
+    width: 100%;
+    height: 46px;
+    padding: 10px;
+    font-size: 1.8rem;
+    margin-top: 10px;
+    border: none;
+    border-radius: 2px;
+    color: var(--while-color);
+    background: -webkit-linear-gradient(left,#FF6700,#F9920F);
+}
+
+.chitiet-container-type-btn:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.form-active-chitiet-close {
+    top: 0;
+    right: 0;
+    position: absolute;
+    padding: 10px 15px;
+    font-size: 1.3rem;
+    background: var(--privary-key);
+    color: var(--while-color);
+}
+
+.chitiet-container-chitiet-khuyenmai {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-top: 25px;
+}
+
+.chitiet-container-chitiet-khuyenmai h4 {
+    margin: 0;
+    padding: 10px 15px;
+    font-size: 1.6rem;
+    line-height: 19px;
+    font-family: Semibold;
+    background: #f4f4f4;
+    font-weight: 400;
+}
+
+.chitiet-container-chitiet-khuyenmai-list {
+    list-style: none;
+    margin: 0;
+    padding: 15px 15px 0 15px;
+    padding-left: 26px;
+    padding-bottom: 10px;
+}
+
+.chitiet-container-chitiet-khuyenmai-item {
+    font-size: 1.4rem;
+    padding-left: 26px;
+    margin-bottom: 10px;
+    background: url(/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/assets/img/icon/icon_check.svg) 
+    top 0 left 0 no-repeat;
+
+}
+
+.chitiet-container-type-btn-tragop-phantram {
+    width: 50%;
+    margin-right: 5px;
+    height: 46px;
+    border: none;
+    border-radius: 3px;
+    color: var(--while-color);
+    background: -webkit-linear-gradient(left,#20863D,#60BB22);
+}
+
+.chitiet-buton-thanhtoan button {
+    font-size: 1.3rem;
+    
+} 
+
+.chitiet-container-type-btn-tragop-phantram h4 {
+    margin: 0;
+    font-weight: 400;
+}
+
+.chitiet-container-type-btn-tragop-phantram span {
+   
+}
+
+.chitiet-container-type-btn-tragop-the {
+    color: var(--while-color);
+    border: none;
+    width: 50%;
+    height: 46px;
+    border-radius: 3px;
+    background: -webkit-linear-gradient(left,#20863D,#60BB22);
+}
+
+.chitiet-container-type-btn-tragop-the h4 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.chitiet-container-type-btn-tragop-the span {
+    font-size: 1.2rem;
+}
+
+.chitiet-buton-thanhtoan {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.chitiet-container-copy {
+    display: flex;
+    margin-top: 10px;
+}
+.chitiet-container-copy button {
+    align-items: center;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 3px;
+    padding: 8px;
+    width: 50%;
+    cursor: pointer;
+    border: none;
+    height: 62px;
+    display: block;
+}  
+
+.chitiet-container-copy-link {
+    margin-right: 5px;
+}
+
+.chitiet-container-copy-link span {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.chitiet-container-copy-thongtin span {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.chitiet-container-boder {
+    display: block;
+    
+}
+
+/* Ô thứ 3 */
+.tinhtrang-content {
+    /* background-color: black; */
+}
+
+.tinhtrang-button__chitiet-link {
+    background: none repeat scroll 0 0 #fafafa;
+    border: 1px solid #f60;
+    border-radius: 3px;
+    color: #f60;
+    display: block;
+    font-weight: 700;
+    margin-top: 20px;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+table {
+    background-color: transparent;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.title_charactestic {
+    font-size: 14px;
+    padding: 10px;
+    line-height: 20px;
+}
+
+.content_charactestic {
+    padding-left: 20px;
+    font-size: 14px;
+    padding: 10px;
+    line-height: 20px;
+}
+
+.tr-1 {
+   background-color: #f5f5f5;
+}
+
+.header__nav-type {
+    margin-bottom: 20px;
+}
+
+.header-chitiet-content {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.header-chitiet-content h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+    font-family: Semibold;
+    padding-right: 15px;
+    opacity: 0.8;
+}
+/* Model */
+.model-heading {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.model-heading__text {
+    font-size: 20px;
+    line-height: 1.4;
+   
+}
+
+.group_field {
+    background-color: #f1f1f1;
+    font-size: 16px;
+    font-weight: 700;
+    width: 50%;
+    padding: 10px;
+}
+
+.modal-chitiet {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.model-container__chitiet{
+    background-color: var(--while-color);
+    padding: 20px 30px;
+    max-width: 45%;
+    position: relative;
+    border-radius: 3px;
+    animation: modalFadeIn ease 0.4s;
+}
+
+.model-content-detail {
+    width: 100%;
+}
+
+.model-content-detail__title {
+    padding: 10px;
+    color: #333;
+    width: 40%;
+    font-size: 14px;
+    font-weight: 700;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.model-content-detail__charactestic {
+    padding: 10px;
+    color: #333;
+    font-size: 14px;
+    border-bottom: 1px solid #f1f1f1;
+}
+/* Close model */
+.close-model-chitiet {
+    color: #f60;
+    font-weight: 400;
+    margin-top: 0;
+    opacity: 1;
+    padding: 1px 4px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    font-size: 40px;
+    border: none;
+    background-color: var(--while-color);
+    cursor: pointer;
+    
+}
+
+.close-model-chitiet:hover {
+    opacity: 0.8;
+}
+
+ .open {
+    display: flex;
+}
+/* .modal-chitiet .open {
+    display: flex;
+} */
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+.model-container__chitiet {
+    max-height: 550px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.chitiet-container-price {
+    display: flex;
+}
+
+.gia-chitiet {
+    display: flex;
+}
+
+.sub-chitiet {
+    margin-right: 15px;
+    color: var(--privary-key);
+}
+
+/* Comment Chi tiết */
+.comment_content {
+    display: flex;
+}
+
+.comment_form_content {
+    margin: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-top: #e5e5e5 solid 1px;
+    border-bottom: #e5e5e5 solid 1px;
+
+}
+
+.comment_heading-name {
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+/* Ô 1 */
+.row_cmt--1 {
+    padding: 20px 0;
+    border-right: #e5e5e5 solid 1px;
+    text-align: center;
+    height: 156px;
+}
+
+.row_cmt--1 .row_cmt--col {
+    font-size: 60px;
+    line-height: 60px;
+    color: #333;
+    font-weight: 600;
+}
+
+.row_cmt--1 .row_cmt--col span {
+    font-size: 30px;
+    color: #999;
+}
+
+.comment_1--start img {
+    vertical-align: middle;
+}
+
+.row_cmt--1 .cmt_count {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #999;
+}
+
+.row_cmt--2 .row_cmt--rating {
+    margin: 0 42px;
+    display: flex;
+}
+
+.row_cmt--progess1 {
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.row_cmt--progess1 .progress {
+    background-color: #f5f5f5;
+    border-radius: 0;
+    height: 10px;
+    margin: 4px 20px 0;
+    box-shadow: none;
+}
+
+.row_cmt--progess1 .progress .progress-bar {
+    background-color: #f9920f;
+    border-radius: 0;
+    height: 10px;
+}
+
+.row_cmt--2 {
+    padding-bottom: 19px;
+    padding-top: 42px;
+    border-right: #e5e5e5 solid 1px;
+}
+
+.cmt_row--3 {
+    padding: 20px;
+    text-align: center;
+}
+
+.cmt_row--3-p a {
+    text-decoration: none;
+    border: 2px solid #f60;
+    background: #fff;
+    display: inline-block;
+    padding: 15px;
+}
+
+.cmt_row--3-p a span {
+    
+    color: #f60;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.comment-form__form-content {
+    display: flex;
+}
+
+.comment-form__content {
+    display: flex;
+    margin-bottom: 24px;
+    margin-top: 35px;
+    margin-right: 20px;
+}
+
+.comment-form {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.comment-form__heading {
+    margin-bottom: 5px;
+}
+
+.comment-form__heading-text {
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.comment-form__sao {
+    margin-left: 50px;
+}
+
+.comment-form__form-content {
+
+}
+
+.comment-form__form-content .form-control {
+    width: 100%;
+    height: 117px;
+    padding: 8px 0 0 15px;
+    border-radius: 0;
+}
+
+.row-l-6__content {
+    margin-left: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.row_form-control-1 {
+    width: 40%;
+    margin-right: 20px;
+}
+
+.row_form-control-1 input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 48px;
+    border-radius: 0;
+}
+
+.row_form-control-2 {
+    width: 40%;
+    
+}
+
+.row_form-control-2 input {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 48px;
+    border-radius: 0;
+}
+
+.row_form-control-1__input {
+
+}
+
+.form-control-1 {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+
+}
+
+.row_form-control-2 .btn_submit-danhgia {
+    color: #fff;
+    width: 100%;
+    border: unset;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 0;
+    background-color: #fff;
+    background: -webkit-linear-gradient(left,#FF6700,#F9920F);
+}
+
+.comments-content__container {
+    display: none;
+}
+
+.open-comment {
+    display: block;
+    animation: modalFadeform ease 0.4s;
+
+}
+@keyframes modalFadeform {
+    from {
+        opacity: 0;
+        transform: translateY(-140px);
+    }to {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+.row_cmt--rating .phantram-text {
+    font-size: 15px;
+    width: 5%;
+    margin-bottom: 0;
+    color: #20863d;
+}
+
+/* Comment sản phẩm */
+
+.comment_chitiet--hienthi {
+    margin-top: 20px;
+    padding: 10px 15px 30px 10px;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+.comment_item--hienthi {
+    padding: 10px 0;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+.comment_item-content {
+    
+}
+
+.comment_item--info {
+    display: flex;
+}
+
+.comment_item--name {
+    font-weight: 600;
+}
+
+.comment_item--name-text {
+    color: #333;
+    margin-right: 20px;
+    font-size: 1.4rem;
+}
+
+.comment_item--sao_hienthi {
+    margin-right: 20px;
+    
+}
+
+.comment_item--thoigian {
+    color: #999;
+    font-size: 1.3rem;
+}
+
+.comment_content--noidung {
+    padding: 10px 0;
+    font-size: 1.3rem;
+}
+
+.wrapper-admin-rep {
+    padding-left: 20px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    margin-left: 20px;
+}
+
+.wrapper_comment_content {
+
+}
+
+.comment-info__admin {
+    padding-top: 15px;
+}
+
+.comment-info__admin-name {
+
+}
+
+.comment-info__admin-name-text {
+    color: #333;
+    margin-right: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.comment-info__admin-name-title {
+    color: #fff;
+    padding: 6px 7px;
+    background-color: #f60;
+    font-size: 1.4rem;
+}
+
+.comment_content-noidung__admin {
+    padding: 15px 0 10px 0;
+    font-size: 1.4rem;
+}
+
+.comment_item--admin__xoa-text {
+    margin-left: 63%;
+    padding: 15px;
+    border: 2px solid #f60;
+    background: #fff;
+}
+
+.comment_item--admin__group {
+    display: flex;
+}
+
+.comment_item--admin__xoa {
+    margin-left: 83%;
+    padding: 4px 10px;
+    border: 2px solid #f60;
+    background: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #f60;
+}
+
+.comment_item--admin__traloi {
+    margin-left: 10px;
+    padding: 2px 10px;
+    border: 2px solid #f60;
+    background: #fff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #f60;
+}
+
+/* form admin trả lời */
+.comment-form__admin {
+    border: solid 1px #ccc;
+    display: flex;
+    display: none;
+}
+
+.form-control-2 {
+    height: 70px;
+    width: 100%;
+    padding: 8px 0 0 15px;
+    border-radius: 0;
+}
+
+.row-l-6__content-admin {
+    display: flex;
+    margin-left: 10px
+}
+
+.row_form-control-2 {
+    margin-left: 20px;
+}
+
+.open-formadmin {
+    display: flex;
+}
+
+.form-control-2 {
+
+}
+
+.row_form-control-2 {
+
+}
+/* CSS ngôi sao */
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+/*reset css*/
+div,label{
+    margin:0;
+    padding:0;
+}
+/* body{
+    margin:20px;} */
+h1{
+    font-size:1.5em;
+    margin:10px;
+}
+/****** Style Star Rating Widget *****/
+#rating{
+    border:none;
+    float:left;
+}
+#rating>input{
+    display:none;
+}/*ẩn input radio - vì chúng ta đã có label là GUI*/
+#rating>label:before{
+    margin:5px;
+    font-size:1.25em;
+    font-family:FontAwesome;
+    display:inline-block;
+    content:"\f005";
+}/*1 ngôi sao*/
+#rating>.half:before{
+    content:"\f089";
+    position:absolute;
+}/*0.5 ngôi sao*/
+#rating>label{
+    color:#ddd;
+    float:right;
+}/*float:right để lật ngược các ngôi sao lại đúng theo thứ tự trong thực tế*/
+/*thêm màu cho sao đã chọn và các ngôi sao phía trước*/
+#rating>input:checked~label,
+#rating:not(:checked)>label:hover, 
+#rating:not(:checked)>label:hover~label{
+    color:#FFD700;
+    cursor: pointer;
+}
+/* Hover vào các sao phía trước ngôi sao đã chọn*/
+#rating>input:checked+label:hover,
+#rating>input:checked~label:hover,
+#rating>label:hover~input:checked~label,
+#rating>input:checked~label:hover~label{
+    color:#FFED85;
+    
+}
+
+
+/* sale chi tiêt sản phẩm */
+
+.flashsale {
+    padding-bottom: 12px;
+    background-color: #fafafa;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.top_sale {
+    background-color: #ff6700;
+    padding: 7px 15px 7px 20px;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    border-radius: 5px 5px 0 0;
+}
+
+.top_sale img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.right_sale {
+    display: flex;
+    align-items: center;
+}
+
+.coun_down {
+    margin: 0;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+.time_coundown {
+    margin-left: 10px;
+}
+
+.number_ {
+    padding: 2px 4px;
+    background-color: #20863d;
+    border-radius: 3px;
+}
+
+.mid_sale {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.price_now {
+    color: #777;
+    text-decoration: line-through;
+}
+
+._price {
+    font-size: 18px;
+    line-height: 21px;
+    margin: 0 15px;
+    color: #ff6700;
+}
+
+.discount_sale {
+    padding: 4px 10px;
+    color: #fff;
+    background-color: #ff6700;
+    border-radius: 3px;
+    font-size: 1.3rem;
+}
+
+
+
+
+
+
+
+
+
+

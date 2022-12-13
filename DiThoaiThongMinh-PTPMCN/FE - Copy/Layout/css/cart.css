@@ -1,0 +1,934 @@
+.cart-box__content {
+    display: block;
+    margin: auto;
+    padding: 10px;
+}
+
+.cart-heading__text {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.cart-heading__text-link {
+    font-size: 1.4rem;
+    color: #28a5e1;
+    text-decoration: none;
+}
+
+.cart-heading__text span{
+    font-size: 1.4rem;
+    color: #333;
+    
+}
+
+.cart-container {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+}
+
+.cart-container__list {
+    
+}
+
+.cart-container__item {
+    display: flex;
+    margin: 0 10px 10px 0;
+    border-top: 1px solid #e1e1e1;
+    padding: 10px;
+}
+
+.cart-container__item:first-child {
+    border-top: none;
+}
+
+.cart-container__item-check {
+    width: 10%;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+.cart-container__item-box {
+    width: 20%;
+}
+
+.cart-container__item-box a img{
+    width: 75px;
+    margin: auto;
+    margin: 0 5px;
+}
+
+.cart-container__item-content {
+    width: 50%;
+}
+
+.cart-container__item-price-content {
+    width: 20%;
+    
+}
+
+.cart-container__box-img-link {
+
+}
+
+.cart-container__item-xoa {
+    margin: 15px 25px 0; 
+}
+
+.cart-container__item-xoa span{
+    font-size: 1.2rem;
+    color: #999;
+}
+
+.cart-container__item-title {
+    font-size: 1.4rem;
+    color: #333;
+    font-weight: 700;
+
+}
+
+.cart-container__item-salecontent {
+    display: flex;
+    padding-top: 8px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.cart-container__item-sale {
+    color: #d52320;
+    font-size: 1.2rem;
+    cursor: unset!important;
+}
+
+.cart-container__textmausp {
+    
+    color: #666;
+    font-size: 12px;
+    padding: 6px 0 0;
+    margin-right: 30px;
+}
+
+.cart-container__item-price {
+    color: #f30c28;
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 2px;
+}
+
+.cart-container__item-oulprice {
+    font-size: 14px;
+    text-align: right;
+    margin-bottom: 2px;
+    color: #333;
+}
+
+.cart-container__item-update-SP  {
+    display: flex;
+    margin-top: 20px;
+    justify-content: end;
+}
+
+.tru, .cong {
+    width: 25px;
+    height: 40px;
+    border: 1px solid #cdcdcd;
+    cursor: pointer;
+}
+
+.tru:hover, .cong:hover {
+    background-color: rgb(214, 214, 214);
+}
+
+.value-quantity {
+    outline: none;
+    width: 50px;
+    height: 40px;
+    border-top: 1px solid #cdcdcd;
+    border-bottom: 1px solid #cdcdcd;
+    border-left: 0px;
+    border-right: 0px;
+    padding-left: 19px;
+    font-size: 17px;
+}
+
+.clear {
+    clear: both;
+}
+
+.total-provisional {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+
+.total-provisional span {
+    font-size: 1.4rem;
+    color: #333;
+}
+
+.fillinform {
+    display: flex;
+}
+
+.infor-customer {
+    padding: 10px 30px;
+}
+
+.form-customer .fillinform input {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    padding: 10px;
+    color: #333;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* cart is_emty */
+.container_giohang_isemty {
+    
+}
+
+.container_giohang_isemty img {
+    width: 20%;
+    display: flex;
+    margin: auto;
+}
+
+.textcart_trong {
+    text-align: center;
+    color: rgba(0,0,0,.6);
+    font-size: 1.5rem;
+    line-height: 1rem;
+    margin-top: 1.125rem;
+    margin-bottom: 1.125rem;
+    
+}
+
+.button_cart-mua {
+    
+    border-radius: 4px;
+    
+    margin: 10px 10px;
+    color: #288ad6;
+    width: 100%;
+    display: flex;
+    margin: auto;
+}
+
+.button_cart-mua__link {
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border: 1px solid #288ad6;
+    display: flex;
+    margin: auto;
+    padding: 10px 20%;
+    color: #288ad6;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.dathang-content {
+    box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.1);
+    padding: 0 25px;
+}
+
+.header_dathang {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+.heading-text {
+    color: #666;
+    font-size: 1.3rem;
+}
+
+.heading-text__gia {
+    color: #f30c28;
+    font-size: 1.3rem;
+}
+
+.text-dieukien {
+    font-size: 1.4rem;
+
+}
+
+.container_dieukien {
+
+}
+
+.button-container__dathang {
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 0;
+    padding: 15px 0;
+    background: linear-gradient(180deg,#f79429,#f7712e);
+}
+
+.button-container__dathang-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.4rem;
+    color: var(--while-color);
+    display: flex;
+    justify-content: center;
+}
+
+.footer-dathang {
+    font-size: 12px;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* Cách thức nhận hàng */
+.choosegetgoods h4 {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.form-radio-check lable {
+    cursor: pointer;
+    display: inline-flex;
+    /* align-items: center; */
+    margin-right: 25px;
+}
+
+.form-radio-check lable span {
+    margin-left: 5px;
+    font-size: 1.4rem;
+    color: rgb(34, 32, 32);
+}
+
+/* Đặt hàng */
+
+.form-content__thongtin {
+    display: flex;
+    justify-content: space-between;
+   
+}
+.selection_form-dathang {
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    
+    align-items: center;
+    outline: none;
+    width: 100%;
+}
+
+.form-content__tinh {
+    width: 50%;
+    display: flex;
+    position: relative;
+    background: #fff;
+}
+
+.selection_form--quan {
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    
+    align-items: center;
+    outline: none;
+    width: 100%;
+}
+
+.form-content-huyen {
+    width: 50%;
+    display: flex;
+}
+
+.form-giaohang__content {
+    background: #f0f0f0;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+.mainTab {
+    position: relative;
+}
+
+.form-giaohang__content::before {
+    margin-top: -27px;
+    content: "";
+    position: absolute;
+    /* top: 2px; */
+    left: 333px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #f0f0f0;
+}
+
+.form-content__thongxa {
+    display: flex;
+}
+
+/* drop */
+
+.form-giaohang__content .heading-giaohang {
+    font-size: 1.5rem;
+    padding: 10px 0;
+}
+
+.selection-input__content-text {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+}
+
+.select-dropdown {
+    position: absolute;
+    bottom: 0;
+    width: 200%;
+    display: none;
+    /* left: 0;
+    right: 0; */
+}
+
+.form-content__tinh:hover .select-dropdown {
+    display: block;
+}
+
+.select-results {
+    /* right: 50%;
+    left: 25%; */
+    
+    background-color: white;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    box-sizing: border-box;
+   
+    position: absolute;
+    /* left: -100000px; */
+    width: 50%;
+    z-index: 1051;
+}
+
+.select-results__options {
+    list-style-type: none;
+}
+
+.select2-results__option {
+    font-size: 1.3rem;
+    padding: 6px 6px;
+    opacity: 0.9;
+}
+
+.option_timkiemtinh--input {
+    /* width: 200%; */
+}
+
+.select2-results__option:hover {
+    background-color: #5897fb;
+    cursor: pointer;
+    
+}
+
+.select-dropdown .select-results {
+    max-height: 150px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+/* Giỏ hàng lần 2 */
+.formPayment {
+    border-top: 1px solid #e1e1e1;
+    padding: 0 30px;
+}
+
+.h3_title_from--giohang {
+    margin: 20px 0 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.check-box__gioitinh label span {
+    margin-left: 5px;
+}
+
+.check-box__gioitinh label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 25px;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.check-box__gioitinh label:hover {
+    color: #2e6ed5;
+}
+
+.form-input__muahang {
+    display: flex;
+}
+
+.form-input__muahang .form-input__hoten {
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.form-input__muahang .form-input__hoten input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 14px;
+    /* border: none; */
+    outline: none;
+}
+
+.form-input__muahang .form-input__sdt {
+    width: 50%;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.form-input__muahang .form-input__sdt input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    font-size: 14px;
+    /* border: none; */
+    outline: none;
+}
+
+.h3-title-cachthuc {
+    margin: 20px 0 10px 0;
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.typeReceive-giaohangtannoi span{
+    margin-left: 5px;
+}
+
+.typeReceive label {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 25px;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+.typeReceive label:hover {
+    color: #2e6ed5;
+}
+
+.tabReceive {
+    background: #f0f0f0;
+    border-radius: 3px;
+    padding: 20px;
+    position: relative;
+}
+
+.mainTab::before {
+    content: "";
+    position: absolute;
+    top: -28px;
+    left: 45px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #f0f0f0;
+}
+
+.mainTab .tab-title {
+    margin: 0 0 10px;
+    font-size: 1.4rem;
+    color: #6a6a6a;
+}
+
+.tabReceive .row-giohang__tab {
+    display: flex;
+}
+
+.select_giohang-tinh {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    
+}
+
+.select_giohang-group {
+    padding: 0 20px 0 0;
+}
+
+.option_giohang-quan {
+    padding: 0 10px 0 0;
+}
+
+.select_giohang-quan {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    outline: none;
+   
+}
+
+.row-giohang__tab-Phuong {
+    display: flex;
+}
+
+.select-giohang__phuong {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+
+.option-giohang__sonha {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 20px;
+    display: flex;
+    align-items: center;
+    outline: none;
+}
+
+.row-giohang__tab-Phuong {
+    margin-top: 10px;
+    
+}
+
+.option-giohang__phuong {
+    padding: 5px 20px;
+}
+/* Order sản phẩm*/
+.container-cart__order {
+    display: flex;
+    padding: 25px 0;
+}
+
+.cart-left_danhsachdon {
+    background-color: #e8f0ff;
+    color: #288ad6;
+    font-weight: bold;
+    border-radius: 0 20px 20px 0;
+    display: block;
+    margin-bottom: 10px;
+    
+    padding: 10px;
+    line-height: 22px;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.user-dathang {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-dathang .user-dathang__left {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.user-dathang__left {
+    display: flex;
+}
+
+.group-list__order {
+    display: flex;
+}
+
+.list-danhsach__order {
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.list-danhsach__order b {
+    font-size: 1.4rem;
+    padding-bottom: 10px;
+    display: block;
+}
+
+.group-list__order i {
+    display: inline-block;
+    vertical-align: top;
+    margin: 1px 5px 10px 0;
+    border: 1px solid #288ad6;
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+    overflow: hidden;
+    line-height: 10px;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 11px;
+    color: #288ad6;
+    font-style: normal;
+}
+
+.group-list__order div {
+    font-size: 1.4rem;
+}
+
+.group-list__order b {
+    font-size: 1.5rem;
+}
+
+.list-danhsach__order table th {
+    color: #818181;
+    padding: 10px 5px;
+    font-weight: normal;
+    text-align: left;
+    font-size: 1.4rem;
+}
+
+.list-danhsach__order table td {
+    border-top: 1px solid #e3e3e3;
+    padding: 10px 5px;
+    vertical-align: top;
+    color: #818181;
+    position: relative;
+}
+
+.list-danhsach__order table td:first-child>a {
+    width: auto;
+    position: relative;
+    color: #288ad6;
+    top: 0;
+}
+
+.list-danhsach__order table td>a {
+    width: 50px;
+    float: left;
+}
+
+.list-danhsach__order table img {
+    width: 50px;
+}
+
+.name-product__order {
+    color: #333;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 1.3rem;
+}
+
+.name-product__order {
+    text-decoration: none;
+}
+
+.list-danhsach__order table td:nth-child(2) {
+    width: 47%;
+}
+
+.list-danhsach__order table td>div .deliverytime {
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.list-danhsach__order table td:nth-child(3) {
+    width: 100px;
+}
+
+.price-product__order {
+    font-weight: normal;
+    color: #d0021b;
+    font-size: 1.4rem;
+}
+
+.list-danhsach__order table td:nth-child(4) {
+    width: 14%;
+}
+
+.date-product__order {
+    font-size: 1.4rem;
+}
+
+.list-danhsach__order table td {
+    border-top: 1px solid #e3e3e3;
+    padding: 10px 5px;
+    vertical-align: top;
+    color: #818181;
+    position: relative;
+}
+
+.data-status {
+    font-size: 1.4rem;
+}
+
+/* .cart-left_danhsachdon:before {
+    background-image: url(../assets/img/icon-list.png);
+} */
+
+/* Hóa đặt thành công */
+
+.alertsuccess-new {
+    display: flex;
+    position: relative;
+    text-align: center;
+    padding: 18px;
+    background-color: #f8f8f8;
+    justify-content: center;
+}
+
+.alertsuccess-new strong {
+    font-size: 18px;
+    line-height: 55px;
+    font-family: Semibold;
+    text-transform: uppercase;
+    color: #20863d;
+    margin-left: 12px;
+}
+
+.order-content__heading p {
+    line-height: 20px;
+    font-size: 1.5rem;
+    margin: 0 5px 0 0px;
+}
+
+.order-content__heading {
+    display: flex;
+}
+
+.order-content__heading span {
+    font-size: 1.5rem;
+    line-height: 20px;
+    margin: 0 5px 0 0px;
+}
+
+.cart_thanhcong--container {
+    background: #fff;
+    filter: drop-shadow(0px 3px 10px rgba(0,0,0,0.1));
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.order-content {
+    padding: 20px 30px 26px 20px;
+}
+
+.content_form--order {
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+}
+
+.info-order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.info-order-header h4 {
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.header-right__quanli {
+    color: #2f80ed;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding-right: 10px;
+}
+
+.header-right__huy {
+    color: #dd1c1a;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.label_form--order .nguoi-order {
+
+}
+
+.row-info__userorder span {
+    font-size: 1.4rem;
+    line-height: 1.8;
+}
+
+.nguoi-order__tongtien {
+    display: flex;
+    justify-content: space-between;
+}
+
+.red_tongtien-order {
+    color: #f60;
+    font-weight: 700;
+    
+}
+
+.btn-donhang__order-link {
+    display: block;
+    color: #fb6e2e;
+    background: rgba(251,110,46,.05);
+    border: 1px dashed #fb6e2e;
+    box-sizing: border-box;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px 0;
+    margin: 10px 0;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+.button-container__dathang__btn {
+    display: flex;
+    margin: auto;
+    border: none;
+    background: linear-gradient(180deg,#f79429,#f7712e);
+    color: var(--while-color);
+    font-size: 1.5rem;
+}
+
+.check-box__gioitinh {
+    padding-left: 20px;
+}
+
+.h3_title_from--giohang {
+    padding-left: 20px;
+}
+
+.giohang_cachthuc--mua {
+    padding-left: 20px;
+}
+
+   

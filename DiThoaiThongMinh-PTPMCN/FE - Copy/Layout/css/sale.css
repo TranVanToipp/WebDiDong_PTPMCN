@@ -1,0 +1,243 @@
+.product_box-slide {
+    /* position: relative; */
+    border-radius: 10px;
+}
+.product_box-slide-heading {
+    position: relative;
+    /* margin-bottom: 10px; */
+    /* margin-top: 10px; */
+    border-radius: 3px;
+    overflow: hidden;
+    /* scroll-snap-type: x mandatory; */
+    /* overflow-x: initial; */
+    /* display: flex; */
+}
+
+.title_sale-product {
+    background: url(../../../assets/img/magiamgia/bgr_pc.jpg) left 0 top 0 no-repeat;
+    padding: 24px 0 42px ;
+    font-size: 24px;
+    text-transform: uppercase;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    /* width: 80%; */
+
+}
+
+.product_box-slide-img-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.product_box-slide-img-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    
+}
+
+.box-sale__product__content {
+    padding: 0 10px 10px;
+    background-color: #f9920f;
+    border-radius: 7px;
+}
+
+.box-sale-products-content {
+    display: flex;
+    background-color: var(--while-color);
+    /* width: 1200px; */
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+
+
+.home-product-item {
+    margin-bottom: 20px;
+    background: #fff;
+}
+
+.box-sale-products-item {
+    border-right: 1px solid #f8f8f8;
+    background-color: #fff;
+    /* margin: 0 10px; */
+}
+
+.box-sale-products-item__box {
+    display: flex;
+}
+
+.sale-time-product {
+    width: 30px;
+    position: absolute;
+    top: 26px;
+    right: 4px;
+    z-index: 1;
+}
+
+.icon-sale {
+    margin-bottom: 1px;
+    display: block;
+
+}
+
+.icon-sale img {
+    margin-bottom: 1px;
+    display: block;
+}
+
+.sale_time-down-content span {
+    display: block;
+    height: 30px;
+    font-size: 12px;
+    line-height: 14px;
+    padding: 9px 0;
+    background: rgba(238, 238, 238, .8);
+    border-radius: 50%;
+    margin-bottom: 1px;
+    text-align: center;
+    color: #999;
+}
+
+.sale_time-down-content span b {
+    color: #444;
+}
+
+.box-price-product {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-15%);
+}
+
+.discount_box__product {
+    position: relative;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+.discount_box__product img {
+    /* width: auto; */
+    background-color: #fff;
+    padding: 5px 8px 5px 2px;
+}
+
+.discount_val__product {
+    display: inline-block;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 5px 8px;
+    background: -webkit-linear-gradient(left,#FF6700,rgba(255,181,48,0.7));
+    position: absolute;
+    left: 21px;
+    top: 0;
+    bottom: 5px;
+    z-index: 1;
+    color: #fff;
+    border-radius: 5px 5px 0 0;
+}
+
+.discount_val__product span {
+    top: -0.2em;
+}
+
+.price_sale--product {
+    font-size: 16px;
+    line-height: 19px;
+    color: #fff;
+    padding: 10px 14px 10px 10px;
+    border-radius: 0 10px 10px 10px;
+    background: rgba(236,27,62,.9);
+}
+/* sản phẩm đã bán */
+.view_product--sold {
+    font-size: 13px;
+    line-height: 16px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.view_product--sold .cout_total {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+    margin: 0 20px;
+    background-color: #60bb22;
+    border-radius: 30px;
+    padding: 5px;
+    position: relative;
+    height: 16px;
+}
+
+.view_product--sold .cout_total .text_sale {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 0;
+    z-index: 1;
+    line-height: 16px;
+}
+
+/* Next product */
+.box-sale-next {
+    position: relative;
+    top: -34%;
+    height: 0;
+    width: 100%;
+    cursor: pointer;
+    display: block;
+    transform: translateY(-233px);
+}
+
+.box-sale-next:hover {
+    opacity: 0.9;
+}
+
+.box-sale-next-left {
+    background: url(../../../assets/img/magiamgia/prev.png) center no-repeat;
+    position: absolute;
+    left: -1px;
+    margin: 0;
+    width: 38px;
+    height: 68px;
+    /* top: -19%; */
+}
+
+.box-sale-next-right {
+    position: absolute;
+    right: -1px;
+    margin: 0;
+    width: 38px;
+    height: 68px;
+    z-index: 13;
+    background: url(../../../assets/img/magiamgia/next.png) center no-repeat;
+}
+
+/* .home-product-item-img {
+    margin: 15px 15px;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
