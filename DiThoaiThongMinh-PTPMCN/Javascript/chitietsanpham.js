@@ -24,8 +24,7 @@ itemParent.onclick = function(e) {
                     percent:percentSP
                 }
             ]
-        // localStorage.setItem('SanPham', JSON.stringify(objectSanPham));  
-        window.location = "/WebDiDong_PTPMCN/DiThoaiThongMinh-PTPMCN/chitietSP/index.php?id=";
+
         
      }
 }

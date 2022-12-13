@@ -135,7 +135,7 @@ html {
 
 .home-product-item__sale-off {
     position: absolute;
-    background: linear-gradient(93.01deg,#FF6700 15.48%,#F9920F 92.66%);
+    background-color: var(--privary-key);
     top: 0;
     right: 0;
     height: 25px;
@@ -152,7 +152,7 @@ html {
     border-style: solid;
     right: 0;
     bottom: -7px;
-    border-color: transparent #F9920F transparent transparent;
+    border-color: transparent var(--privary-key) transparent transparent;
 }
 
 .home-product-item__sale-off-percent {
